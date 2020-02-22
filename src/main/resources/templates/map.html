@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>JQVMap - World Map</title>
+    <link href="/js/map/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/js/map/jquery.vmap.js"></script>
+    <script type="text/javascript" src="/js/map/maps/jquery.vmap.world.js" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/map/jquery.vmap.sampledata.js"></script>
+    <script type="text/javascript">
+        //世界地图
+        jQuery(document).ready(function() {
+            jQuery('#vmap').vectorMap({
+                map: 'world_en',
+                backgroundColor: '#fff',
+                color: '#ffffff',
+                hoverOpacity: 0.7,
+                selectedColor: '#666666',//选择区域时的颜色
+                enableZoom: false,//地图缩放
+                showTooltip: true,
+                values: sample_data,
+                scaleColors: ['#C8EEFF', '#006491'],
+                normalizeFunction: 'polynomial',//此功能可用于改善具有非线性性质的数据的可视化结果。函数获取原始值作为第一个参数，并应返回将在颜色计算中使用的值，并将以此值绘制特定区域
+                onRegionClick: function(element, code, region)
+                {
+                    var message = 'You clicked "'
+                        + region
+                        + '" which has the code: '
+                        + code.toUpperCase();
+
+                    alert(message);
+                }
+            });
+        });
+    </script>
+
+
+
+</head>
+<body>
+<div id="vmap" style="width: 1200px; height: 800px;"></div>
+</body>
+</html>

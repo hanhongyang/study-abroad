@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Home</title>
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
+	<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+
+
+	<!-- All css files are included here. -->
+	<link rel="stylesheet" href="/css/animate.min.css">
+
+	<link rel="stylesheet" href="/css/barStyle.css">
+	<!-- Bootstrap fremwork main css -->
+	<link rel="stylesheet" href="/test/css/bootstrap.min.css">
+	<!-- This core.css file contents all plugings css file. -->
+	<link rel="stylesheet" href="/test/css/core.css">
+	<!-- Theme shortcodes/elements style -->
+	<link rel="stylesheet" href="/test/css/shortcode/shortcodes.css">
+	<!-- Theme main style -->
+	<link rel="stylesheet" href="/test/css/style.css">
+	<!-- Responsive css -->
+	<link rel="stylesheet" href="/test/css/responsive.css">
+	<!-- Style customizer (Remove these two lines please) -->
+	<link rel="stylesheet" href="/test/css/style-customizer.css">
+
+	<link href="/js/map/jqvmap.css" media="screen" rel="stylesheet" type="text/css">
+	<!-- jquery latest version -->
+	<script src="/test/js/vendor/jquery-1.12.0.min.js"></script>
+	<script type="text/javascript" src="/js/map/jquery.vmap.js"></script>
+	<script type="text/javascript" src="/js/map/maps/jquery.vmap.world.js" charset="utf-8"></script>
+	<script type="text/javascript" src="/js/map/jquery.vmap.sampledata.js"></script>
+
+	<!-- Modernizr JS -->
+	<script src="/test/js/vendor/modernizr-2.8.3.min.js"></script>
+	<script type="text/javascript">
+		//世界地图
+		jQuery(document).ready(function() {
+			jQuery('#vmap').vectorMap({
+				map: 'world_en',
+				backgroundColor: '#fff',
+				color: '#ffffff',
+				hoverOpacity: 0.7,
+				selectedColor: '#666666',//选择区域时的颜色
+				enableZoom: false,//地图缩放
+				showTooltip: true,
+				values: sample_data,
+				scaleColors: ['#C8EEFF', '#006491'],
+				normalizeFunction: 'polynomial',//此功能可用于改善具有非线性性质的数据的可视化结果。函数获取原始值作为第一个参数，并应返回将在颜色计算中使用的值，并将以此值绘制特定区域
+				onRegionClick: function(element, code, region)
+				{
+					var message = 'You clicked "'
+							+ region
+							+ '" which has the code: '
+							+ code.toUpperCase();
+
+					alert(message);
+				}
+			});
+		});
+	</script>
+
+</head>
+
+<body >
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+<!-- Body main wrapper start -->
+<div class="wrapper">
+	<!-- Start of header area -->
+	<header class="header-area">
+
+		<div class="header-bottom stick-h2">
+
+						<nav>
+						<div class="menu-container ">
+								<ul class="menu">
+									<li class="menu-mac">
+										<a href="#">
+											<span>Mac</span>
+										</a>
+									</li>
+									<li class="menu-iPad">
+										<a href="#">
+											<span>iPad</span>
+										</a>
+									</li>
+									<li class="menu-iPhone">
+										<a href="#">
+											<span>iPhone</span>
+										</a>
+									</li>
+									<li class="menu-watch">
+										<a href="#">
+											<span>Watch</span>
+										</a>
+									</li>
+									<li class="menu-tv">
+										<a href="#">
+											<span>TV</span>
+										</a>
+									</li>
+									<li class="menu-search">
+										<a href="#">
+											<i class="fa fa-search" aria-hidden="true"></i>
+										</a>
+									</li>
+								</ul>
+								<!-- Search -->
+								<div class="menu-search-container">
+									<div class="menu-search-input">
+										<form action="">
+											<a href="#">
+												<i class="fa fa-search" aria-hidden="true"></i>
+											</a>
+											<input class="menu-search-input" type="text" aria-label="Search country or university" placeholder="Search " autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
+										</form>
+									</div>
+									<a class="menu-search-close" href="#"style="color: red">
+										<i class="fa fa-close" aria-hidden="true"></i>
+									</a>
+									<div class="search-sub-menu">
+										<h3>Quick Links</h3>
+										<ul>
+											<li><a href="#">Find a store</a></li>
+											<li><a href="#">Accessories</a></li>
+											<li><a href="#">iPod</a></li>
+											<li><a href="#">iOS</a></li>
+											<li><a href="#">Gift Cards</a></li>
+										</ul>
+									</div>
+								</div>
+						</div>
+						</nav>
+
+		</div>
+	</header>
+	<!-- map -->
+	<div id="vmap" style="width: 1200px; height: 850px;margin: 0 auto;display: block"></div>
+	<!-- map-->
+	<!-- End of header area -->
+	<!-- Start page content -->
+	<section class="service-area gray-bg ptb-110"style="padding-top:80px;padding-bottom: 80px">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title text-center pt-110 mb-60"style="padding: 0px">
+							<h1 class="uppercase"style="padding: 0px">留学资讯</h1>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do </p>
+							<div class="separator my mtb-15">
+								<i class="icofont icofont-hat-alt"></i>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4 col-sm-6">
+						<div class="news-are">
+							<div class="news-img">
+								<img src="/test/images/blog/8.jpg" alt="" >
+								<div class="news-date navy-bg">
+									<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+									</div>
+									<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+										<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+									</div>
+								</div>
+							</div>
+							<div class="img-text gray-bg">
+								<h3><a href="#">Testing is a great thing</a></h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+								<a class="button extra-small" href="#">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 col-sm-6">
+						<div class="news-are mrg-xs">
+							<div class="news-img">
+								<img src="/test/images/blog/9.jpg" alt="" >
+								<div class="news-date navy-bg">
+									<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+									</div>
+									<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+										<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+									</div>
+								</div>
+							</div>
+							<div class="img-text gray-bg">
+								<h3><a href="#">A variation of the ordinary lor</a></h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+								<a class="button extra-small" href="#">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4 hidden-sm">
+						<div class="news-are mrg-xs">
+							<div class="news-img">
+								<img src="/test/images/blog/10.jpg" alt="" >
+								<div class="news-date navy-bg">
+									<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+									</div>
+									<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+										<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+									</div>
+								</div>
+							</div>
+							<div class="img-text gray-bg">
+								<h3><a href="#">In publishing and graphic desi</a></h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+								<a class="button extra-small" href="#">
+									<span>Read More</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<a class="button extra-small news-btn mt-60" href="#">
+							<span>View All News</span>
+						</a>
+					</div>
+				</div>
+			</div>
+
+	</section>
+
+	<div class="event-area ptb-110">
+		<div class="container">
+			<div >
+
+			</div>
+			<div class="row"style="padding-bottom: 30px">
+				<div class="hidden-md col-lg-3 col-sm-6">
+					<div class="banner-img">
+						<img src="/test/images/banner/1.jpg" alt="" >
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/1.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Political Science</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-sm mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/2.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Micro Biology</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-sm mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/3.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Computer Science</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="hidden-md col-lg-3 col-sm-6">
+					<div class="banner-img">
+						<img src="/test/images/banner/1.jpg" alt="" >
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/1.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Political Science</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-sm mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/2.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Micro Biology</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4 col-lg-3 col-sm-6">
+					<div class="blog-all mrg-sm mrg-xs">
+						<div class="blog-img">
+							<a href="#"><img src="/test/images/blog/3.jpg" alt="" ></a>
+						</div>
+						<div class="blog-details">
+							<h3><a href="#">Computer Science</a></h3>
+							<div class="blog-meta">
+                                    <span class="published3">
+                                        <a href="#"><i class="icofont icofont-eye"></i> 34</a>
+                                    </span>
+								<span class="published4">
+                                        <a href="#"><i class="icofont icofont-comment"></i> 20</a>
+                                    </span>
+							</div>
+							<p>Lorem ipsum dolor sit amet, consect elit, sed do eiusmod </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="countdown-area bg-1 ptb-110 bg-opacity bg-relative">
+		<div class="container">
+			<div class="col-md-12 col-sm-12 col-xs-12 text-center">
+				<div class="countdown-all">
+
+					<div class="row">
+						<div class="col-md-4 col-sm-6">
+							<div class="news-are">
+								<div class="news-img">
+									<img src="/test/images/blog/8.jpg" alt="" >
+									<div class="news-date navy-bg">
+										<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+										</div>
+										<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+											<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+										</div>
+									</div>
+								</div>
+								<div class="img-text gray-bg">
+									<h3><a href="#">Testing is a great thing</a></h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+									<a class="button extra-small" href="#">
+										<span>Read More</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-6">
+							<div class="news-are mrg-xs">
+								<div class="news-img">
+									<img src="/test/images/blog/9.jpg" alt="" >
+									<div class="news-date navy-bg">
+										<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+										</div>
+										<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+											<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+										</div>
+									</div>
+								</div>
+								<div class="img-text gray-bg">
+									<h3><a href="#">A variation of the ordinary lor</a></h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+									<a class="button extra-small" href="#">
+										<span>Read More</span>
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 hidden-sm">
+							<div class="news-are mrg-xs">
+								<div class="news-img">
+									<img src="/test/images/blog/10.jpg" alt="" >
+									<div class="news-date navy-bg">
+										<div class="blog-meta-2">
+                                        <span class="published3">
+                                            <i class="icofont icofont-ui-calendar"></i>
+                                            14 Sep 2016
+                                        </span>
+										</div>
+										<div class="blog-meta for-news">
+                                        <span class="published3">
+                                            <a href="#">
+                                                <i class="icofont icofont-eye"></i> 34
+                                            </a>
+                                        </span>
+											<span class="published4">
+                                            <a href="#">
+                                                <i class="icofont icofont-comment"></i> 20
+                                            </a>
+                                        </span>
+										</div>
+									</div>
+								</div>
+								<div class="img-text gray-bg">
+									<h3><a href="#">In publishing and graphic desi</a></h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicin elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim </p>
+									<a class="button extra-small" href="#">
+										<span>Read More</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<a class="button extra-small news-btn mt-60" href="#">
+								<span>View All News</span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- End page content -->
+	<!-- Start footer area -->
+	<footer class="footer-area">
+		<div class="footer-top ptb-110 navy-bg">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="footer-logo-address">
+							<div class="footer-logo">
+								<a href="#"><img src="/test/images/logo/footer-logo.png" alt="" ></a>
+							</div>
+							<div class="footer-address">
+								<div class="header-top-info">
+									<ul>
+										<li>
+											<a href="#">
+												<i class="icofont icofont-ui-call"></i>
+												Hotline  (+123) 45 67 89 21
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="icofont icofont-envelope"></i>
+												devitmes@gmail.com
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<i class="icofont icofont-location-pin"></i>
+												Dev Items address goes here.
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-6">
+						<div class="footer-text">
+							<h3>Courses</h3>
+							<ul class="footer-text-all">
+								<li><a href="#">Computer Science</a></li>
+								<li><a href="#">Product Manager</a></li>
+								<li><a href="#">Leader’s  Guide</a></li>
+								<li><a href="#">Micro Biology</a></li>
+								<li><a href="#">Political Science</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-6">
+						<div class="footer-text mrg-xs">
+							<h3>Quick Links</h3>
+							<ul class="footer-text-all">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Opening Hours</a></li>
+								<li><a href="#">Our Top Courses</a></li>
+								<li><a href="#">Choose Eduguide</a></li>
+								<li><a href="#">Upcoming Events</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-2 col-sm-6">
+						<div class="footer-text mrg-sm3 mrg-xs">
+							<h3>Quick Links</h3>
+							<ul class="footer-text-all">
+								<li><a href="#">Home</a></li>
+								<li><a href="#">Opening Hours</a></li>
+								<li><a href="#">Our Top Courses</a></li>
+								<li><a href="#">Choose Eduguide</a></li>
+								<li><a href="#">Upcoming Events</a></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-md-6 col-sm-6">
+						<div class="footer-text mrg-sm3 mrg-xs">
+							<h3>Contact Us</h3>
+							<form action="#">
+								<input placeholder="Name*" type="text">
+								<input class="in-mrg" placeholder="Email*" type="email">
+								<textarea placeholder="Massage*"></textarea>
+								<button class="submit" type="submit">send</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<div class="footer-bottom-text ptb-20">
+							<p>
+								Copyright &copy; 2017.Company name All rights reserved.More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- End footer area -->
+	<!-- start scrollUp
+    ============================================ -->
+	<div id="toTop">
+		<i class="fa fa-chevron-up"></i>
+	</div>
+
+
+</div>
+<!-- Body main wrapper end -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!-- Bootstrap framework js -->
+<script src="/test/js/bootstrap.min.js"></script>
+<!--  ajax-mail.js  -->
+<script src="/test/js/ajax-mail.js"></script>
+<!-- All js plugins included in this file. -->
+<script src="/test/js/plugins.js"></script>
+<script src="/test/js/main.js"></script>
+
+<script src="/test/js/script.js"></script>
+
+
+</body>
+
+</html>
