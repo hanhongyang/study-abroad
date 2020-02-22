@@ -7,8 +7,8 @@
     <result column="rule" jdbcType="INTEGER" property="rule" />
     <result column="country_id" jdbcType="INTEGER" property="countryId" />
     <result column="email" jdbcType="VARCHAR" property="email" />
-    <result column="tel_number" jdbcType="INTEGER" property="telNumber" />
-    <result column="birthday" jdbcType="TIME" property="birthday" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -70,7 +70,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    user_id, password, rule, country_id, email, tel_number, birthday, name
+    user_id, password, rule, country_id, email, mobile, birthday, name
   </sql>
   <select id="selectByExample" parameterType="com.example.demo.model.UserExample" resultMap="BaseResultMap">
     select
@@ -104,11 +104,11 @@
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.User">
     insert into user (user_id, password, rule, 
-      country_id, email, tel_number, 
+      country_id, email, mobile, 
       birthday, name)
     values (#{userId,jdbcType=INTEGER}, #{password,jdbcType=VARCHAR}, #{rule,jdbcType=INTEGER}, 
-      #{countryId,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{telNumber,jdbcType=INTEGER}, 
-      #{birthday,jdbcType=TIME}, #{name,jdbcType=VARCHAR})
+      #{countryId,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE}, #{name,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.User">
     insert into user
@@ -128,8 +128,8 @@
       <if test="email != null">
         email,
       </if>
-      <if test="telNumber != null">
-        tel_number,
+      <if test="mobile != null">
+        mobile,
       </if>
       <if test="birthday != null">
         birthday,
@@ -154,11 +154,11 @@
       <if test="email != null">
         #{email,jdbcType=VARCHAR},
       </if>
-      <if test="telNumber != null">
-        #{telNumber,jdbcType=INTEGER},
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null">
-        #{birthday,jdbcType=TIME},
+        #{birthday,jdbcType=DATE},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -189,11 +189,11 @@
       <if test="record.email != null">
         email = #{record.email,jdbcType=VARCHAR},
       </if>
-      <if test="record.telNumber != null">
-        tel_number = #{record.telNumber,jdbcType=INTEGER},
+      <if test="record.mobile != null">
+        mobile = #{record.mobile,jdbcType=VARCHAR},
       </if>
       <if test="record.birthday != null">
-        birthday = #{record.birthday,jdbcType=TIME},
+        birthday = #{record.birthday,jdbcType=DATE},
       </if>
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
@@ -210,8 +210,8 @@
       rule = #{record.rule,jdbcType=INTEGER},
       country_id = #{record.countryId,jdbcType=INTEGER},
       email = #{record.email,jdbcType=VARCHAR},
-      tel_number = #{record.telNumber,jdbcType=INTEGER},
-      birthday = #{record.birthday,jdbcType=TIME},
+      mobile = #{record.mobile,jdbcType=VARCHAR},
+      birthday = #{record.birthday,jdbcType=DATE},
       name = #{record.name,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -232,11 +232,11 @@
       <if test="email != null">
         email = #{email,jdbcType=VARCHAR},
       </if>
-      <if test="telNumber != null">
-        tel_number = #{telNumber,jdbcType=INTEGER},
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
       </if>
       <if test="birthday != null">
-        birthday = #{birthday,jdbcType=TIME},
+        birthday = #{birthday,jdbcType=DATE},
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -250,8 +250,8 @@
       rule = #{rule,jdbcType=INTEGER},
       country_id = #{countryId,jdbcType=INTEGER},
       email = #{email,jdbcType=VARCHAR},
-      tel_number = #{telNumber,jdbcType=INTEGER},
-      birthday = #{birthday,jdbcType=TIME},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE},
       name = #{name,jdbcType=VARCHAR}
     where user_id = #{userId,jdbcType=INTEGER}
   </update>
@@ -269,4 +269,4 @@
       order by ${orderByClause}
     </if>
   </select>
-</mapper>
+  </mapper>

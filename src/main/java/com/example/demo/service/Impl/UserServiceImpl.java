@@ -4,6 +4,7 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.School;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
+import com.example.demo.util.randomBirthday;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -29,7 +30,10 @@ public class UserServiceImpl implements UserService {
             for (int i=0;i<1000;i++) {
                 //随机生成name
                 String uid= UUID.randomUUID().toString().substring(0,5);
-                userMapper.insert(new User(null,"123",2,2,i+"@qq.com",i,new Date(),uid));
+                //随机生成生日
+                Date birthday= randomBirthday.randomDate("1960-01-01","2010-12-31");
+
+                userMapper.insert(new User(null,"123",2,2,i+"@qq.com",i+"",birthday,uid));
                 if (i % 100 == 0 || i == 1000) {
                     //手动每1000个一提交，提交后无法回滚
                     session.commit();

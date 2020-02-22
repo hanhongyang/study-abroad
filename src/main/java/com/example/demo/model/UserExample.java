@@ -106,30 +106,30 @@ public class UserExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        protected void addCriterionForJDBCTime(String condition, Date value, String property) {
+        protected void addCriterionForJDBCDate(String condition, Date value, String property) {
             if (value == null) {
                 throw new RuntimeException("Value for " + property + " cannot be null");
             }
-            addCriterion(condition, new java.sql.Time(value.getTime()), property);
+            addCriterion(condition, new java.sql.Date(value.getTime()), property);
         }
 
-        protected void addCriterionForJDBCTime(String condition, List<Date> values, String property) {
+        protected void addCriterionForJDBCDate(String condition, List<Date> values, String property) {
             if (values == null || values.size() == 0) {
                 throw new RuntimeException("Value list for " + property + " cannot be null or empty");
             }
-            List<java.sql.Time> timeList = new ArrayList<java.sql.Time>();
+            List<java.sql.Date> dateList = new ArrayList<java.sql.Date>();
             Iterator<Date> iter = values.iterator();
             while (iter.hasNext()) {
-                timeList.add(new java.sql.Time(iter.next().getTime()));
+                dateList.add(new java.sql.Date(iter.next().getTime()));
             }
-            addCriterion(condition, timeList, property);
+            addCriterion(condition, dateList, property);
         }
 
-        protected void addCriterionForJDBCTime(String condition, Date value1, Date value2, String property) {
+        protected void addCriterionForJDBCDate(String condition, Date value1, Date value2, String property) {
             if (value1 == null || value2 == null) {
                 throw new RuntimeException("Between values for " + property + " cannot be null");
             }
-            addCriterion(condition, new java.sql.Time(value1.getTime()), new java.sql.Time(value2.getTime()), property);
+            addCriterion(condition, new java.sql.Date(value1.getTime()), new java.sql.Date(value2.getTime()), property);
         }
 
         public Criteria andUserIdIsNull() {
@@ -452,63 +452,73 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberIsNull() {
-            addCriterion("tel_number is null");
+        public Criteria andMobileIsNull() {
+            addCriterion("mobile is null");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberIsNotNull() {
-            addCriterion("tel_number is not null");
+        public Criteria andMobileIsNotNull() {
+            addCriterion("mobile is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberEqualTo(Integer value) {
-            addCriterion("tel_number =", value, "telNumber");
+        public Criteria andMobileEqualTo(String value) {
+            addCriterion("mobile =", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberNotEqualTo(Integer value) {
-            addCriterion("tel_number <>", value, "telNumber");
+        public Criteria andMobileNotEqualTo(String value) {
+            addCriterion("mobile <>", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberGreaterThan(Integer value) {
-            addCriterion("tel_number >", value, "telNumber");
+        public Criteria andMobileGreaterThan(String value) {
+            addCriterion("mobile >", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberGreaterThanOrEqualTo(Integer value) {
-            addCriterion("tel_number >=", value, "telNumber");
+        public Criteria andMobileGreaterThanOrEqualTo(String value) {
+            addCriterion("mobile >=", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberLessThan(Integer value) {
-            addCriterion("tel_number <", value, "telNumber");
+        public Criteria andMobileLessThan(String value) {
+            addCriterion("mobile <", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberLessThanOrEqualTo(Integer value) {
-            addCriterion("tel_number <=", value, "telNumber");
+        public Criteria andMobileLessThanOrEqualTo(String value) {
+            addCriterion("mobile <=", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberIn(List<Integer> values) {
-            addCriterion("tel_number in", values, "telNumber");
+        public Criteria andMobileLike(String value) {
+            addCriterion("mobile like", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberNotIn(List<Integer> values) {
-            addCriterion("tel_number not in", values, "telNumber");
+        public Criteria andMobileNotLike(String value) {
+            addCriterion("mobile not like", value, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberBetween(Integer value1, Integer value2) {
-            addCriterion("tel_number between", value1, value2, "telNumber");
+        public Criteria andMobileIn(List<String> values) {
+            addCriterion("mobile in", values, "mobile");
             return (Criteria) this;
         }
 
-        public Criteria andTelNumberNotBetween(Integer value1, Integer value2) {
-            addCriterion("tel_number not between", value1, value2, "telNumber");
+        public Criteria andMobileNotIn(List<String> values) {
+            addCriterion("mobile not in", values, "mobile");
+            return (Criteria) this;
+        }
+
+        public Criteria andMobileBetween(String value1, String value2) {
+            addCriterion("mobile between", value1, value2, "mobile");
+            return (Criteria) this;
+        }
+
+        public Criteria andMobileNotBetween(String value1, String value2) {
+            addCriterion("mobile not between", value1, value2, "mobile");
             return (Criteria) this;
         }
 
@@ -523,52 +533,52 @@ public class UserExample {
         }
 
         public Criteria andBirthdayEqualTo(Date value) {
-            addCriterionForJDBCTime("birthday =", value, "birthday");
+            addCriterionForJDBCDate("birthday =", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayNotEqualTo(Date value) {
-            addCriterionForJDBCTime("birthday <>", value, "birthday");
+            addCriterionForJDBCDate("birthday <>", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayGreaterThan(Date value) {
-            addCriterionForJDBCTime("birthday >", value, "birthday");
+            addCriterionForJDBCDate("birthday >", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayGreaterThanOrEqualTo(Date value) {
-            addCriterionForJDBCTime("birthday >=", value, "birthday");
+            addCriterionForJDBCDate("birthday >=", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayLessThan(Date value) {
-            addCriterionForJDBCTime("birthday <", value, "birthday");
+            addCriterionForJDBCDate("birthday <", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayLessThanOrEqualTo(Date value) {
-            addCriterionForJDBCTime("birthday <=", value, "birthday");
+            addCriterionForJDBCDate("birthday <=", value, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayIn(List<Date> values) {
-            addCriterionForJDBCTime("birthday in", values, "birthday");
+            addCriterionForJDBCDate("birthday in", values, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayNotIn(List<Date> values) {
-            addCriterionForJDBCTime("birthday not in", values, "birthday");
+            addCriterionForJDBCDate("birthday not in", values, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayBetween(Date value1, Date value2) {
-            addCriterionForJDBCTime("birthday between", value1, value2, "birthday");
+            addCriterionForJDBCDate("birthday between", value1, value2, "birthday");
             return (Criteria) this;
         }
 
         public Criteria andBirthdayNotBetween(Date value1, Date value2) {
-            addCriterionForJDBCTime("birthday not between", value1, value2, "birthday");
+            addCriterionForJDBCDate("birthday not between", value1, value2, "birthday");
             return (Criteria) this;
         }
 

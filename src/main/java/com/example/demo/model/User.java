@@ -13,25 +13,25 @@ public class User {
 
     private String email;
 
-    private Integer telNumber;
-
-    private Date birthday;
-
-    private String name;
-
-    public User() {
-    }
-
-    public User(Integer userId, String password, Integer rule, Integer countryId, String email, Integer telNumber, Date birthday, String name) {
+    public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name) {
         this.userId = userId;
         this.password = password;
         this.rule = rule;
         this.countryId = countryId;
         this.email = email;
-        this.telNumber = telNumber;
+        this.mobile = mobile;
         this.birthday = birthday;
         this.name = name;
     }
+
+    public User() {
+    }
+
+    private String mobile;
+
+    private Date birthday;
+
+    private String name;
 
     public Integer getUserId() {
         return userId;
@@ -73,12 +73,12 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public Integer getTelNumber() {
-        return telNumber;
+    public String getMobile() {
+        return mobile;
     }
 
-    public void setTelNumber(Integer telNumber) {
-        this.telNumber = telNumber;
+    public void setMobile(String mobile) {
+        this.mobile = mobile == null ? null : mobile.trim();
     }
 
     public Date getBirthday() {

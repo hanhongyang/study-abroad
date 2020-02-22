@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.CountryMapper">
-  <resultMap id="BaseResultMap" type="com.example.demo.model.Country">
+    <resultMap id="BaseResultMap" type="com.example.demo.model.Country">
     <id column="country_id" jdbcType="INTEGER" property="countryId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
   </resultMap>
@@ -175,4 +175,4 @@
       order by ${orderByClause}
     </if>
   </select>
-  </mapper>
+   </mapper>
