@@ -19,6 +19,9 @@ public interface SchoolMapper {
 
     List<School> selectByExampleWithRowbounds(SchoolExample example, RowBounds rowBounds);
 
+    List<School> selectByExampleWithCountry(SchoolExample example);
+
+    School selectByPrimaryKeyWithCountry(Integer schoolId);
     List<School> selectByExample(SchoolExample example);
 
     School selectByPrimaryKey(Integer schoolId);

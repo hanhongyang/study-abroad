@@ -24,11 +24,5 @@ SchoolServiceImpl schoolService;
         return "index";
 
     }
-@ResponseBody
-    @RequestMapping("/test")
-    public String insert() {
 
-schoolService.insert();
-    return null;
-    }
 }

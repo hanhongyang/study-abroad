@@ -6,8 +6,9 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header"  th:content="${_csrf.headerName}"/>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
     <!-- Bootstrap -->
     <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -19,35 +20,84 @@
     <!-- Custom Theme Style -->
     <link href="/build/css/custom.min.css" rel="stylesheet">
     <title>test</title>
-    <!-- jQuery -->
-    <script src="/vendors/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- FastClick -->
-    <script src="/vendors/fastclick/lib/fastclick.js"></script>
-    <!-- NProgress -->
-    <script src="/vendors/nprogress/nprogress.js"></script>
-    <!-- iCheck -->
-
-    <script src="/build/js/custom.min.js"></script>
-    <script type="text/javascript">
-        $(function(){
-            $.ajax({
-                url:"users",
-                data:"pageNum=1",
-                type:"GET",
-                success:function (result) {
-                    console.log(result);
-                }
-                //解析并显示user数据
-                //解析并显示分页信息
-
-            });
-        });
-    </script>
 </head>
-
 <body class="nav-md">
+<!-- 添加user的模态框 -->
+<div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">新增用户</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"th:action="@{/user}" method="post">
+                    <input type="hidden" name="_method" value="post" />
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">角色</label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="rule" id="rule1Add" value="1"> 超级管理员
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rule" id="rule2Add" value="2"> 学校管理员
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rule" id="rule0Add" value="0"> 普通用户
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="password" class="form-control" id="passwordAdd" placeholder="password">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">国家</label>
+                        <div class="col-sm-10">
+                            <select  class="form-control" name="countryId"id="countrySelect">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">email</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="emailAdd" placeholder="email">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">手机号码</label>
+                        <div class="col-sm-10">
+                            <input type="text"name="mobile" class="form-control" id="mobileAdd" placeholder="mobile">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生日</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="birthday" class="form-control" id="birthdayAdd" placeholder="birthday"  >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">名字</label>
+                        <div class="col-sm-10">
+                            <input type="text"name="name" class="form-control" id="nameAdd" placeholder="name">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary"id="userSavaBtn">保存</button>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
@@ -64,9 +114,9 @@
             <div class="">
                 <div class="page-title">
                     <div class="title_left">
-                        <h3>Users <small>Some examples to get you started</small></h3>
-                    </div>
+                        <h3>Users </h3>
 
+                    </div>
                     <div class="title_right">
                         <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                             <div class="input-group">
@@ -84,7 +134,9 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>UserList</h2>
+                            <button class="btn btn-primary btn-sm"id="userAddBtn">
+                                新增
+                            </button>
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">
@@ -93,23 +145,46 @@
                                 <tr>
                                     <th>userId</th>
                                     <th>password</th>
-                                    <th>type</th>
+                                    <th>rule</th>
                                     <th>countryId</th>
                                     <th>email</th>
-                                    <th>telNumber</th>
+                                    <th>mobile</th>
                                     <th>birthday</th>
                                     <th>name</th>
-
                                 </tr>
                                 </thead>
                                 <tbody>
-
-
+                                <tr th:each="user : ${pageInfo.getList()}">
+                                    <td th:text="${user.userId}"></td>
+                                    <td th:text="${user.password}"></td>
+                                    <div th:switch="${user.rule}">
+                                        <td th:case="0">游客</td>
+                                        <td th:case="1">超级管理员</td>
+                                        <td th:case="2">学校管理员</td>
+                                    </div>
+                                    <td th:text="${user.countryId}"></td>
+                                    <td th:text="${user.email}"></td>
+                                    <td th:text="${user.mobile}"></td>
+                                    <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>
+                                    <td th:text="${user.name}"></td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm">
+                                            编辑
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary btn-sm">
+                                            删除
+                                        </button>
+                                    </td>
+                                </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
+                    <!--user添加的模态框-->
+
+
 
                 </div>
                 <div class="clearfix"></div>
@@ -117,27 +192,201 @@
                 <div class="row">
                     <!--分页文字-->
                     <div class="col-md-6" >
-                        当前页,总共页,总共条记录
+                       当前<span th:text="${pageInfo.pageNum}"></span>页,总共<span th:text="${pageInfo.pages}"></span>页,总共<span th:text="${pageInfo.total}"></span>条记录
                     </div>
-
+                    <!--分页条信息-->
+                    <div class="col-md-6">
+                        <nav aria-label="Page navigation">
+                            <ul class="pagination">
+                                <li th:if="${pageInfo.pageNum!=1}">
+                                    <a th:href="@{users(pageNum=${1})}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&lt;&lt;</span>
+                                    </a>
+                                </li>
+                                <li th:if="${pageInfo.hasPreviousPage}">
+                                    <a th:href="@{users(pageNum=${pageInfo.pageNum - 1})}" aria-label="Previous">
+                                        <span aria-hidden="true">&lt;</span>
+                                    </a>
+                                </li>
+                                <li th:each="pageNum : ${pageInfo.navigatepageNums}" th:class="${pageInfo.pageNum == pageNum}? 'active' : ''">
+                                    <a th:href="@{users(pageNum=${pageNum})}" th:text="${pageNum}"></a></li>
+                                <li  th:if="${pageInfo.hasNextPage}">
+                                    <a th:href="@{users(pageNum=${pageInfo.pageNum+1})}"
+                                       aria-label="Previous">
+                                        <span aria-hidden="true">&gt;</span>
+                                    </a>
+                                </li>
+                                <li th:if="${pageInfo.pageNum!=pageInfo.pages}">
+                                    <a th:href="@{users(pageNum=${pageInfo.pages})}" aria-label="Previous">
+                                        <span aria-hidden="true">&gt;&gt;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
                 </div>
             </div>
         </div>
+        <!-- /page content -->
+
+        <!-- footer content -->
+        <footer>
+            <div class="pull-right">
+                Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+            </div>
+            <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
     </div>
-    <!-- /page content -->
-
-    <!-- footer content -->
-    <footer>
-        <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
-        </div>
-        <div class="clearfix"></div>
-    </footer>
-    <!-- /footer content -->
-</div>
 </div>
 
 
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
 
+<script src="/build/js/custom.min.js"></script>
+
+<script type="text/javascript">
+    $("#userAddBtn").click(function () {
+        //清楚表单数据（表单重置），防止重复提交
+        $("#userAddModal form")[0].reset();
+        //发送ajax请求查询国家信息，显示在下拉列表
+        getRegions();
+        //弹出模态框
+        $("#userAddModal").modal({
+            backdrop:"static"
+        })
+    })
+
+    function getRegions() {
+        $.ajax({
+            url:"/countries",
+            type:"GET",
+            success:function(result){
+                //console.log(result)
+                $.each(result.extend.countries,function () {
+                    var optionElement=$("<option ></option>").append("<span>"+this.name+"</sapn>").attr("value",this.countryId);
+                    optionElement.appendTo("#countrySelect");
+                })
+            }
+        })
+    }
+    $("#userSavaBtn").click(function () {
+        //模态框中填写的表单数据提交保存
+        //校验表单数据
+        if(!validate_add_form()){
+            return false;
+        };
+        //判断checkEmail校验是否成功。成功才往下进行
+        if($(this).attr("ajax_validate")=="error"){
+            return false;
+        }
+        //发送ajax请求保存user
+        $.ajax({
+            url:"/user",
+            type:"POST",
+            data:$("#userAddModal form").serialize(),
+            success:function (result) {
+                //alert(result.msg);
+                //员工保存成功
+                //1、关闭模态框
+                $("#userAddModal").hide();
+                //2、重定向到最后一页
+                window.location.replace("/users?pageNum=99999");
+            }
+        })
+    })
+    //校验表单
+    function validate_add_form() {
+
+        //校验密码
+        var password=$("#passwordAdd").val();
+        var regPassword=/^[\w_-]{4,16}$/;
+        if(!regPassword.test(password)){
+            show_validate_msg("#passwordAdd","error","请输入4-16位密码！(特殊符号只允许‘-’、‘_’)");
+            return false;
+        }else {
+            show_validate_msg("#passwordAdd","success","");
+        }
+        //校验邮箱
+        var email=$("#emailAdd").val();
+        var regEmail=/^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+        if(!regEmail.test(email)){
+            show_validate_msg("#emailAdd","error","邮箱格式不正确");
+            return false;
+        }else {
+            show_validate_msg("#emailAdd","success","");
+        }
+        //校验手机号码
+        var mobile=$("#mobileAdd").val();
+        var regMobile= /^\d+$|^\d+[.]?\d+$/;
+        if(!regMobile.test(mobile)){
+            show_validate_msg("#mobileAdd","error","只允许输入数字");
+            return false;
+        }else {
+            show_validate_msg("#mobileAdd","success","");
+        }
+        //校验用户名
+        var name=$("#nameAdd").val();
+        var regName=/(^[a-zA-Z0-9_-]{3,16}$)|(^[\u2E80-\u9FFF]{2,5})/;
+        if(!regName.test(name)){
+            show_validate_msg("#nameAdd","error","用户可以是2-5位中文或者3-16位英文和数字的组合");
+            return false;
+        }else {
+            show_validate_msg("#nameAdd","success","");
+        }
+        return true;
+    }
+    
+    //显示校验信息
+    function show_validate_msg(ele,status,msg) {
+        //先清空之前的样式，防止重复生成样式
+        $(ele).parent().removeClass("has-success has-error");
+        $(ele).next("span").text("");
+        if("success"==status){
+            $(ele).parent().addClass("has-success");
+            $(ele).next("span").text(msg);
+        }else  if("error"==status){
+            $(ele).parent().addClass("has-error");
+            $(ele).next("span").text(msg);
+        }
+    }
+    //检验邮箱是否可用
+    $("#emailAdd").change(function () {
+        //获取输入框的email
+        var email=this.value;
+        //防止csrf拦截post请求
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var token =$("meta[name='_csrf']").attr("content");
+        //发送ajax检验邮箱是否可用
+        $.ajax({
+            url:"/checkEmail",
+            data:"email="+email,
+            type:"POST",
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            success:function (result) {
+                if(result.code==100){
+                    show_validate_msg("#emailAdd","success","email可用");
+                    $("#userSavaBtn").attr("ajax_validate","success");
+                }else{
+                    show_validate_msg("#emailAdd","error","email不可用")
+                    $("#userSavaBtn").attr("ajax_validate","error");
+                }
+            }
+        })
+        
+    })
+</script>
 </body>
 </html>

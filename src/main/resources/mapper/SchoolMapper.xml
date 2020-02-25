@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.SchoolMapper">
+
+
+
+
    <resultMap id="BaseResultMap" type="com.example.demo.model.School">
     <id column="school_id" jdbcType="INTEGER" property="schoolId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
@@ -16,6 +20,7 @@
     <association javaType="com.example.demo.model.Country" property="country">
       <id column="country_id" property="countryId" />
       <result column="name" property="name" />
+      <result column="code" property="code" />
     </association>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -80,7 +85,7 @@
     school_id, name, country_id, admin_id
   </sql>
   <sql id="WithCountry_Column_List">
-      s.school_id, s.name, s.coutry_id, s.admin_id,c.country_id, c.name
+      s.school_id, s.name, s.coutry_id, s.admin_id,c.country_id, c.name,c.code
     </sql>
   <!--查询学校同时带国家信息-->
   <select id="selectByExampleWithCountry" resultMap="WithCountryResultMap">
@@ -245,4 +250,4 @@
       order by ${orderByClause}
     </if>
   </select>
-</mapper>
+  </mapper>

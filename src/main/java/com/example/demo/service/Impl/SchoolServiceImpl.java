@@ -17,7 +17,7 @@ public class SchoolServiceImpl implements SchoolService {
     SchoolMapper schoolMapper;
 
     @Override
-    public void insert() {
+    public void save() {
 
         //System.out.println(schoolMapper);
         //1、插入几个学校

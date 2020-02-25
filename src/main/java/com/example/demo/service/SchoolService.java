@@ -7,5 +7,5 @@ import org.springframework.stereotype.Service;
 
 public interface SchoolService {
 
- void insert();
+ void save();
 }

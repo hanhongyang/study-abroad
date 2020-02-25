@@ -1,10 +1,10 @@
 package com.example.demo.service.Impl;
 
 import com.example.demo.mapper.UserMapper;
-import com.example.demo.model.School;
 import com.example.demo.model.User;
+import com.example.demo.model.UserExample;
 import com.example.demo.service.UserService;
-import com.example.demo.util.randomBirthday;
+import com.example.demo.util.RandomBirthday;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -19,10 +19,10 @@ import java.util.UUID;
 public class UserServiceImpl implements UserService {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;//引入bean
-@Autowired
+    @Autowired
     UserMapper userMapper;
     @Override
-    public void batchSave( ){
+    public void batchSaveRandom( ){
         SqlSession session = sqlSessionTemplate.getSqlSessionFactory().openSession(ExecutorType.BATCH, false);//关闭session的自动提交
 
         try {
@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
                 //随机生成name
                 String uid= UUID.randomUUID().toString().substring(0,5);
                 //随机生成生日
-                Date birthday= randomBirthday.randomDate("1960-01-01","2010-12-31");
+                Date birthday= RandomBirthday.randomDate("1960-01-01","2010-12-31");
 
                 userMapper.insert(new User(null,"123",2,2,i+"@qq.com",i+"",birthday,uid));
                 if (i % 100 == 0 || i == 1000) {
@@ -67,8 +67,32 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save() {
+    public User getUser(Integer userId) {
+        return userMapper.selectByPrimaryKey(userId);
+    }
 
-        System.out.println(userMapper);
+    /**
+     * 判断email是否可用
+     * @param email
+     * @return ture:代表email可用  false：代表email不可用
+     */
+    @Override
+    public boolean checkEmail(String email) {
+        UserExample userExample=new UserExample();
+        UserExample.Criteria criteria=userExample.createCriteria();
+        criteria.andEmailEqualTo(email);
+        long count=userMapper.countByExample(userExample);
+        return count==0;
+    }
+
+    @Override
+    public void save(User user) {
+        //用户Id是null，数据库自增Id，所以用insertSelective（）；
+       userMapper.insertSelective(user);
+    }
+
+    @Override
+    public void batchSave(List<User> users) {
+
     }
 }

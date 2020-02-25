@@ -13,12 +13,11 @@ public class School {
     public School() {
     }
 
-    public School(Integer schoolId, String name, Integer countryId, Integer adminId, Country country) {
+    public School(Integer schoolId, String name, Integer countryId, Integer adminId) {
         this.schoolId = schoolId;
         this.name = name;
         this.countryId = countryId;
         this.adminId = adminId;
-        this.country = country;
     }
 
     public Country getCountry() {

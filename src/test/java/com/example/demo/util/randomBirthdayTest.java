@@ -2,17 +2,14 @@ package com.example.demo.util;
 
 import org.junit.jupiter.api.Test;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class randomBirthdayTest {
 
     @Test
     void randomDate() {
         for(int i=0;i<30;i++){
-            Date date=randomBirthday.randomDate("1960-01-01","2010-12-31");
+            Date date= RandomBirthday.randomDate("1960-01-01","2010-12-31");
             System.out.println(date);
         }
         //format()方法将Date转换成指定格式的String

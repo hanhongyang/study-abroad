@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.demo.mapper.CountryMapper">
-    <resultMap id="BaseResultMap" type="com.example.demo.model.Country">
+
+
+
+
+  <resultMap id="BaseResultMap" type="com.example.demo.model.Country">
     <id column="country_id" jdbcType="INTEGER" property="countryId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +69,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    country_id, name
+    country_id, name, code
   </sql>
   <select id="selectByExample" parameterType="com.example.demo.model.CountryExample" resultMap="BaseResultMap">
     select
@@ -97,8 +102,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.example.demo.model.Country">
-    insert into country (country_id, name)
-    values (#{countryId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+    insert into country (country_id, name, code
+      )
+    values (#{countryId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{code,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.example.demo.model.Country">
     insert into country
@@ -109,6 +116,9 @@
       <if test="name != null">
         name,
       </if>
+      <if test="code != null">
+        code,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="countryId != null">
@@ -116,6 +126,9 @@
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -134,6 +147,9 @@
       <if test="record.name != null">
         name = #{record.name,jdbcType=VARCHAR},
       </if>
+      <if test="record.code != null">
+        code = #{record.code,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -142,7 +158,8 @@
   <update id="updateByExample" parameterType="map">
     update country
     set country_id = #{record.countryId,jdbcType=INTEGER},
-      name = #{record.name,jdbcType=VARCHAR}
+      name = #{record.name,jdbcType=VARCHAR},
+      code = #{record.code,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -153,12 +170,16 @@
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
       </if>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
     </set>
     where country_id = #{countryId,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.demo.model.Country">
     update country
-    set name = #{name,jdbcType=VARCHAR}
+    set name = #{name,jdbcType=VARCHAR},
+      code = #{code,jdbcType=VARCHAR}
     where country_id = #{countryId,jdbcType=INTEGER}
   </update>
   <select id="selectByExampleWithRowbounds" parameterType="com.example.demo.model.CountryExample" resultMap="BaseResultMap">

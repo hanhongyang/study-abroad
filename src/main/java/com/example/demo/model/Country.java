@@ -5,12 +5,15 @@ public class Country {
 
     private String name;
 
-    public Country(Integer countryId, String name) {
-        this.countryId = countryId;
-        this.name = name;
-    }
+    private String code;
 
     public Country() {
+    }
+
+    public Country(Integer countryId, String name, String code) {
+        this.countryId = countryId;
+        this.name = name;
+        this.code = code;
     }
 
     public Integer getCountryId() {
@@ -27,5 +30,13 @@ public class Country {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code == null ? null : code.trim();
     }
 }

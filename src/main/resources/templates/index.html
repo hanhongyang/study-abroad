@@ -54,11 +54,10 @@
 				normalizeFunction: 'polynomial',//此功能可用于改善具有非线性性质的数据的可视化结果。函数获取原始值作为第一个参数，并应返回将在颜色计算中使用的值，并将以此值绘制特定区域
 				onRegionClick: function(element, code, region)
 				{
-					var message = 'You clicked "'
+					var message = 'region: "'
 							+ region
-							+ '" which has the code: '
+							+ '"code: '
 							+ code.toUpperCase();
-
 					alert(message);
 				}
 			});

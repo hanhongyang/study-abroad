@@ -8,7 +8,7 @@ import java.util.Date;
  * parm："yyyy-MM-dd"格式的开始日期，结束日期
  * return：开始与结束之间的一个随机日期
  */
-public class randomBirthday {
+public class RandomBirthday {
     public static Date randomDate(String beginDate,String endDate){
         try {
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");

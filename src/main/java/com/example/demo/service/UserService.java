@@ -7,12 +7,18 @@ import java.util.List;
 
 public interface UserService {
     //插入一条user数据
-    void save();
-    //批量插入数据
-    void batchSave();
+    void save(User user);
+    //批量插入用户数据
+    void batchSave(List<User> users);
+    //批量插入随机数据
+    void batchSaveRandom();
     //删除生日不为空的users
     void deleteByBirthDay();
     void deleteByUserId(Integer userId);
     //查询所有users
     List<User> getAll();
+    //根据userId取User
+    User getUser(Integer userId);
+    //判断email是否可用
+    boolean checkEmail(String email);
 }
