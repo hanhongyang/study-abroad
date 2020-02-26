@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 public class User {
@@ -12,6 +13,12 @@ public class User {
     private Integer countryId;
 
     private String email;
+
+    private String mobile;
+
+    private Date birthday;
+
+    private String name;
 
     public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name) {
         this.userId = userId;
@@ -26,13 +33,6 @@ public class User {
 
     public User() {
     }
-
-    private String mobile;
-
-    private Date birthday;
-
-    private String name;
-
     public Integer getUserId() {
         return userId;
     }

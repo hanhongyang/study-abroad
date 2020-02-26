@@ -6,13 +6,20 @@ import com.example.demo.service.Impl.UserServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+import javax.websocket.server.PathParam;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -33,6 +40,19 @@ public class UserController {
         model.addAttribute("pageInfo",pageInfo);
         return "admin/users";
     }
+
+    /**
+     * 查询User
+     * @param userId
+     * @return查到的User
+     */
+    @GetMapping("/user/{userId}")
+    @ResponseBody
+    public Msg getUser(@PathVariable("userId")Integer userId){
+
+        User user=userService.getUser(userId);
+        return Msg.success().add("user",user);
+    }
     /**
      * 保存user
      * @return
@@ -40,13 +60,14 @@ public class UserController {
     @PostMapping("/user")
     @ResponseBody
     public Msg saveUser(@RequestParam(value = "rule",defaultValue = "0")String rule,
-                        @RequestParam(value = "password")String password,
+                         @RequestParam(value = "password")String password,
                         @RequestParam(value = "countryId")String countryId,
-                        @RequestParam(value = "email")String email,
+                         @RequestParam(value = "email")String email,
                         @RequestParam(value = "mobile")String mobile,
                         @RequestParam(value = "birthday",defaultValue = "")String birthday,
                         @RequestParam(value = "name")String name
                         ){
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try{
             //判断生日是否为空
@@ -74,12 +95,17 @@ public class UserController {
     @ResponseBody
     @PostMapping("/checkEmail")
     public Msg checkEmail(@RequestParam(value = "email") String email){
+        //后端校验表单数据
+        String regEmail="(^[A-Za-z0-9]+([_\\.][A-Za-z0-9]+)*@([A-Za-z0-9\\-]+\\.)+[A-Za-z]{2,6}$)";
+        if(!email.matches(regEmail)){
+            return Msg.fail().add("va_msg","邮箱格式不正确");
+        }
         //had保存是否email已存在
         boolean had=userService.checkEmail(email);
         if(had){
             return Msg.success();
         }else {
-            return Msg.fail();
+            return Msg.fail().add("va_msg","email不可用");
         }
     }
 }

@@ -22,6 +22,7 @@
     <title>test</title>
 </head>
 <body class="nav-md">
+
 <!-- 添加user的模态框 -->
 <div class="modal fade" id="userAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -37,13 +38,13 @@
                         <label  class="col-sm-2 control-label">角色</label>
 
                         <label class="radio-inline">
-                            <input type="radio" name="rule" id="rule1Add" value="1"> 超级管理员
+                            <input type="radio" name="rule"  value="1"> 超级管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule" id="rule2Add" value="2"> 学校管理员
+                            <input type="radio" name="rule"  value="2"> 学校管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule" id="rule0Add" value="0"> 普通用户
+                            <input type="radio" name="rule"  value="0"> 普通用户
                         </label>
 
                     </div>
@@ -57,7 +58,7 @@
                     <div class="form-group">
                         <label class="col-sm-2 control-label">国家</label>
                         <div class="col-sm-10">
-                            <select  class="form-control" name="countryId"id="countrySelect">
+                            <select  class="form-control" name="countryId">
 
                             </select>
                         </div>
@@ -98,6 +99,85 @@
         </div>
     </div>
 </div>
+<!--user修改的模态框-->
+<div class="modal fade" id="userUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" >用户信息修改</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal"th:action="@{/user}" method="post">
+                    <input type="hidden" name="_method" value="post" />
+                    <div class="form-group">
+                        <label  class="col-sm-2 control-label">角色</label>
+
+                        <label class="radio-inline">
+                            <input type="radio" name="rule"  value="1"> 超级管理员
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rule"  value="2"> 学校管理员
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rule" value="0"> 普通用户
+                        </label>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">密码</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="password" class="form-control" id="passwordUpdate" placeholder="password">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">国家</label>
+                        <div class="col-sm-10">
+                            <select  class="form-control" name="countryId">
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">email</label>
+                        <div class="col-sm-10">
+                            <input type="email" name="email" class="form-control" id="emailUpdate" placeholder="email">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">手机号码</label>
+                        <div class="col-sm-10">
+                            <input type="text"name="mobile" class="form-control" id="mobileUpdate" placeholder="mobile">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">生日</label>
+                        <div class="col-sm-10">
+                            <input type="date" name="birthday" class="form-control" id="birthdayUpdate" placeholder="birthday"  >
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">名字</label>
+                        <div class="col-sm-10">
+                            <input type="text"name="name" class="form-control" id="nameUpdate" placeholder="name">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary "id="userUpdateBtn">更新</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--/user修改的模态框-->
+
 <div class="container body">
     <div class="main_container">
         <div class="col-md-3 left_col">
@@ -155,7 +235,7 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${pageInfo.getList()}">
-                                    <td th:text="${user.userId}"></td>
+                                    <td th:text="${user.userId}"id="userId"></td>
                                     <td th:text="${user.password}"></td>
                                     <div th:switch="${user.rule}">
                                         <td th:case="0">游客</td>
@@ -168,12 +248,12 @@
                                     <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>
                                     <td th:text="${user.name}"></td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm">
+                                        <button class="btn btn-primary btn-sm edit_btn">
                                             编辑
                                         </button>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary btn-sm">
+                                        <button class="btn btn-primary btn-sm delete_btn">
                                             删除
                                         </button>
                                     </td>
@@ -182,10 +262,6 @@
                             </table>
                         </div>
                     </div>
-                    <!--user添加的模态框-->
-
-
-
                 </div>
                 <div class="clearfix"></div>
                 <!--显示分页信息-->
@@ -256,26 +332,34 @@
 <script src="/build/js/custom.min.js"></script>
 
 <script type="text/javascript">
+    //点击user添加按钮
     $("#userAddBtn").click(function () {
         //清楚表单数据（表单重置），防止重复提交
-        $("#userAddModal form")[0].reset();
+        resetFrom("#userAddModal form");
         //发送ajax请求查询国家信息，显示在下拉列表
-        getRegions();
+        getRegions("#userAddModal select");
         //弹出模态框
         $("#userAddModal").modal({
             backdrop:"static"
         })
     })
-
-    function getRegions() {
+    //清空表单样式，表单数据，提示信息.param:表单元素
+    function resetFrom(ele) {
+        $(ele)[0].reset();
+        $(ele).find("*").removeClass("has-success has-error");
+        $(ele).find(".help-block").text("");
+    }
+    //获取国家列表.param:国家列表select元素
+    function getRegions(ele) {
+        //先情况之前下拉啊列表的值
+        $(ele).empty();
         $.ajax({
             url:"/countries",
             type:"GET",
             success:function(result){
-                //console.log(result)
                 $.each(result.extend.countries,function () {
                     var optionElement=$("<option ></option>").append("<span>"+this.name+"</sapn>").attr("value",this.countryId);
-                    optionElement.appendTo("#countrySelect");
+                    optionElement.appendTo(ele);
                 })
             }
         })
@@ -296,12 +380,11 @@
             type:"POST",
             data:$("#userAddModal form").serialize(),
             success:function (result) {
-                //alert(result.msg);
-                //员工保存成功
-                //1、关闭模态框
-                $("#userAddModal").hide();
-                //2、重定向到最后一页
-                window.location.replace("/users?pageNum=99999");
+                    //员工保存成功
+                    //1、关闭模态框
+                    $("#userAddModal").hide();
+                    //2、重定向到最后一页
+                    window.location.replace("/users?pageNum=99999");
             }
         })
     })
@@ -339,7 +422,7 @@
         var name=$("#nameAdd").val();
         var regName=/(^[a-zA-Z0-9_-]{3,16}$)|(^[\u2E80-\u9FFF]{2,5})/;
         if(!regName.test(name)){
-            show_validate_msg("#nameAdd","error","用户可以是2-5位中文或者3-16位英文和数字的组合");
+            show_validate_msg("#nameAdd","error","名字必须是2-5位中文或者3-16位英文和数字的组合");
             return false;
         }else {
             show_validate_msg("#nameAdd","success","");
@@ -347,7 +430,7 @@
         return true;
     }
     
-    //显示校验信息
+    //显示校验信息。param：input元素，校验结果，校验信息
     function show_validate_msg(ele,status,msg) {
         //先清空之前的样式，防止重复生成样式
         $(ele).parent().removeClass("has-success has-error");
@@ -380,13 +463,46 @@
                     show_validate_msg("#emailAdd","success","email可用");
                     $("#userSavaBtn").attr("ajax_validate","success");
                 }else{
-                    show_validate_msg("#emailAdd","error","email不可用")
+                    show_validate_msg("#emailAdd","error",result.extend.va_msg);
                     $("#userSavaBtn").attr("ajax_validate","error");
                 }
             }
         })
         
     })
+    //点击user编辑按钮
+    $(".edit_btn").click(function () {
+        //获取userId
+        var userId=$(this).parent().parent().children("#userId").text();
+        //查询user信息，显示在模态框中
+        getUser(userId);
+        //发送ajax请求查询国家信息，显示在下拉列表
+        getRegions("#userUpdateModal select");
+        //弹出模态框
+        $("#userUpdateModal").modal({
+            backdrop:"static"
+        })
+    })
+    //查询User信息
+    function getUser(userId) {
+        $.ajax({
+            url:"/user/"+userId,
+            type:"GET",
+            success:function (result) {
+                var userData=result.extend.user;
+
+                $("#userUpdateModal input[name=rule]").val([userData.rule]);
+                $("#passwordUpdate").val(userData.password);
+                $("#userUpdateModal select").val([userData.countryId]);
+                $("#emailUpdate").val(userData.email);
+                $("#mobileUpdate").val(userData.mobile);
+                var birthday=userData.birthday.substr(0,10);
+                console.log(birthday);
+                $("#birthdayUpdate").val(birthday);
+                $("#nameUpdate").val(userData.name);
+            }
+        })
+    }
 </script>
 </body>
 </html>
