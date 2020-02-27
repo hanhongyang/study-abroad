@@ -21,4 +21,8 @@ public interface UserService {
     User getUser(Integer userId);
     //判断email是否可用
     boolean checkEmail(String email);
+    //更新user
+    void updateUser(User user);
+    //批量删除user
+    void batchDelete(List<Integer> userIdList);
 }

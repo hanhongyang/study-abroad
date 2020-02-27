@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class UserController {
@@ -87,6 +84,59 @@ public class UserController {
         return Msg.fail();
     }
 
+    @ResponseBody
+    @PutMapping("/user/{userId}")
+    public Msg updateUser(@PathVariable(value = "userId")Integer userId,
+                          @RequestParam(value = "rule",defaultValue = "0")String rule,
+                          @RequestParam(value = "password")String password,
+                          @RequestParam(value = "countryId")String countryId,
+                          @RequestParam(value = "email")String email,
+                          @RequestParam(value = "mobile")String mobile,
+                          @RequestParam(value = "birthday",defaultValue = "")String birthday,
+                          @RequestParam(value = "name")String name){
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        try{
+            //判断生日是否为空
+            if("".equals(birthday)){
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name);
+                userService.updateUser(user);
+                return Msg.success();
+            }else {
+                Date birthday2=format.parse(birthday);
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name);
+                userService.updateUser(user);
+                return Msg.success();
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return Msg.fail();
+    }
+
+    /**
+     * 单个或批量根据userId删除user
+     * 批量：1,2,3
+     * 单个：1
+     * @param userId
+     * @return
+     */
+    @ResponseBody
+    @DeleteMapping("/user/{userIds}")
+    public Msg deleteByUserId(@PathVariable(value = "userIds") String userIds){
+        if(userIds.contains(",")){
+            List<Integer> userIdList=new ArrayList<>();
+            String[] userIdsStr=userIds.split(",");
+            for(String str:userIdsStr){
+                userIdList.add(Integer.parseInt(str));
+            }
+            userService.batchDelete(userIdList);
+        }else {
+            Integer userId=Integer.parseInt(userIds);
+            userService.deleteByUserId(userId);
+        }
+
+        return Msg.success();
+    }
     /**
      * 检验email是否可用
      * @param email

@@ -108,8 +108,9 @@
                 <h4 class="modal-title" >用户信息修改</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal"th:action="@{/user}" method="post">
-                    <input type="hidden" name="_method" value="post" />
+                <form class="form-horizontal" >
+
+                    <input type="hidden"name="userId">
                     <div class="form-group">
                         <label  class="col-sm-2 control-label">角色</label>
 
@@ -170,7 +171,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary "id="userUpdateBtn">更新</button>
+                <button type="button" class="btn btn-primary "id="userUpdateBtn" th:attr="data-pageNum=${pageInfo.pageNum}">更新</button>
             </div>
         </div>
     </div>
@@ -214,8 +215,11 @@
                 <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="x_panel">
                         <div class="x_title">
-                            <button class="btn btn-primary btn-sm"id="userAddBtn">
+                            <button class="btn btn-primary"id="userAddBtn">
                                 新增
+                            </button>
+                            <button class="btn btn-primary"id="userDeleteBtn">
+                                批量删除
                             </button>
                             <div class="clearfix"></div>
                         </div>
@@ -223,6 +227,9 @@
                             <table class="table table-hover">
                                 <thead>
                                 <tr>
+                                    <th>
+                                        <input type="checkbox" id="checkAll"/>
+                                    </th>
                                     <th>userId</th>
                                     <th>password</th>
                                     <th>rule</th>
@@ -235,6 +242,9 @@
                                 </thead>
                                 <tbody>
                                 <tr th:each="user : ${pageInfo.getList()}">
+                                    <td>
+                                        <input type="checkbox" class="check-menu-item"/>
+                                    </td>
                                     <td th:text="${user.userId}"id="userId"></td>
                                     <td th:text="${user.password}"></td>
                                     <div th:switch="${user.rule}">
@@ -247,13 +257,15 @@
                                     <td th:text="${user.mobile}"></td>
                                     <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>
                                     <td th:text="${user.name}"></td>
-                                    <td>
+                                    <td width="5%">
                                         <button class="btn btn-primary btn-sm edit_btn">
+                                            <span class="glyphicon glyphicon-pencil"></span>
                                             编辑
                                         </button>
                                     </td>
-                                    <td>
-                                        <button class="btn btn-primary btn-sm delete_btn">
+                                    <td width="5%">
+                                        <button class="btn btn-danger btn-sm delete_btn"th:attr="data-pageNum=${pageInfo.pageNum}">
+                                            <span class="glyphicon glyphicon-trash"></span>
                                             删除
                                         </button>
                                     </td>
@@ -332,6 +344,9 @@
 <script src="/build/js/custom.min.js"></script>
 
 <script type="text/javascript">
+    //防止csrf拦截post请求
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var token =$("meta[name='_csrf']").attr("content");
     //点击user添加按钮
     $("#userAddBtn").click(function () {
         //清楚表单数据（表单重置），防止重复提交
@@ -364,8 +379,8 @@
             }
         })
     }
+    //模态框中填写的表单数据提交保存
     $("#userSavaBtn").click(function () {
-        //模态框中填写的表单数据提交保存
         //校验表单数据
         if(!validate_add_form()){
             return false;
@@ -388,7 +403,7 @@
             }
         })
     })
-    //校验表单
+    //校验添加表单
     function validate_add_form() {
 
         //校验密码
@@ -429,6 +444,47 @@
         }
         return true;
     }
+    //校验更新表单
+    function validate_update_form() {
+
+        //校验密码
+        var password=$("#passwordUpdate").val();
+        var regPassword=/^[\w_-]{4,16}$/;
+        if(!regPassword.test(password)){
+            show_validate_msg("#passwordUpdate","error","请输入4-16位密码！(特殊符号只允许‘-’、‘_’)");
+            return false;
+        }else {
+            show_validate_msg("#passwordUpdate","success","");
+        }
+        //校验邮箱
+        var email=$("#emailUpdate").val();
+        var regEmail=/^[A-Za-z0-9]+([_\.][A-Za-z0-9]+)*@([A-Za-z0-9\-]+\.)+[A-Za-z]{2,6}$/;
+        if(!regEmail.test(email)){
+            show_validate_msg("#emailUpdate","error","邮箱格式不正确");
+            return false;
+        }else {
+            show_validate_msg("#emailUpdate","success","");
+        }
+        //校验手机号码
+        var mobile=$("#mobileUpdate").val();
+        var regMobile= /^\d+$|^\d+[.]?\d+$/;
+        if(!regMobile.test(mobile)){
+            show_validate_msg("#mobileUpdate","error","只允许输入数字");
+            return false;
+        }else {
+            show_validate_msg("#mobileUpdate","success","");
+        }
+        //校验用户名
+        var name=$("#nameUpdate").val();
+        var regName=/(^[a-zA-Z0-9_-]{3,16}$)|(^[\u2E80-\u9FFF]{2,5})/;
+        if(!regName.test(name)){
+            show_validate_msg("#nameUpdate","error","名字必须是2-5位中文或者3-16位英文和数字的组合");
+            return false;
+        }else {
+            show_validate_msg("#nameUpdate","success","");
+        }
+        return true;
+    }
     
     //显示校验信息。param：input元素，校验结果，校验信息
     function show_validate_msg(ele,status,msg) {
@@ -447,9 +503,6 @@
     $("#emailAdd").change(function () {
         //获取输入框的email
         var email=this.value;
-        //防止csrf拦截post请求
-        var header = $("meta[name='_csrf_header']").attr("content");
-        var token =$("meta[name='_csrf']").attr("content");
         //发送ajax检验邮箱是否可用
         $.ajax({
             url:"/checkEmail",
@@ -470,6 +523,30 @@
         })
         
     })
+    //检验邮箱是否可用
+    $("#emailUpdate").change(function () {
+        //获取输入框的email
+        var email=this.value;
+        //发送ajax检验邮箱是否可用
+        $.ajax({
+            url:"/checkEmail",
+            data:"email="+email,
+            type:"POST",
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            success:function (result) {
+                if(result.code==100){
+                    show_validate_msg("#emailUpdate","success","email可用");
+                    $("#userUpdateBtn").attr("ajax_validate","success");
+                }else{
+                    show_validate_msg("#emailUpdate","error",result.extend.va_msg);
+                    $("#userUpdateBtn").attr("ajax_validate","error");
+                }
+            }
+        })
+
+    })
     //点击user编辑按钮
     $(".edit_btn").click(function () {
         //获取userId
@@ -478,6 +555,9 @@
         getUser(userId);
         //发送ajax请求查询国家信息，显示在下拉列表
         getRegions("#userUpdateModal select");
+        //把userId传递到模态框的更新按钮
+        $("#userUpdateBtn").attr("userId",userId);
+
         //弹出模态框
         $("#userUpdateModal").modal({
             backdrop:"static"
@@ -490,19 +570,105 @@
             type:"GET",
             success:function (result) {
                 var userData=result.extend.user;
-
+                $("#userUpdateModal input[name=userId]").val(userId);
                 $("#userUpdateModal input[name=rule]").val([userData.rule]);
                 $("#passwordUpdate").val(userData.password);
                 $("#userUpdateModal select").val([userData.countryId]);
                 $("#emailUpdate").val(userData.email);
                 $("#mobileUpdate").val(userData.mobile);
-                var birthday=userData.birthday.substr(0,10);
-                console.log(birthday);
-                $("#birthdayUpdate").val(birthday);
+                if(userData.birthday!=null){
+                    var birthday=userData.birthday.substr(0,10);
+                    $("#birthdayUpdate").val(birthday);
+                }
                 $("#nameUpdate").val(userData.name);
             }
         })
     }
+    //点击更新按钮
+    $("#userUpdateBtn").click(function () {
+        //校验表单数据
+        if(!validate_update_form()){
+            return false;
+        };
+        //判断checkEmail校验是否成功。成功才往下进行
+        if($(this).attr("ajax_validate")=="error"){
+            return false;
+        }
+        //获取当前页码
+        var pageNum=parseInt($(this).attr("data-pageNum"));
+        //发送ajax保存user更新的数据
+        $.ajax({
+            url:"/user/"+$(this).attr("userId"),
+            type:"PUT",
+            beforeSend : function(xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            data:$("#userUpdateModal form").serialize(),
+            success:function (result) {
+                //关闭模态框
+                $("#userUpdateModal").modal("hide");
+                //回到页面
+                window.location.replace("/users?pageNum="+pageNum);
+            }
+        })
+    })
+    //点击user删除按钮
+    $(".delete_btn").click(function () {
+        //获取userId
+        var userId=$(this).parent().parent().children("#userId").text();
+        //弹出是否确认对话框
+        if(confirm("确认删除【"+userId+"】吗？")){
+            //获取当前页码
+            var pageNum=parseInt($(this).attr("data-pageNum"));
+            //确认，发送ajax请求删除即可
+            $.ajax({
+                url:"/user/"+userId,
+                type:"DELETE",
+                beforeSend : function(xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success:function (result) {
+                    window.location.replace("/users?pageNum="+pageNum);
+                }
+            })
+        }
+    })
+    //全选框
+    $("#checkAll").click(function () {
+        //获取选中状态checked
+        $(".check-menu-item").prop("checked",$(this).prop("checked"));
+    })
+    //单选
+    $(document).on("click",".check-menu-item",function () {
+        //flag保存当前选择的行数是否为全选
+        var flag=$(".check-menu-item:checked").length==$(".check-menu-item").length;
+        $("#checkAll").prop("checked",flag);
+    })
+    //点击批量删除
+    $("#userDeleteBtn").click(function () {
+        //userId保存选中的列userId
+        var userIds=""
+        $.each($(".check-menu-item:checked"),function () {
+             userIds+=$(this).parents("tr").find("td:eq(1)").text()+",";
+        })
+        //去除userId最后的逗号
+        userIds=userIds.substring(0,userIds.length-1);
+        if(confirm("确认删除【"+userIds+"】吗？")){
+        //发送Ajax请求批量删除
+
+            $.ajax({
+                url:"/user/"+userIds,
+                type:"DELETE",
+                beforeSend : function(xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                success:function (result) {
+                    alert(result.msg);
+                    //回到当前页面
+                }
+            })
+        }
+    })
 </script>
 </body>
 </html>

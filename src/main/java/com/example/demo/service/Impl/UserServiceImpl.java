@@ -85,6 +85,24 @@ public class UserServiceImpl implements UserService {
         return count==0;
     }
 
+    /**
+     * 更新user
+     * @param user
+     */
+    @Override
+    public void updateUser(User user) {
+        userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    @Override
+    public void batchDelete(List<Integer> userIdList) {
+        UserExample userExample=new UserExample();
+        UserExample.Criteria criteria=userExample.createCriteria();
+        //delete from user where userId in(     )
+        criteria.andUserIdIn(userIdList);
+        userMapper.deleteByExample(userExample);
+    }
+
     @Override
     public void save(User user) {
         //用户Id是null，数据库自增Id，所以用insertSelective（）；

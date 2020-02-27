@@ -1,901 +1,169 @@
-2020-02-27 00:00:51.292 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:00:51.390 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:00:51.392 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:00:51.392 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:00:51.393 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:00:51.395 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:00:51.395 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:00:51.397 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:00:51.398 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:00:51.398 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:00:51.399 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:00:51.400 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:00:51.414 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:00:51.415 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:00:51.416 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:00:51.416 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:00:51.421 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:00:51.422 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:00:51.422 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:00:53.631 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:00:53.638 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:00:53.646 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:00:53.647 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:00:53.649 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:00:53.656 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:00:53.656 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:00:53.658 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:00:53.659 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:00:53.660 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:00:53.661 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:00:53.661 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:00:53.661 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:00:53.662 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:00:53.663 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:00:53.663 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:00:53.663 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:00:53.663 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:00:53.663 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:00:58.258 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user where user_id = ? 
-2020-02-27 00:00:58.259 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 5974(Integer)
-2020-02-27 00:00:58.261 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.UserMapper.selectByPrimaryKey    : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:00:58.261 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.UserMapper.selectByPrimaryKey    : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:00:58.262 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
-2020-02-27 00:00:58.259 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : ==>  Preparing: select country_id, name, code from country 
-2020-02-27 00:00:58.268 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : ==> Parameters: 
-2020-02-27 00:00:58.271 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==    Columns: country_id, name, code
-2020-02-27 00:00:58.271 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 1, test, test
-2020-02-27 00:00:58.272 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 2, test2, test2
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 177,  United Arab Emirates, 	AE 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 178,  Afghanistan, 	AF 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 179,  Antigua and Barbuda, 	AG 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 180,  Albania, 	AL 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 181,  Armenia, 	AM 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 182,  Angola, 	AO 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 183,  Argentina, 	AR 
-2020-02-27 00:00:58.273 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 184,  Austria, 	AT 
-2020-02-27 00:00:58.274 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 185,  Australia, 	AU 
-2020-02-27 00:00:58.274 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 186,  Azerbaijan, 	AZ 
-2020-02-27 00:00:58.274 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 187,  Bosnia and Herzegovina, 	BA 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 188,  Barbados, 	BB 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 189,  Bangladesh, 	BD 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 190,  Belgium, 	BE 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 191,  Burkina Faso, 	BF 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 192,  Bulgaria, 	BG 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 193,  Burundi, 	BI 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 194,  Benin, 	BJ 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 195,  Brunei Darussalam, 	BN 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 196,  Bolivia, 	BO 
-2020-02-27 00:00:58.275 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 197,  Brazil, 	BR 
-2020-02-27 00:00:58.276 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 198,  Bahamas, 	BS 
-2020-02-27 00:00:58.276 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 199,  Bhutan, 	BT 
-2020-02-27 00:00:58.276 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 200,  Botswana, 	BW 
-2020-02-27 00:00:58.276 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 201,  Belarus, 	BY 
-2020-02-27 00:00:58.276 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 202,  Belize, 	BZ 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 203,  Canada, 	CA 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 204,  Congo, 	CD 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 205,  Central African Republic, 	CF 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 207,  Switzerland, 	CH 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 208,  Cote d'Ivoire, 	CI 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 209,  Chile, 	CL 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 210,  Cameroon, 	CM 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 211,  China, 	CN 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 212,  Colombia, 	CO 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 213,  Costa Rica, 	CR 
-2020-02-27 00:00:58.277 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 214,  Cuba, 	CU 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 215,  Cape Verde, 	CV 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 216,  Cyprus, 	CY 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 217,  Czech Republic, 	CZ 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 218,  Germany, 	DE 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 219,  Djibouti, 	DJ 
-2020-02-27 00:00:58.278 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 220,  Denmark, 	DK 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 221,  Dominica, 	DM 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 222,  Dominican Republic, 	DO 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 223,  Algeria, 	DZ 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 224,  Ecuador, 	EC 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 225,  Estonia, 	EE 
-2020-02-27 00:00:58.279 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 226,  Egypt, 	EG 
-2020-02-27 00:00:58.280 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 227,  Eritrea, 	ER 
-2020-02-27 00:00:58.280 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 228,  Spain, 	ES 
-2020-02-27 00:00:58.280 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 229,  Ethiopia, 	ET 
-2020-02-27 00:00:58.281 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 230,  Finland, 	FI 
-2020-02-27 00:00:58.281 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 231,  Fiji, 	FJ 
-2020-02-27 00:00:58.281 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 232,  Falkland Islands, 	FK 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 233,  France, 	FR 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 234,  Gabon, 	GA 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 235,  United Kingdom, 	GB 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 236,  Grenada, 	GD 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 237,  Georgia, 	GE 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 238,  French Guiana, 	GF 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 239,  Ghana, 	GH 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 240,  Greenland, 	GL 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 241,  Gambia, 	GM 
-2020-02-27 00:00:58.282 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 242,  Guinea, 	GN 
-2020-02-27 00:00:58.283 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 243,  Equatorial Guinea, 	GQ 
-2020-02-27 00:00:58.283 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 244,  Greece, 	GR 
-2020-02-27 00:00:58.283 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 245,  Guatemala, 	GT 
-2020-02-27 00:00:58.283 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 246,  Guinea-Bissau, 	GW 
-2020-02-27 00:00:58.283 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 247,  Guyana, 	GY 
-2020-02-27 00:00:58.284 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 248,  Honduras, 	HN 
-2020-02-27 00:00:58.284 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 249,  Croatia, 	HR 
-2020-02-27 00:00:58.284 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 250,  Haiti, 	HT 
-2020-02-27 00:00:58.284 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 251,  Hungary, 	HU 
-2020-02-27 00:00:58.285 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 252,  Indonesia, 	ID 
-2020-02-27 00:00:58.285 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 253,  Ireland, 	IE 
-2020-02-27 00:00:58.285 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 254,  Israel, 	IL 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 255,  India, 	IN 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 256,  Iraq, 	IQ 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 257,  Iran, 	IR 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 258,  Iceland, 	IS 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 259,  Italy, 	IT 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 260,  Jamaica, 	JM 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 261,  Jordan, 	JO 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 262,  Japan, 	JP 
-2020-02-27 00:00:58.286 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 263,  Kenya, 	KE 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 264,  Kyrgyz Republic, 	KG 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 265,  Cambodia, 	KH 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 266,  Comoros, 	KM 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 267,  Saint Kitts and Nevis, 	KN 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 268,  North Korea, 	KP 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 269,  South Korea, 	KR 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 270,  Kuwait, 	KW 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 271,  Kazakhstan, 	KZ 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 272,  Lao People's Democratic Republic, 	LA 
-2020-02-27 00:00:58.287 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 273,  Lebanon, 	LB 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 274,  Saint Lucia, 	LC 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 275,  Sri Lanka, 	LK 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 276,  Liberia, 	LR 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 277,  Lesotho, 	LS 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 278,  Lithuania, 	LT 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 279,  Latvia, 	LV 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 280,  Libya, 	LY 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 281,  Morocco, 	MA 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 282,  Moldova, 	MD 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 283,  Madagascar, 	MG 
-2020-02-27 00:00:58.288 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 284,  Macedonia, 	MK 
-2020-02-27 00:00:58.289 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 285,  Mali, 	ML 
-2020-02-27 00:00:58.289 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 286,  Myanmar, 	MM 
-2020-02-27 00:00:58.289 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 287,  Mongolia, 	MN 
-2020-02-27 00:00:58.289 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 288,  Mauritania, 	MR 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 289,  Malta, 	MT 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 290,  Mauritius, 	MU 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 291,  Maldives, 	MV 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 292,  Malawi, 	MW 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 293,  Mexico, 	MX 
-2020-02-27 00:00:58.290 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 294,  Malaysia, 	MY 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 295,  Mozambique, 	MZ 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 296,  Namibia, 	NA 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 297,  New Caledonia, 	NC 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 298,  Niger, 	NE 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 299,  Nigeria, 	NG 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 300,  Nicaragua, 	NI 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 301,  Netherlands, 	NL 
-2020-02-27 00:00:58.291 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 302,  Norway, 	NO 
-2020-02-27 00:00:58.292 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 303,  Nepal, 	NP 
-2020-02-27 00:00:58.292 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 304,  New Zealand, 	NZ 
-2020-02-27 00:00:58.292 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 305,  Oman, 	OM 
-2020-02-27 00:00:58.292 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 306,  Panama, 	PA 
-2020-02-27 00:00:58.292 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 307,  Peru, 	PE 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 308,  French Polynesia, 	PF 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 309,  Papua New Guinea, 	PG 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 310,  Philippines, 	PH 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 311,  Pakistan, 	PK 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 312,  Poland, 	PL 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 313,  Portugal, 	PT 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 314,  Paraguay, 	PY 
-2020-02-27 00:00:58.293 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 315,  Qatar, 	QA 
-2020-02-27 00:00:58.294 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 316,  Reunion, 	RE 
-2020-02-27 00:00:58.294 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 317,  Romania, 	RO 
-2020-02-27 00:00:58.294 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 318,  Serbia, 	RS 
-2020-02-27 00:00:58.295 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 319,  Russian Federationß, 	RU 
-2020-02-27 00:00:58.295 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 320,  Rwanda, 	RW 
-2020-02-27 00:00:58.295 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 321,  Saudi Arabia, 	SA 
-2020-02-27 00:00:58.295 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 322,  Solomon Islands, 	SB 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 323,  Seychelles, 	SC 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 324,  Sudan, 	SD 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 325,  Sweden, 	SE 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 326,  Slovenia, 	SI 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 327,  Slovakia, 	SK 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 328,  Sierra Leone, 	SL 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 329,  Senegal, 	SN 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 330,  Somalia, 	SO 
-2020-02-27 00:00:58.296 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 331,  Suriname, 	SR 
-2020-02-27 00:00:58.297 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 332,  Sao Tome and Principe, 	ST 
-2020-02-27 00:00:58.297 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 333,  El Salvador, 	SV 
-2020-02-27 00:00:58.297 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 334,  Syrian Arab Republic, 	SY 
-2020-02-27 00:00:58.297 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 335,  Swaziland, 	SZ 
-2020-02-27 00:00:58.297 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 336,  Chad, 	TD 
-2020-02-27 00:00:58.298 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 337,  Togo, 	TG 
-2020-02-27 00:00:58.298 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 338,  Thailand, 	TH 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 339,  Tajikistan, 	TJ 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 340,  Timor-Leste, 	TL 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 341,  Turkmenistan, 	TM 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 342,  Tunisia, 	TN 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 343,  Turkey, 	TR 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 344,  Trinidad and Tobago, 	TT 
-2020-02-27 00:00:58.299 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 345,  Taiwan, 	TW 
-2020-02-27 00:00:58.300 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 346,  Tanzania, 	TZ 
-2020-02-27 00:00:58.300 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 347,  Ukraine, 	UA 
-2020-02-27 00:00:58.300 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 348,  Uganda, 	UG 
-2020-02-27 00:00:58.300 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 349,  United States of America, 	US 
-2020-02-27 00:00:58.301 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 350,  Uruguay, 	UY 
-2020-02-27 00:00:58.301 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 351,  Uzbekistan, 	UZ 
-2020-02-27 00:00:58.302 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 352,  Venezuela, 	VE 
-2020-02-27 00:00:58.303 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 353,  Vietnam, 	VN 
-2020-02-27 00:00:58.303 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 354,  Vanuatu, 	VU 
-2020-02-27 00:00:58.303 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 355,  Yemen, 	YE 
-2020-02-27 00:00:58.304 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 356,  South Africa, 	ZA 
-2020-02-27 00:00:58.304 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 357,  Zambia, 	ZM 
-2020-02-27 00:00:58.305 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 358,  Zimbabwe, 	ZW 
-2020-02-27 00:00:58.305 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==      Total: 183
-2020-02-27 00:06:47.476 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:06:47.509 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:06:47.534 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:06:47.536 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:06:47.656 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:06:47.750 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:06:47.757 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:06:47.761 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:06:47.766 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:06:47.777 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:06:47.778 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:06:47.778 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:06:47.779 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:06:47.779 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:06:47.780 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:06:47.780 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:06:47.780 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:06:47.780 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:06:47.783 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:06:50.915 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:06:50.917 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:06:50.918 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:06:50.919 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:06:50.921 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:06:50.923 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:06:50.924 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:06:50.927 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:06:50.928 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:06:50.928 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:06:50.928 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:06:50.930 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:06:50.930 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:06:50.931 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:06:50.931 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:06:50.932 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:06:50.932 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:06:50.933 TRACE 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:06:50.933 DEBUG 1152 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:06:53.777 DEBUG 1152 --- [http-nio-8080-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user where user_id = ? 
-2020-02-27 00:06:53.777 DEBUG 1152 --- [http-nio-8080-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 5972(Integer)
-2020-02-27 00:06:53.780 TRACE 1152 --- [http-nio-8080-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:06:53.781 TRACE 1152 --- [http-nio-8080-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:06:53.781 DEBUG 1152 --- [http-nio-8080-exec-1] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
-2020-02-27 00:06:53.813 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : ==>  Preparing: select country_id, name, code from country 
-2020-02-27 00:06:53.813 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : ==> Parameters: 
-2020-02-27 00:06:53.819 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==    Columns: country_id, name, code
-2020-02-27 00:06:53.820 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 1, test, test
-2020-02-27 00:06:53.820 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 2, test2, test2
-2020-02-27 00:06:53.820 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 177,  United Arab Emirates, 	AE 
-2020-02-27 00:06:53.820 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 178,  Afghanistan, 	AF 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 179,  Antigua and Barbuda, 	AG 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 180,  Albania, 	AL 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 181,  Armenia, 	AM 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 182,  Angola, 	AO 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 183,  Argentina, 	AR 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 184,  Austria, 	AT 
-2020-02-27 00:06:53.822 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 185,  Australia, 	AU 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 186,  Azerbaijan, 	AZ 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 187,  Bosnia and Herzegovina, 	BA 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 188,  Barbados, 	BB 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 189,  Bangladesh, 	BD 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 190,  Belgium, 	BE 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 191,  Burkina Faso, 	BF 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 192,  Bulgaria, 	BG 
-2020-02-27 00:06:53.823 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 193,  Burundi, 	BI 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 194,  Benin, 	BJ 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 195,  Brunei Darussalam, 	BN 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 196,  Bolivia, 	BO 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 197,  Brazil, 	BR 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 198,  Bahamas, 	BS 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 199,  Bhutan, 	BT 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 200,  Botswana, 	BW 
-2020-02-27 00:06:53.824 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 201,  Belarus, 	BY 
-2020-02-27 00:06:53.825 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 202,  Belize, 	BZ 
-2020-02-27 00:06:53.825 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 203,  Canada, 	CA 
-2020-02-27 00:06:53.825 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 204,  Congo, 	CD 
-2020-02-27 00:06:53.825 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 205,  Central African Republic, 	CF 
-2020-02-27 00:06:53.826 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 207,  Switzerland, 	CH 
-2020-02-27 00:06:53.826 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 208,  Cote d'Ivoire, 	CI 
-2020-02-27 00:06:53.827 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 209,  Chile, 	CL 
-2020-02-27 00:06:53.827 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 210,  Cameroon, 	CM 
-2020-02-27 00:06:53.827 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 211,  China, 	CN 
-2020-02-27 00:06:53.827 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 212,  Colombia, 	CO 
-2020-02-27 00:06:53.827 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 213,  Costa Rica, 	CR 
-2020-02-27 00:06:53.828 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 214,  Cuba, 	CU 
-2020-02-27 00:06:53.829 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 215,  Cape Verde, 	CV 
-2020-02-27 00:06:53.829 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 216,  Cyprus, 	CY 
-2020-02-27 00:06:53.829 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 217,  Czech Republic, 	CZ 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 218,  Germany, 	DE 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 219,  Djibouti, 	DJ 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 220,  Denmark, 	DK 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 221,  Dominica, 	DM 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 222,  Dominican Republic, 	DO 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 223,  Algeria, 	DZ 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 224,  Ecuador, 	EC 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 225,  Estonia, 	EE 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 226,  Egypt, 	EG 
-2020-02-27 00:06:53.830 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 227,  Eritrea, 	ER 
-2020-02-27 00:06:53.831 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 228,  Spain, 	ES 
-2020-02-27 00:06:53.831 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 229,  Ethiopia, 	ET 
-2020-02-27 00:06:53.831 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 230,  Finland, 	FI 
-2020-02-27 00:06:53.831 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 231,  Fiji, 	FJ 
-2020-02-27 00:06:53.831 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 232,  Falkland Islands, 	FK 
-2020-02-27 00:06:53.832 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 233,  France, 	FR 
-2020-02-27 00:06:53.832 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 234,  Gabon, 	GA 
-2020-02-27 00:06:53.832 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 235,  United Kingdom, 	GB 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 236,  Grenada, 	GD 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 237,  Georgia, 	GE 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 238,  French Guiana, 	GF 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 239,  Ghana, 	GH 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 240,  Greenland, 	GL 
-2020-02-27 00:06:53.833 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 241,  Gambia, 	GM 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 242,  Guinea, 	GN 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 243,  Equatorial Guinea, 	GQ 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 244,  Greece, 	GR 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 245,  Guatemala, 	GT 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 246,  Guinea-Bissau, 	GW 
-2020-02-27 00:06:53.834 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 247,  Guyana, 	GY 
-2020-02-27 00:06:53.835 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 248,  Honduras, 	HN 
-2020-02-27 00:06:53.835 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 249,  Croatia, 	HR 
-2020-02-27 00:06:53.835 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 250,  Haiti, 	HT 
-2020-02-27 00:06:53.836 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 251,  Hungary, 	HU 
-2020-02-27 00:06:53.836 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 252,  Indonesia, 	ID 
-2020-02-27 00:06:53.836 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 253,  Ireland, 	IE 
-2020-02-27 00:06:53.836 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 254,  Israel, 	IL 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 255,  India, 	IN 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 256,  Iraq, 	IQ 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 257,  Iran, 	IR 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 258,  Iceland, 	IS 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 259,  Italy, 	IT 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 260,  Jamaica, 	JM 
-2020-02-27 00:06:53.837 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 261,  Jordan, 	JO 
-2020-02-27 00:06:53.838 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 262,  Japan, 	JP 
-2020-02-27 00:06:53.838 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 263,  Kenya, 	KE 
-2020-02-27 00:06:53.838 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 264,  Kyrgyz Republic, 	KG 
-2020-02-27 00:06:53.838 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 265,  Cambodia, 	KH 
-2020-02-27 00:06:53.839 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 266,  Comoros, 	KM 
-2020-02-27 00:06:53.839 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 267,  Saint Kitts and Nevis, 	KN 
-2020-02-27 00:06:53.839 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 268,  North Korea, 	KP 
-2020-02-27 00:06:53.839 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 269,  South Korea, 	KR 
-2020-02-27 00:06:53.840 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 270,  Kuwait, 	KW 
-2020-02-27 00:06:53.840 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 271,  Kazakhstan, 	KZ 
-2020-02-27 00:06:53.856 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 272,  Lao People's Democratic Republic, 	LA 
-2020-02-27 00:06:53.857 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 273,  Lebanon, 	LB 
-2020-02-27 00:06:53.857 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 274,  Saint Lucia, 	LC 
-2020-02-27 00:06:53.857 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 275,  Sri Lanka, 	LK 
-2020-02-27 00:06:53.857 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 276,  Liberia, 	LR 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 277,  Lesotho, 	LS 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 278,  Lithuania, 	LT 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 279,  Latvia, 	LV 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 280,  Libya, 	LY 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 281,  Morocco, 	MA 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 282,  Moldova, 	MD 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 283,  Madagascar, 	MG 
-2020-02-27 00:06:53.858 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 284,  Macedonia, 	MK 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 285,  Mali, 	ML 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 286,  Myanmar, 	MM 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 287,  Mongolia, 	MN 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 288,  Mauritania, 	MR 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 289,  Malta, 	MT 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 290,  Mauritius, 	MU 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 291,  Maldives, 	MV 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 292,  Malawi, 	MW 
-2020-02-27 00:06:53.859 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 293,  Mexico, 	MX 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 294,  Malaysia, 	MY 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 295,  Mozambique, 	MZ 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 296,  Namibia, 	NA 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 297,  New Caledonia, 	NC 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 298,  Niger, 	NE 
-2020-02-27 00:06:53.860 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 299,  Nigeria, 	NG 
-2020-02-27 00:06:53.861 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 300,  Nicaragua, 	NI 
-2020-02-27 00:06:53.861 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 301,  Netherlands, 	NL 
-2020-02-27 00:06:53.861 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 302,  Norway, 	NO 
-2020-02-27 00:06:53.861 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 303,  Nepal, 	NP 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 304,  New Zealand, 	NZ 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 305,  Oman, 	OM 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 306,  Panama, 	PA 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 307,  Peru, 	PE 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 308,  French Polynesia, 	PF 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 309,  Papua New Guinea, 	PG 
-2020-02-27 00:06:53.862 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 310,  Philippines, 	PH 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 311,  Pakistan, 	PK 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 312,  Poland, 	PL 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 313,  Portugal, 	PT 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 314,  Paraguay, 	PY 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 315,  Qatar, 	QA 
-2020-02-27 00:06:53.863 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 316,  Reunion, 	RE 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 317,  Romania, 	RO 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 318,  Serbia, 	RS 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 319,  Russian Federationß, 	RU 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 320,  Rwanda, 	RW 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 321,  Saudi Arabia, 	SA 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 322,  Solomon Islands, 	SB 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 323,  Seychelles, 	SC 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 324,  Sudan, 	SD 
-2020-02-27 00:06:53.864 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 325,  Sweden, 	SE 
-2020-02-27 00:06:53.865 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 326,  Slovenia, 	SI 
-2020-02-27 00:06:53.865 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 327,  Slovakia, 	SK 
-2020-02-27 00:06:53.865 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 328,  Sierra Leone, 	SL 
-2020-02-27 00:06:53.865 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 329,  Senegal, 	SN 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 330,  Somalia, 	SO 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 331,  Suriname, 	SR 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 332,  Sao Tome and Principe, 	ST 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 333,  El Salvador, 	SV 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 334,  Syrian Arab Republic, 	SY 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 335,  Swaziland, 	SZ 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 336,  Chad, 	TD 
-2020-02-27 00:06:53.866 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 337,  Togo, 	TG 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 338,  Thailand, 	TH 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 339,  Tajikistan, 	TJ 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 340,  Timor-Leste, 	TL 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 341,  Turkmenistan, 	TM 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 342,  Tunisia, 	TN 
-2020-02-27 00:06:53.867 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 343,  Turkey, 	TR 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 344,  Trinidad and Tobago, 	TT 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 345,  Taiwan, 	TW 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 346,  Tanzania, 	TZ 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 347,  Ukraine, 	UA 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 348,  Uganda, 	UG 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 349,  United States of America, 	US 
-2020-02-27 00:06:53.868 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 350,  Uruguay, 	UY 
-2020-02-27 00:06:53.869 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 351,  Uzbekistan, 	UZ 
-2020-02-27 00:06:53.869 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 352,  Venezuela, 	VE 
-2020-02-27 00:06:53.870 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 353,  Vietnam, 	VN 
-2020-02-27 00:06:53.871 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 354,  Vanuatu, 	VU 
-2020-02-27 00:06:53.873 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 355,  Yemen, 	YE 
-2020-02-27 00:06:53.874 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 356,  South Africa, 	ZA 
-2020-02-27 00:06:53.874 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 357,  Zambia, 	ZM 
-2020-02-27 00:06:53.875 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 358,  Zimbabwe, 	ZW 
-2020-02-27 00:06:53.876 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.CountryMapper.selectByExample    : <==      Total: 183
-2020-02-27 00:07:06.412 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:07:06.413 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:07:06.414 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:07:06.414 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:07:06.415 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:07:06.423 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:07:06.424 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:07:06.427 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:07:06.428 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:07:06.428 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:07:06.430 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:07:06.432 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:07:06.433 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:07:06.444 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:07:06.446 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:07:06.447 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:07:06.448 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:07:06.448 TRACE 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:07:06.449 DEBUG 1152 --- [http-nio-8080-exec-2] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:07:08.904 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:07:08.906 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:07:08.908 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:07:08.909 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:07:08.909 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:07:08.911 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:07:08.911 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:07:08.914 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:07:08.914 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:07:08.916 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:07:08.916 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:07:08.916 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:07:08.917 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:07:08.917 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:07:08.917 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:07:08.917 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:07:08.918 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:07:08.918 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:07:08.918 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:07:11.573 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user where user_id = ? 
-2020-02-27 00:07:11.728 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 5971(Integer)
-2020-02-27 00:07:11.760 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:07:11.761 TRACE 1152 --- [http-nio-8080-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:07:11.762 DEBUG 1152 --- [http-nio-8080-exec-10] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
-2020-02-27 00:07:11.579 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : ==>  Preparing: select country_id, name, code from country 
-2020-02-27 00:07:11.882 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : ==> Parameters: 
-2020-02-27 00:07:11.912 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==    Columns: country_id, name, code
-2020-02-27 00:07:11.918 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 1, test, test
-2020-02-27 00:07:11.923 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 2, test2, test2
-2020-02-27 00:07:11.923 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 177,  United Arab Emirates, 	AE 
-2020-02-27 00:07:11.923 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 178,  Afghanistan, 	AF 
-2020-02-27 00:07:11.923 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 179,  Antigua and Barbuda, 	AG 
-2020-02-27 00:07:11.923 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 180,  Albania, 	AL 
-2020-02-27 00:07:11.924 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 181,  Armenia, 	AM 
-2020-02-27 00:07:11.924 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 182,  Angola, 	AO 
-2020-02-27 00:07:11.924 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 183,  Argentina, 	AR 
-2020-02-27 00:07:11.924 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 184,  Austria, 	AT 
-2020-02-27 00:07:11.924 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 185,  Australia, 	AU 
-2020-02-27 00:07:11.925 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 186,  Azerbaijan, 	AZ 
-2020-02-27 00:07:11.925 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 187,  Bosnia and Herzegovina, 	BA 
-2020-02-27 00:07:11.925 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 188,  Barbados, 	BB 
-2020-02-27 00:07:12.024 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 189,  Bangladesh, 	BD 
-2020-02-27 00:07:12.024 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 190,  Belgium, 	BE 
-2020-02-27 00:07:12.026 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 191,  Burkina Faso, 	BF 
-2020-02-27 00:07:12.026 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 192,  Bulgaria, 	BG 
-2020-02-27 00:07:12.027 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 193,  Burundi, 	BI 
-2020-02-27 00:07:12.028 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 194,  Benin, 	BJ 
-2020-02-27 00:07:12.028 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 195,  Brunei Darussalam, 	BN 
-2020-02-27 00:07:12.028 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 196,  Bolivia, 	BO 
-2020-02-27 00:07:12.029 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 197,  Brazil, 	BR 
-2020-02-27 00:07:12.029 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 198,  Bahamas, 	BS 
-2020-02-27 00:07:12.030 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 199,  Bhutan, 	BT 
-2020-02-27 00:07:12.031 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 200,  Botswana, 	BW 
-2020-02-27 00:07:12.031 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 201,  Belarus, 	BY 
-2020-02-27 00:07:12.031 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 202,  Belize, 	BZ 
-2020-02-27 00:07:12.031 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 203,  Canada, 	CA 
-2020-02-27 00:07:12.031 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 204,  Congo, 	CD 
-2020-02-27 00:07:12.032 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 205,  Central African Republic, 	CF 
-2020-02-27 00:07:12.032 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 207,  Switzerland, 	CH 
-2020-02-27 00:07:12.032 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 208,  Cote d'Ivoire, 	CI 
-2020-02-27 00:07:12.032 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 209,  Chile, 	CL 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 210,  Cameroon, 	CM 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 211,  China, 	CN 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 212,  Colombia, 	CO 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 213,  Costa Rica, 	CR 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 214,  Cuba, 	CU 
-2020-02-27 00:07:12.033 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 215,  Cape Verde, 	CV 
-2020-02-27 00:07:12.034 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 216,  Cyprus, 	CY 
-2020-02-27 00:07:12.034 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 217,  Czech Republic, 	CZ 
-2020-02-27 00:07:12.034 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 218,  Germany, 	DE 
-2020-02-27 00:07:12.034 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 219,  Djibouti, 	DJ 
-2020-02-27 00:07:12.034 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 220,  Denmark, 	DK 
-2020-02-27 00:07:12.038 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 221,  Dominica, 	DM 
-2020-02-27 00:07:12.110 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 222,  Dominican Republic, 	DO 
-2020-02-27 00:07:12.124 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 223,  Algeria, 	DZ 
-2020-02-27 00:07:12.124 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 224,  Ecuador, 	EC 
-2020-02-27 00:07:12.125 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 225,  Estonia, 	EE 
-2020-02-27 00:07:12.126 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 226,  Egypt, 	EG 
-2020-02-27 00:07:12.127 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 227,  Eritrea, 	ER 
-2020-02-27 00:07:12.127 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 228,  Spain, 	ES 
-2020-02-27 00:07:12.127 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 229,  Ethiopia, 	ET 
-2020-02-27 00:07:12.127 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 230,  Finland, 	FI 
-2020-02-27 00:07:12.128 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 231,  Fiji, 	FJ 
-2020-02-27 00:07:12.128 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 232,  Falkland Islands, 	FK 
-2020-02-27 00:07:12.128 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 233,  France, 	FR 
-2020-02-27 00:07:12.128 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 234,  Gabon, 	GA 
-2020-02-27 00:07:12.128 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 235,  United Kingdom, 	GB 
-2020-02-27 00:07:12.129 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 236,  Grenada, 	GD 
-2020-02-27 00:07:12.129 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 237,  Georgia, 	GE 
-2020-02-27 00:07:12.129 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 238,  French Guiana, 	GF 
-2020-02-27 00:07:12.129 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 239,  Ghana, 	GH 
-2020-02-27 00:07:12.130 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 240,  Greenland, 	GL 
-2020-02-27 00:07:12.130 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 241,  Gambia, 	GM 
-2020-02-27 00:07:12.130 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 242,  Guinea, 	GN 
-2020-02-27 00:07:12.131 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 243,  Equatorial Guinea, 	GQ 
-2020-02-27 00:07:12.131 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 244,  Greece, 	GR 
-2020-02-27 00:07:12.131 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 245,  Guatemala, 	GT 
-2020-02-27 00:07:12.132 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 246,  Guinea-Bissau, 	GW 
-2020-02-27 00:07:12.132 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 247,  Guyana, 	GY 
-2020-02-27 00:07:12.133 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 248,  Honduras, 	HN 
-2020-02-27 00:07:12.133 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 249,  Croatia, 	HR 
-2020-02-27 00:07:12.133 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 250,  Haiti, 	HT 
-2020-02-27 00:07:12.133 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 251,  Hungary, 	HU 
-2020-02-27 00:07:12.134 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 252,  Indonesia, 	ID 
-2020-02-27 00:07:12.134 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 253,  Ireland, 	IE 
-2020-02-27 00:07:12.134 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 254,  Israel, 	IL 
-2020-02-27 00:07:12.134 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 255,  India, 	IN 
-2020-02-27 00:07:12.134 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 256,  Iraq, 	IQ 
-2020-02-27 00:07:12.135 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 257,  Iran, 	IR 
-2020-02-27 00:07:12.136 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 258,  Iceland, 	IS 
-2020-02-27 00:07:12.138 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 259,  Italy, 	IT 
-2020-02-27 00:07:12.138 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 260,  Jamaica, 	JM 
-2020-02-27 00:07:12.139 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 261,  Jordan, 	JO 
-2020-02-27 00:07:12.139 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 262,  Japan, 	JP 
-2020-02-27 00:07:12.139 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 263,  Kenya, 	KE 
-2020-02-27 00:07:12.140 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 264,  Kyrgyz Republic, 	KG 
-2020-02-27 00:07:12.140 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 265,  Cambodia, 	KH 
-2020-02-27 00:07:12.140 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 266,  Comoros, 	KM 
-2020-02-27 00:07:12.140 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 267,  Saint Kitts and Nevis, 	KN 
-2020-02-27 00:07:12.140 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 268,  North Korea, 	KP 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 269,  South Korea, 	KR 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 270,  Kuwait, 	KW 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 271,  Kazakhstan, 	KZ 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 272,  Lao People's Democratic Republic, 	LA 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 273,  Lebanon, 	LB 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 274,  Saint Lucia, 	LC 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 275,  Sri Lanka, 	LK 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 276,  Liberia, 	LR 
-2020-02-27 00:07:12.141 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 277,  Lesotho, 	LS 
-2020-02-27 00:07:12.142 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 278,  Lithuania, 	LT 
-2020-02-27 00:07:12.142 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 279,  Latvia, 	LV 
-2020-02-27 00:07:12.142 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 280,  Libya, 	LY 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 281,  Morocco, 	MA 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 282,  Moldova, 	MD 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 283,  Madagascar, 	MG 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 284,  Macedonia, 	MK 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 285,  Mali, 	ML 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 286,  Myanmar, 	MM 
-2020-02-27 00:07:12.143 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 287,  Mongolia, 	MN 
-2020-02-27 00:07:12.144 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 288,  Mauritania, 	MR 
-2020-02-27 00:07:12.145 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 289,  Malta, 	MT 
-2020-02-27 00:07:12.145 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 290,  Mauritius, 	MU 
-2020-02-27 00:07:12.146 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 291,  Maldives, 	MV 
-2020-02-27 00:07:12.146 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 292,  Malawi, 	MW 
-2020-02-27 00:07:12.146 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 293,  Mexico, 	MX 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 294,  Malaysia, 	MY 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 295,  Mozambique, 	MZ 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 296,  Namibia, 	NA 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 297,  New Caledonia, 	NC 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 298,  Niger, 	NE 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 299,  Nigeria, 	NG 
-2020-02-27 00:07:12.147 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 300,  Nicaragua, 	NI 
-2020-02-27 00:07:12.148 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 301,  Netherlands, 	NL 
-2020-02-27 00:07:12.291 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 302,  Norway, 	NO 
-2020-02-27 00:07:12.292 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 303,  Nepal, 	NP 
-2020-02-27 00:07:12.294 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 304,  New Zealand, 	NZ 
-2020-02-27 00:07:12.294 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 305,  Oman, 	OM 
-2020-02-27 00:07:12.294 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 306,  Panama, 	PA 
-2020-02-27 00:07:12.294 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 307,  Peru, 	PE 
-2020-02-27 00:07:12.294 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 308,  French Polynesia, 	PF 
-2020-02-27 00:07:12.498 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 309,  Papua New Guinea, 	PG 
-2020-02-27 00:07:12.499 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 310,  Philippines, 	PH 
-2020-02-27 00:07:12.499 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 311,  Pakistan, 	PK 
-2020-02-27 00:07:12.499 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 312,  Poland, 	PL 
-2020-02-27 00:07:12.500 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 313,  Portugal, 	PT 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 314,  Paraguay, 	PY 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 315,  Qatar, 	QA 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 316,  Reunion, 	RE 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 317,  Romania, 	RO 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 318,  Serbia, 	RS 
-2020-02-27 00:07:12.501 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 319,  Russian Federationß, 	RU 
-2020-02-27 00:07:12.505 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 320,  Rwanda, 	RW 
-2020-02-27 00:07:12.505 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 321,  Saudi Arabia, 	SA 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 322,  Solomon Islands, 	SB 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 323,  Seychelles, 	SC 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 324,  Sudan, 	SD 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 325,  Sweden, 	SE 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 326,  Slovenia, 	SI 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 327,  Slovakia, 	SK 
-2020-02-27 00:07:12.506 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 328,  Sierra Leone, 	SL 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 329,  Senegal, 	SN 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 330,  Somalia, 	SO 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 331,  Suriname, 	SR 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 332,  Sao Tome and Principe, 	ST 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 333,  El Salvador, 	SV 
-2020-02-27 00:07:12.507 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 334,  Syrian Arab Republic, 	SY 
-2020-02-27 00:07:12.508 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 335,  Swaziland, 	SZ 
-2020-02-27 00:07:12.508 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 336,  Chad, 	TD 
-2020-02-27 00:07:12.508 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 337,  Togo, 	TG 
-2020-02-27 00:07:12.508 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 338,  Thailand, 	TH 
-2020-02-27 00:07:12.509 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 339,  Tajikistan, 	TJ 
-2020-02-27 00:07:12.509 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 340,  Timor-Leste, 	TL 
-2020-02-27 00:07:12.509 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 341,  Turkmenistan, 	TM 
-2020-02-27 00:07:12.510 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 342,  Tunisia, 	TN 
-2020-02-27 00:07:12.510 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 343,  Turkey, 	TR 
-2020-02-27 00:07:12.510 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 344,  Trinidad and Tobago, 	TT 
-2020-02-27 00:07:12.511 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 345,  Taiwan, 	TW 
-2020-02-27 00:07:12.511 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 346,  Tanzania, 	TZ 
-2020-02-27 00:07:12.511 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 347,  Ukraine, 	UA 
-2020-02-27 00:07:12.511 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 348,  Uganda, 	UG 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 349,  United States of America, 	US 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 350,  Uruguay, 	UY 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 351,  Uzbekistan, 	UZ 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 352,  Venezuela, 	VE 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 353,  Vietnam, 	VN 
-2020-02-27 00:07:12.512 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 354,  Vanuatu, 	VU 
-2020-02-27 00:07:12.513 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 355,  Yemen, 	YE 
-2020-02-27 00:07:12.513 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 356,  South Africa, 	ZA 
-2020-02-27 00:07:12.513 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 357,  Zambia, 	ZM 
-2020-02-27 00:07:12.513 TRACE 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 358,  Zimbabwe, 	ZW 
-2020-02-27 00:07:12.513 DEBUG 1152 --- [http-nio-8080-exec-9] c.e.d.m.CountryMapper.selectByExample    : <==      Total: 183
-2020-02-27 00:07:35.138 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
-2020-02-27 00:07:35.139 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
-2020-02-27 00:07:35.141 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
-2020-02-27 00:07:35.141 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1016
-2020-02-27 00:07:35.141 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
-2020-02-27 00:07:35.143 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
-2020-02-27 00:07:35.143 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 970(Integer), 10(Integer)
-2020-02-27 00:07:35.145 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:07:35.145 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:07:35.145 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5972, 123, 2, 2, 968@qq.com, 968, 1988-07-27, 9bc36
-2020-02-27 00:07:35.145 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5973, 123, 2, 2, 969@qq.com, 969, 1964-02-27, 3dc2b
-2020-02-27 00:07:35.146 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5974, 123, 2, 2, 970@qq.com, 970, 1978-03-27, ecc4a
-2020-02-27 00:07:35.147 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5975, 123, 2, 2, 971@qq.com, 971, 1964-12-05, 28eb3
-2020-02-27 00:07:35.147 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5976, 123, 2, 2, 972@qq.com, 972, 2009-09-22, 760b0
-2020-02-27 00:07:35.147 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5977, 123, 2, 2, 973@qq.com, 973, 1966-10-21, 6e73a
-2020-02-27 00:07:35.147 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5978, 123, 2, 2, 974@qq.com, 974, 1960-11-19, cc309
-2020-02-27 00:07:35.147 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5979, 123, 2, 2, 975@qq.com, 975, 1998-06-25, fcdba
-2020-02-27 00:07:35.148 TRACE 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5980, 123, 2, 2, 976@qq.com, 976, 1961-03-13, 8b281
-2020-02-27 00:07:35.148 DEBUG 1152 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
-2020-02-27 00:07:37.083 DEBUG 1152 --- [http-nio-8080-exec-5] c.e.d.m.UserMapper.selectByPrimaryKey    : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user where user_id = ? 
-2020-02-27 00:07:37.083 DEBUG 1152 --- [http-nio-8080-exec-5] c.e.d.m.UserMapper.selectByPrimaryKey    : ==> Parameters: 5971(Integer)
-2020-02-27 00:07:37.084 TRACE 1152 --- [http-nio-8080-exec-5] c.e.d.m.UserMapper.selectByPrimaryKey    : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
-2020-02-27 00:07:37.085 TRACE 1152 --- [http-nio-8080-exec-5] c.e.d.m.UserMapper.selectByPrimaryKey    : <==        Row: 5971, 123, 2, 2, 967@qq.com, 967, 1998-04-21, 8a3b7
-2020-02-27 00:07:37.086 DEBUG 1152 --- [http-nio-8080-exec-5] c.e.d.m.UserMapper.selectByPrimaryKey    : <==      Total: 1
-2020-02-27 00:07:37.088 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : ==>  Preparing: select country_id, name, code from country 
-2020-02-27 00:07:37.088 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : ==> Parameters: 
-2020-02-27 00:07:37.090 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==    Columns: country_id, name, code
-2020-02-27 00:07:37.090 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 1, test, test
-2020-02-27 00:07:37.091 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 2, test2, test2
-2020-02-27 00:07:37.091 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 177,  United Arab Emirates, 	AE 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 178,  Afghanistan, 	AF 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 179,  Antigua and Barbuda, 	AG 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 180,  Albania, 	AL 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 181,  Armenia, 	AM 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 182,  Angola, 	AO 
-2020-02-27 00:07:37.092 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 183,  Argentina, 	AR 
-2020-02-27 00:07:37.093 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 184,  Austria, 	AT 
-2020-02-27 00:07:37.093 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 185,  Australia, 	AU 
-2020-02-27 00:07:37.093 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 186,  Azerbaijan, 	AZ 
-2020-02-27 00:07:37.093 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 187,  Bosnia and Herzegovina, 	BA 
-2020-02-27 00:07:37.094 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 188,  Barbados, 	BB 
-2020-02-27 00:07:37.094 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 189,  Bangladesh, 	BD 
-2020-02-27 00:07:37.094 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 190,  Belgium, 	BE 
-2020-02-27 00:07:37.094 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 191,  Burkina Faso, 	BF 
-2020-02-27 00:07:37.094 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 192,  Bulgaria, 	BG 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 193,  Burundi, 	BI 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 194,  Benin, 	BJ 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 195,  Brunei Darussalam, 	BN 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 196,  Bolivia, 	BO 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 197,  Brazil, 	BR 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 198,  Bahamas, 	BS 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 199,  Bhutan, 	BT 
-2020-02-27 00:07:37.095 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 200,  Botswana, 	BW 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 201,  Belarus, 	BY 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 202,  Belize, 	BZ 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 203,  Canada, 	CA 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 204,  Congo, 	CD 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 205,  Central African Republic, 	CF 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 207,  Switzerland, 	CH 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 208,  Cote d'Ivoire, 	CI 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 209,  Chile, 	CL 
-2020-02-27 00:07:37.096 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 210,  Cameroon, 	CM 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 211,  China, 	CN 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 212,  Colombia, 	CO 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 213,  Costa Rica, 	CR 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 214,  Cuba, 	CU 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 215,  Cape Verde, 	CV 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 216,  Cyprus, 	CY 
-2020-02-27 00:07:37.097 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 217,  Czech Republic, 	CZ 
-2020-02-27 00:07:37.098 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 218,  Germany, 	DE 
-2020-02-27 00:07:37.098 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 219,  Djibouti, 	DJ 
-2020-02-27 00:07:37.098 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 220,  Denmark, 	DK 
-2020-02-27 00:07:37.099 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 221,  Dominica, 	DM 
-2020-02-27 00:07:37.099 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 222,  Dominican Republic, 	DO 
-2020-02-27 00:07:37.099 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 223,  Algeria, 	DZ 
-2020-02-27 00:07:37.099 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 224,  Ecuador, 	EC 
-2020-02-27 00:07:37.099 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 225,  Estonia, 	EE 
-2020-02-27 00:07:37.100 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 226,  Egypt, 	EG 
-2020-02-27 00:07:37.100 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 227,  Eritrea, 	ER 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 228,  Spain, 	ES 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 229,  Ethiopia, 	ET 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 230,  Finland, 	FI 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 231,  Fiji, 	FJ 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 232,  Falkland Islands, 	FK 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 233,  France, 	FR 
-2020-02-27 00:07:37.101 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 234,  Gabon, 	GA 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 235,  United Kingdom, 	GB 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 236,  Grenada, 	GD 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 237,  Georgia, 	GE 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 238,  French Guiana, 	GF 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 239,  Ghana, 	GH 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 240,  Greenland, 	GL 
-2020-02-27 00:07:37.102 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 241,  Gambia, 	GM 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 242,  Guinea, 	GN 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 243,  Equatorial Guinea, 	GQ 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 244,  Greece, 	GR 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 245,  Guatemala, 	GT 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 246,  Guinea-Bissau, 	GW 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 247,  Guyana, 	GY 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 248,  Honduras, 	HN 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 249,  Croatia, 	HR 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 250,  Haiti, 	HT 
-2020-02-27 00:07:37.103 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 251,  Hungary, 	HU 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 252,  Indonesia, 	ID 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 253,  Ireland, 	IE 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 254,  Israel, 	IL 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 255,  India, 	IN 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 256,  Iraq, 	IQ 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 257,  Iran, 	IR 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 258,  Iceland, 	IS 
-2020-02-27 00:07:37.104 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 259,  Italy, 	IT 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 260,  Jamaica, 	JM 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 261,  Jordan, 	JO 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 262,  Japan, 	JP 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 263,  Kenya, 	KE 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 264,  Kyrgyz Republic, 	KG 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 265,  Cambodia, 	KH 
-2020-02-27 00:07:37.105 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 266,  Comoros, 	KM 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 267,  Saint Kitts and Nevis, 	KN 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 268,  North Korea, 	KP 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 269,  South Korea, 	KR 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 270,  Kuwait, 	KW 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 271,  Kazakhstan, 	KZ 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 272,  Lao People's Democratic Republic, 	LA 
-2020-02-27 00:07:37.106 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 273,  Lebanon, 	LB 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 274,  Saint Lucia, 	LC 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 275,  Sri Lanka, 	LK 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 276,  Liberia, 	LR 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 277,  Lesotho, 	LS 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 278,  Lithuania, 	LT 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 279,  Latvia, 	LV 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 280,  Libya, 	LY 
-2020-02-27 00:07:37.107 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 281,  Morocco, 	MA 
-2020-02-27 00:07:37.108 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 282,  Moldova, 	MD 
-2020-02-27 00:07:37.108 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 283,  Madagascar, 	MG 
-2020-02-27 00:07:37.108 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 284,  Macedonia, 	MK 
-2020-02-27 00:07:37.109 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 285,  Mali, 	ML 
-2020-02-27 00:07:37.109 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 286,  Myanmar, 	MM 
-2020-02-27 00:07:37.109 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 287,  Mongolia, 	MN 
-2020-02-27 00:07:37.109 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 288,  Mauritania, 	MR 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 289,  Malta, 	MT 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 290,  Mauritius, 	MU 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 291,  Maldives, 	MV 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 292,  Malawi, 	MW 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 293,  Mexico, 	MX 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 294,  Malaysia, 	MY 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 295,  Mozambique, 	MZ 
-2020-02-27 00:07:37.110 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 296,  Namibia, 	NA 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 297,  New Caledonia, 	NC 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 298,  Niger, 	NE 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 299,  Nigeria, 	NG 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 300,  Nicaragua, 	NI 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 301,  Netherlands, 	NL 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 302,  Norway, 	NO 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 303,  Nepal, 	NP 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 304,  New Zealand, 	NZ 
-2020-02-27 00:07:37.111 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 305,  Oman, 	OM 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 306,  Panama, 	PA 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 307,  Peru, 	PE 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 308,  French Polynesia, 	PF 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 309,  Papua New Guinea, 	PG 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 310,  Philippines, 	PH 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 311,  Pakistan, 	PK 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 312,  Poland, 	PL 
-2020-02-27 00:07:37.112 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 313,  Portugal, 	PT 
-2020-02-27 00:07:37.113 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 314,  Paraguay, 	PY 
-2020-02-27 00:07:37.113 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 315,  Qatar, 	QA 
-2020-02-27 00:07:37.113 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 316,  Reunion, 	RE 
-2020-02-27 00:07:37.113 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 317,  Romania, 	RO 
-2020-02-27 00:07:37.113 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 318,  Serbia, 	RS 
-2020-02-27 00:07:37.114 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 319,  Russian Federationß, 	RU 
-2020-02-27 00:07:37.114 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 320,  Rwanda, 	RW 
-2020-02-27 00:07:37.114 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 321,  Saudi Arabia, 	SA 
-2020-02-27 00:07:37.114 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 322,  Solomon Islands, 	SB 
-2020-02-27 00:07:37.114 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 323,  Seychelles, 	SC 
-2020-02-27 00:07:37.115 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 324,  Sudan, 	SD 
-2020-02-27 00:07:37.115 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 325,  Sweden, 	SE 
-2020-02-27 00:07:37.115 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 326,  Slovenia, 	SI 
-2020-02-27 00:07:37.115 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 327,  Slovakia, 	SK 
-2020-02-27 00:07:37.116 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 328,  Sierra Leone, 	SL 
-2020-02-27 00:07:37.116 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 329,  Senegal, 	SN 
-2020-02-27 00:07:37.116 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 330,  Somalia, 	SO 
-2020-02-27 00:07:37.116 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 331,  Suriname, 	SR 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 332,  Sao Tome and Principe, 	ST 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 333,  El Salvador, 	SV 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 334,  Syrian Arab Republic, 	SY 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 335,  Swaziland, 	SZ 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 336,  Chad, 	TD 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 337,  Togo, 	TG 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 338,  Thailand, 	TH 
-2020-02-27 00:07:37.117 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 339,  Tajikistan, 	TJ 
-2020-02-27 00:07:37.118 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 340,  Timor-Leste, 	TL 
-2020-02-27 00:07:37.118 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 341,  Turkmenistan, 	TM 
-2020-02-27 00:07:37.118 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 342,  Tunisia, 	TN 
-2020-02-27 00:07:37.119 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 343,  Turkey, 	TR 
-2020-02-27 00:07:37.119 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 344,  Trinidad and Tobago, 	TT 
-2020-02-27 00:07:37.119 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 345,  Taiwan, 	TW 
-2020-02-27 00:07:37.120 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 346,  Tanzania, 	TZ 
-2020-02-27 00:07:37.121 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 347,  Ukraine, 	UA 
-2020-02-27 00:07:37.124 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 348,  Uganda, 	UG 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 349,  United States of America, 	US 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 350,  Uruguay, 	UY 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 351,  Uzbekistan, 	UZ 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 352,  Venezuela, 	VE 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 353,  Vietnam, 	VN 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 354,  Vanuatu, 	VU 
-2020-02-27 00:07:37.125 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 355,  Yemen, 	YE 
-2020-02-27 00:07:37.126 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 356,  South Africa, 	ZA 
-2020-02-27 00:07:37.126 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 357,  Zambia, 	ZM 
-2020-02-27 00:07:37.126 TRACE 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==        Row: 358,  Zimbabwe, 	ZW 
-2020-02-27 00:07:37.126 DEBUG 1152 --- [http-nio-8080-exec-8] c.e.d.m.CountryMapper.selectByExample    : <==      Total: 183
+2020-02-28 00:20:33.321  INFO 15168 --- [restartedMain] com.example.demo.DemoApplication         : Starting DemoApplication on HAN-air with PID 15168 (C:\Users\11437\IdeaProjects\demo\target\classes started by admin in C:\Users\11437\IdeaProjects\demo)
+2020-02-28 00:20:33.333 DEBUG 15168 --- [restartedMain] com.example.demo.DemoApplication         : Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2020-02-28 00:20:33.333  INFO 15168 --- [restartedMain] com.example.demo.DemoApplication         : No active profile set, falling back to default profiles: default
+2020-02-28 00:20:33.495  INFO 15168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2020-02-28 00:20:33.496  INFO 15168 --- [restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2020-02-28 00:20:35.038  INFO 15168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2020-02-28 00:20:35.038  INFO 15168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2020-02-28 00:20:35.158  INFO 15168 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 65ms. Found 0 Redis repository interfaces.
+2020-02-28 00:20:36.369  INFO 15168 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-02-28 00:20:36.495 ERROR 15168 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.22] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2020-02-28 00:20:36.819 ERROR 15168 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.22] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2020-02-28 00:20:37.347  INFO 15168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-02-28 00:20:37.367 ERROR 15168 --- [restartedMain] o.a.catalina.core.AprLifecycleListener   : An incompatible version [1.1.22] of the APR based Apache Tomcat Native library is installed, while Tomcat requires version [1.2.14]
+2020-02-28 00:20:37.367  INFO 15168 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-02-28 00:20:37.367  INFO 15168 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.30]
+2020-02-28 00:20:37.547  INFO 15168 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-02-28 00:20:37.547  INFO 15168 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 4050 ms
+2020-02-28 00:20:38.627  INFO 15168 --- [restartedMain] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8510139a-2f8e-4ba8-9c4d-67709ce52913
+
+2020-02-28 00:20:38.783  INFO 15168 --- [restartedMain] o.s.s.web.DefaultSecurityFilterChain     : Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@3fb5112f, org.springframework.security.web.context.SecurityContextPersistenceFilter@431ef0d3, org.springframework.security.web.header.HeaderWriterFilter@3ac9e7d4, org.springframework.security.web.csrf.CsrfFilter@67b0d564, org.springframework.security.web.authentication.logout.LogoutFilter@d19cae8, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@36d74e14, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@32708dea, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@50721e47, org.springframework.security.web.session.SessionManagementFilter@58554401, org.springframework.security.web.access.ExceptionTranslationFilter@45e4a830, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@20ecd188]
+2020-02-28 00:20:39.049  INFO 15168 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-02-28 00:20:39.159  INFO 15168 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2020-02-28 00:20:40.200  INFO 15168 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2020-02-28 00:20:40.265  INFO 15168 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-02-28 00:20:40.270  INFO 15168 --- [restartedMain] com.example.demo.DemoApplication         : Started DemoApplication in 7.746 seconds (JVM running for 9.843)
+2020-02-28 00:27:19.099  INFO 15168 --- [http-nio-8080-exec-4] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2020-02-28 00:27:19.100  INFO 15168 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2020-02-28 00:27:19.110  INFO 15168 --- [http-nio-8080-exec-4] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2020-02-28 00:27:19.209  INFO 15168 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2020-02-28 00:27:19.480  INFO 15168 --- [http-nio-8080-exec-4] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2020-02-28 00:27:19.542 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:27:19.564 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:27:19.602 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:27:19.602 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1014
+2020-02-28 00:27:19.606 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:27:19.610 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:27:19.611 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 980(Integer), 10(Integer)
+2020-02-28 00:27:19.616 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:27:19.617 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5981, 123, 2, 2, 977@qq.com, 977, 1970-09-23, a27c0
+2020-02-28 00:27:19.619 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5982, 123, 2, 2, 978@qq.com, 978, 2000-05-22, 02b0a
+2020-02-28 00:27:19.620 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5983, 123, 2, 2, 979@qq.com, 979, 2003-04-16, 75d88
+2020-02-28 00:27:19.620 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5984, 123, 2, 2, 980@qq.com, 980, 1987-02-20, 8bebc
+2020-02-28 00:27:19.622 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5985, 123, 2, 2, 981@qq.com, 981, 1975-01-10, 4c8f7
+2020-02-28 00:27:19.623 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5986, 123, 2, 2, 982@qq.com, 982, 1975-05-02, 2997d
+2020-02-28 00:27:19.625 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5987, 123, 2, 2, 983@qq.com, 983, 1981-08-21, f655e
+2020-02-28 00:27:19.625 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5988, 123, 2, 2, 984@qq.com, 984, 1968-10-15, 3d866
+2020-02-28 00:27:19.626 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5989, 123, 2, 2, 985@qq.com, 985, 2004-11-14, 56cc6
+2020-02-28 00:27:19.626 TRACE 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 5990, 123, 2, 2, 986@qq.com, 986, 1977-10-15, 34b40
+2020-02-28 00:27:19.627 DEBUG 15168 --- [http-nio-8080-exec-4] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
+2020-02-28 00:27:23.163 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:27:23.164 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:27:23.166 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:27:23.166 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1014
+2020-02-28 00:27:23.166 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:27:23.167 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:27:23.167 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1010(Integer), 10(Integer)
+2020-02-28 00:27:23.170 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:27:23.170 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6011, 123456, 0, 1, 1140280@qq.com, 15797901828, null, 12312121
+2020-02-28 00:27:23.171 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6012, 123456, 0, 1, 20268@qq.com, 15797901828, null, 22333
+2020-02-28 00:27:23.173 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6013, 123456, 0, 1, 243780280@qq.com, 15797901828, null, 2222q
+2020-02-28 00:27:23.174 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6014, 123456, 0, 1, bbb, 15797901828, null, bbb
+2020-02-28 00:27:23.174 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 4
+2020-02-28 00:30:06.866 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:30:06.867 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:30:06.870 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:30:06.870 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1014
+2020-02-28 00:30:06.871 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:30:06.875 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:30:06.876 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1010(Integer), 10(Integer)
+2020-02-28 00:30:06.879 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:30:06.879 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6011, 123456, 0, 1, 1140280@qq.com, 15797901828, null, 12312121
+2020-02-28 00:30:06.880 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6012, 123456, 0, 1, 20268@qq.com, 15797901828, null, 22333
+2020-02-28 00:30:06.884 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6013, 123456, 0, 1, 243780280@qq.com, 15797901828, null, 2222q
+2020-02-28 00:30:06.885 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6014, 123456, 0, 1, bbb, 15797901828, null, bbb
+2020-02-28 00:30:06.886 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 4
+2020-02-28 00:30:09.694 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:30:09.695 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:30:09.697 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:30:09.698 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1014
+2020-02-28 00:30:09.698 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:30:09.700 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:30:09.701 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1010(Integer), 10(Integer)
+2020-02-28 00:30:09.704 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:30:09.707 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6011, 123456, 0, 1, 1140280@qq.com, 15797901828, null, 12312121
+2020-02-28 00:30:09.709 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6012, 123456, 0, 1, 20268@qq.com, 15797901828, null, 22333
+2020-02-28 00:30:09.709 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6013, 123456, 0, 1, 243780280@qq.com, 15797901828, null, 2222q
+2020-02-28 00:30:09.710 TRACE 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6014, 123456, 0, 1, bbb, 15797901828, null, bbb
+2020-02-28 00:30:09.710 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 4
+2020-02-28 00:30:14.070 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.deleteByExample  : ==>  Preparing: delete from user WHERE ( user_id in ( ? , ? , ? , ? ) ) 
+2020-02-28 00:30:14.070 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.deleteByExample  : ==> Parameters: 6011(Integer), 6012(Integer), 6013(Integer), 6014(Integer)
+2020-02-28 00:30:14.091 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.deleteByExample  : <==    Updates: 4
+2020-02-28 00:31:20.887 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:31:20.891 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:31:20.895 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:31:20.895 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1010
+2020-02-28 00:31:20.896 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:31:20.902 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:31:20.903 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1000(Integer), 10(Integer)
+2020-02-28 00:31:20.908 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:31:20.910 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6001, 123, 2, 2, 997@qq.com, 997, 1979-09-29, 7c4f8
+2020-02-28 00:31:20.912 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6002, 123, 2, 2, 998@qq.com, 998, 1992-02-28, ede21
+2020-02-28 00:31:20.913 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6003, 123, 2, 2, 999@qq.com, 999, 2009-10-12, fa04c
+2020-02-28 00:31:20.914 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6004, 123, 0, 1, 1143780280@qq.com, 15797901828, 2020-02-01, 12312121
+2020-02-28 00:31:20.915 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6005, 123, 0, 1, 44, 44, 2020-02-08, 4
+2020-02-28 00:31:20.915 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6006, 123, 0, 1, 4, 4, 2020-02-10, 44
+2020-02-28 00:31:20.919 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6007, 123, 0, 1, 1233, 33, 2020-01-31, 321
+2020-02-28 00:31:20.921 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6008, 123, 0, 2, 222, 22, 2020-02-09, 22
+2020-02-28 00:31:20.921 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6009, 123, 0, 1, 3333, 3333, 2020-02-16, 3333
+2020-02-28 00:31:20.923 TRACE 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6010, 123456, 0, 1, 2522960268@qq.com, 15797901828, 2020-02-07, 12312121
+2020-02-28 00:31:20.924 DEBUG 15168 --- [http-nio-8080-exec-1] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
+2020-02-28 00:31:24.560 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:31:24.562 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:31:24.567 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:31:24.567 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1010
+2020-02-28 00:31:24.568 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:31:24.569 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:31:24.571 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1000(Integer), 10(Integer)
+2020-02-28 00:31:24.578 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:31:24.578 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6001, 123, 2, 2, 997@qq.com, 997, 1979-09-29, 7c4f8
+2020-02-28 00:31:24.579 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6002, 123, 2, 2, 998@qq.com, 998, 1992-02-28, ede21
+2020-02-28 00:31:24.579 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6003, 123, 2, 2, 999@qq.com, 999, 2009-10-12, fa04c
+2020-02-28 00:31:24.580 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6004, 123, 0, 1, 1143780280@qq.com, 15797901828, 2020-02-01, 12312121
+2020-02-28 00:31:24.580 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6005, 123, 0, 1, 44, 44, 2020-02-08, 4
+2020-02-28 00:31:24.581 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6006, 123, 0, 1, 4, 4, 2020-02-10, 44
+2020-02-28 00:31:24.581 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6007, 123, 0, 1, 1233, 33, 2020-01-31, 321
+2020-02-28 00:31:24.581 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6008, 123, 0, 2, 222, 22, 2020-02-09, 22
+2020-02-28 00:31:24.582 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6009, 123, 0, 1, 3333, 3333, 2020-02-16, 3333
+2020-02-28 00:31:24.582 TRACE 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6010, 123456, 0, 1, 2522960268@qq.com, 15797901828, 2020-02-07, 12312121
+2020-02-28 00:31:24.583 DEBUG 15168 --- [http-nio-8080-exec-10] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 10
+2020-02-28 00:31:34.103 DEBUG 15168 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.deleteByExample  : ==>  Preparing: delete from user WHERE ( user_id in ( ? , ? ) ) 
+2020-02-28 00:31:34.105 DEBUG 15168 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.deleteByExample  : ==> Parameters: 6001(Integer), 6002(Integer)
+2020-02-28 00:31:34.109 DEBUG 15168 --- [http-nio-8080-exec-3] c.e.d.mapper.UserMapper.deleteByExample  : <==    Updates: 2
+2020-02-28 00:31:42.371 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:31:42.372 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:31:42.374 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:31:42.375 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1008
+2020-02-28 00:31:42.376 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:31:42.380 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:31:42.394 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1000(Integer), 10(Integer)
+2020-02-28 00:31:42.397 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:31:42.397 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6003, 123, 2, 2, 999@qq.com, 999, 2009-10-12, fa04c
+2020-02-28 00:31:42.398 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6004, 123, 0, 1, 1143780280@qq.com, 15797901828, 2020-02-01, 12312121
+2020-02-28 00:31:42.398 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6005, 123, 0, 1, 44, 44, 2020-02-08, 4
+2020-02-28 00:31:42.399 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6006, 123, 0, 1, 4, 4, 2020-02-10, 44
+2020-02-28 00:31:42.399 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6007, 123, 0, 1, 1233, 33, 2020-01-31, 321
+2020-02-28 00:31:42.400 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6008, 123, 0, 2, 222, 22, 2020-02-09, 22
+2020-02-28 00:31:42.400 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6009, 123, 0, 1, 3333, 3333, 2020-02-16, 3333
+2020-02-28 00:31:42.401 TRACE 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6010, 123456, 0, 1, 2522960268@qq.com, 15797901828, 2020-02-07, 12312121
+2020-02-28 00:31:42.401 DEBUG 15168 --- [http-nio-8080-exec-8] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 8
+2020-02-28 00:31:47.015 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.deleteByExample  : ==>  Preparing: delete from user WHERE ( user_id in ( ? , ? ) ) 
+2020-02-28 00:31:47.016 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.deleteByExample  : ==> Parameters: 6003(Integer), 6004(Integer)
+2020-02-28 00:31:47.020 DEBUG 15168 --- [http-nio-8080-exec-9] c.e.d.mapper.UserMapper.deleteByExample  : <==    Updates: 2
+2020-02-28 00:31:49.392 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==>  Preparing: SELECT count(0) FROM user 
+2020-02-28 00:31:49.393 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : ==> Parameters: 
+2020-02-28 00:31:49.396 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==    Columns: count(0)
+2020-02-28 00:31:49.396 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==        Row: 1006
+2020-02-28 00:31:49.396 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.m.U.selectByExample_COUNT          : <==      Total: 1
+2020-02-28 00:31:49.399 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==>  Preparing: select user_id, password, rule, country_id, email, mobile, birthday, name from user LIMIT ?, ? 
+2020-02-28 00:31:49.400 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : ==> Parameters: 1000(Integer), 10(Integer)
+2020-02-28 00:31:49.404 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==    Columns: user_id, password, rule, country_id, email, mobile, birthday, name
+2020-02-28 00:31:49.404 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6005, 123, 0, 1, 44, 44, 2020-02-08, 4
+2020-02-28 00:31:49.404 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6006, 123, 0, 1, 4, 4, 2020-02-10, 44
+2020-02-28 00:31:49.405 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6007, 123, 0, 1, 1233, 33, 2020-01-31, 321
+2020-02-28 00:31:49.406 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6008, 123, 0, 2, 222, 22, 2020-02-09, 22
+2020-02-28 00:31:49.407 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6009, 123, 0, 1, 3333, 3333, 2020-02-16, 3333
+2020-02-28 00:31:49.409 TRACE 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==        Row: 6010, 123456, 0, 1, 2522960268@qq.com, 15797901828, 2020-02-07, 12312121
+2020-02-28 00:31:49.409 DEBUG 15168 --- [http-nio-8080-exec-6] c.e.d.mapper.UserMapper.selectByExample  : <==      Total: 6
