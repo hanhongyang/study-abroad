@@ -69,12 +69,12 @@ public class UserController {
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name);
+                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,null);
                 userService.save(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name);
+                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,null);
                 userService.save(user);
                 return Msg.success();
             }
@@ -98,12 +98,12 @@ public class UserController {
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name);
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,null);
                 userService.updateUser(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name);
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,null);
                 userService.updateUser(user);
                 return Msg.success();
             }
@@ -117,7 +117,7 @@ public class UserController {
      * 单个或批量根据userId删除user
      * 批量：1,2,3
      * 单个：1
-     * @param userId
+     * @param
      * @return
      */
     @ResponseBody

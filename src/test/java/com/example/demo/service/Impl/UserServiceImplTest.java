@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
@@ -28,4 +31,16 @@ UserService userService;
         User user=userService.getUser(userId);
         System.out.println(user.getBirthday());
     }
+    @Test
+    void getAll(){
+        System.out.println(userService.getAll());
+    }
+    @Test
+    void batchDelete(){
+        List<Integer> userIdList=new ArrayList<>();
+        userIdList.add(100);
+        userIdList.add(200);
+        userService.batchDelete(userIdList);
+    }
+
 }

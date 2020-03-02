@@ -46,8 +46,9 @@ public class CountryServiceImpl implements CountryService {
                     String code=s.substring(0,s.indexOf("="));
                     String region=s.substring(s.indexOf("=")+1);
                     //存入数据库
+
                     try{
-                        countryMapper.insert(new Country(null,region,code));
+                        countryMapper.insert2(new Country(null,region,code,null));
                         if (i % 20 == 0 || i == 1000) {
                             //手动每1000个一提交，提交后无法回滚
                             session.commit();
@@ -74,7 +75,7 @@ public class CountryServiceImpl implements CountryService {
     }
     @Override
     public List<Country> getAll() {
-        return countryMapper.selectByExample(null);
+        return countryMapper.getAll();
     }
 
 }

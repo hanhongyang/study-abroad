@@ -2,9 +2,9 @@ package com.example.demo.service.Impl;
 
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
-import com.example.demo.model.UserExample;
 import com.example.demo.service.UserService;
 import com.example.demo.util.RandomBirthday;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -14,8 +14,10 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
+import java.util.logging.Logger;
 
 @Service
+@Slf4j
 public class UserServiceImpl implements UserService {
     @Autowired
     private SqlSessionTemplate sqlSessionTemplate;//引入bean
@@ -33,7 +35,7 @@ public class UserServiceImpl implements UserService {
                 //随机生成生日
                 Date birthday= RandomBirthday.randomDate("1960-01-01","2010-12-31");
 
-                userMapper.insert(new User(null,"123",2,2,i+"@qq.com",i+"",birthday,uid));
+                userMapper.insert(new User(null,"123",2,2,i+"@qq.com",i+"",birthday,uid,null));
                 if (i % 100 == 0 || i == 1000) {
                     //手动每1000个一提交，提交后无法回滚
                     session.commit();
@@ -63,7 +65,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
-        return userMapper.selectByExample(null);
+        return userMapper.getAll();
     }
 
     @Override
@@ -78,10 +80,7 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public boolean checkEmail(String email) {
-        UserExample userExample=new UserExample();
-        UserExample.Criteria criteria=userExample.createCriteria();
-        criteria.andEmailEqualTo(email);
-        long count=userMapper.countByExample(userExample);
+        long count=userMapper.checkEmail(email);
         return count==0;
     }
 
@@ -91,22 +90,29 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     public void updateUser(User user) {
-        userMapper.updateByPrimaryKeySelective(user);
+        userMapper.updateUser(user);
     }
 
     @Override
     public void batchDelete(List<Integer> userIdList) {
-        UserExample userExample=new UserExample();
-        UserExample.Criteria criteria=userExample.createCriteria();
+        //将userId集合拼接到字符串中，以逗号分割。
+        String userId="";
+        StringBuffer userIds=new StringBuffer();
+        for(int i=0;i<userIdList.size();i++){
+            userId=userIdList.get(i).toString()+",";
+            userIds.append(userId);
+        }
+        //去掉最后一个逗号
+        userId=userIds.toString().substring(0,userIds.length()-1);
+        log.info(userId);
         //delete from user where userId in(     )
-        criteria.andUserIdIn(userIdList);
-        userMapper.deleteByExample(userExample);
+        userMapper.batchDelete(userId);
     }
 
     @Override
     public void save(User user) {
         //用户Id是null，数据库自增Id，所以用insertSelective（）；
-       userMapper.insertSelective(user);
+       userMapper.insert(user);
     }
 
     @Override
