@@ -3,9 +3,11 @@ package com.example.demo.controller;
 import com.example.demo.model.Msg;
 import com.example.demo.model.User;
 import com.example.demo.service.Impl.UserServiceImpl;
+import com.example.demo.util.PicUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.text.SimpleDateFormat;
@@ -22,6 +25,8 @@ import java.util.*;
 public class UserController {
     @Autowired
     UserServiceImpl userService;
+    @Value("${userIconDefaultUrl}")
+    private String DefaultIcon;
     /**
      * 查询用户数据。分页查询
      * @return 用户列表
@@ -69,12 +74,12 @@ public class UserController {
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,null);
+                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,DefaultIcon);
                 userService.save(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,null);
+                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,DefaultIcon);
                 userService.save(user);
                 return Msg.success();
             }
@@ -93,17 +98,28 @@ public class UserController {
                           @RequestParam(value = "email")String email,
                           @RequestParam(value = "mobile")String mobile,
                           @RequestParam(value = "birthday",defaultValue = "")String birthday,
-                          @RequestParam(value = "name")String name){
+                          @RequestParam(value = "name")String name,
+                          @RequestParam(value = "icon")String icon,
+                          HttpServletRequest httpServletRequest){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        //如果上传头像为空则设为默认头像
+        if(icon==null){
+            icon=DefaultIcon;
+        }else {
+            //截取icon路径
+            String iconUrl = "";
+            iconUrl = PicUtil.pictureUtil(icon, httpServletRequest);
+            icon = iconUrl;
+        }
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,null);
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,icon);
                 userService.updateUser(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,null);
+                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,icon);
                 userService.updateUser(user);
                 return Msg.success();
             }

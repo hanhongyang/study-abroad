@@ -58,8 +58,8 @@ public interface UserMapper {
             "mobile=#{user.mobile}," +
             "birthday=#{user.birthday}," +
             "name=#{user.name}," +
-            "icon=#{user.icon} where user_id={user.userId}")
-    public void updateUser(User user);
+            "icon=#{user.icon} where user_id=#{user.userId}")
+    public void updateUser(@Param("user") User user);
 
     //批量删除user
     @Delete("delete from user where user_id in (#{userIds})")

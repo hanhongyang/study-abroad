@@ -236,6 +236,7 @@ function getUser(userId) {
                 $("#birthdayUpdate").val(birthday);
             }
             $("#nameUpdate").val(userData.name);
+            $("#iconImg").attr("src",userData.icon);
         }
     })
 }
@@ -251,6 +252,22 @@ $("#userUpdateBtn").click(function () {
     }
     //获取当前页码
     var pageNum=parseInt($(this).attr("data-pageNum"));
+    //formData封装提交的数据
+
+    var formData = new FormData();
+    formData.append('rule',$("#userUpdateModal input[name=rule]").val());
+    formData.append('password',$("#passwordUpdate").val());
+    formData.append('countryId',$("#userUpdateModal select").val());
+    formData.append('email',$("#emailUpdate").val());
+    formData.append('mobile',$("#mobileUpdate").val());
+    formData.append('birthday',$("#birthdayUpdate").val());
+    formData.append('name',$("#nameUpdate").val());
+    if(!judgeEmpty($("#iconImg").attr('src'))){
+        formData.append('icon',$("#iconImg").attr('src'));
+    }else {
+        formData.append('icon',null);
+    }
+
     //发送ajax保存user更新的数据
     $.ajax({
         url:"/user/"+$(this).attr("userId"),
@@ -258,7 +275,9 @@ $("#userUpdateBtn").click(function () {
         beforeSend : function(xhr) {
             xhr.setRequestHeader(header, token);
         },
-        data:$("#userUpdateModal form").serialize(),
+        data:formData,
+        processData: false,   // jQuery不要去处理发送的数据
+        contentType: false,   // jQuery不要去设置Content-Type请求头
         success:function (result) {
             //关闭模态框
             $("#userUpdateModal").modal("hide");
@@ -328,3 +347,58 @@ $("#userDeleteBtn").click(function () {
     }
 
 })
+
+//鼠标放在上传头像上时改变css
+$("#iconImg").hover(function () {
+    $(this).css("-webkit-filter"," blur(2px)");
+},function(){
+    $(this).css("-webkit-filter"," blur(0px)")
+});
+//气泡提示框
+$("#iconImg").popover({
+    placement:'right',
+    trigger: 'hover',
+    content:'点击头像即可更换',
+})
+// 上传数量控制，给出默认值
+var iconNum = 1;
+// 上传数量控制，判断是否定义并赋值
+iconNum = typeof iconNum != "undefined" && iconNum ? iconNum : 1;
+// 上传大小控制，当前为1M
+var iconSize = 5*1024*1024;
+/**
+ * 判断文件是否为空
+ */
+function judgeEmpty(data) {
+    return (Array.isArray(data) && data.length === 0) || (Object.prototype.isPrototypeOf(data) && Object.keys(data).length === 0);
+}
+/**
+ * 文件选择触发
+ */
+$("#iconUpdate").change(function (){
+    var file = this.files[0];
+    if( file.size >  iconSize){
+        alert("你选择的文件太大了！");
+        return false;
+    }
+    if(!/image\/\w+/.test(file.type)){
+        alert("文件必须为图片！");
+        return false;
+    }
+    var reader = new FileReader();
+    //读取文件过程方法
+    reader.onerror = function (e) {
+        console.log("文件读取异常....");alert('文件上传异常请关闭重试....');
+    }
+    reader.onabort = function(e) {
+        console.log("文件读取异常....");alert('文件上传异常请关闭重试....');
+    };
+    reader.onload = function (e) {
+        var url=e.target.result;
+        document.getElementById("iconImg").src=url;
+    }
+    //readAsDataURL方法会使用base-64进行编码，编码的资料由data字串开始，
+    // 后面跟随的是MIME type，然后再加上base64字串，逗号之后就是编码过的图像文件的内容。
+    reader.readAsDataURL(file);
+});
+

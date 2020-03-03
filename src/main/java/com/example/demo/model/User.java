@@ -2,6 +2,7 @@ package com.example.demo.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.Pattern;
 import java.util.Date;
@@ -23,5 +24,6 @@ public class User {
     private Date birthday;
 
     private String name;
+
     private String icon;
 }
