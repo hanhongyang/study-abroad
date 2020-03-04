@@ -37,7 +37,7 @@ public class UserController {
         //在查询之前只需要调用，传入页码，以及每页的大小
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询
-        List<User> users=userService.getAll();
+        List<User> users=userService.getAllWithCountry();
         //用pageinfo包装查询结果，只需要将pageinfo交给页面就行了
         PageInfo pageInfo=new PageInfo(users);
         model.addAttribute("pageInfo",pageInfo);

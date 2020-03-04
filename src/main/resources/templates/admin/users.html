@@ -241,7 +241,7 @@
                                     <th>icon</th>
                                     <th>password</th>
                                     <th>rule</th>
-                                    <th>countryId</th>
+                                    <th>country</th>
                                     <th>email</th>
                                     <th>mobile</th>
                                     <th>birthday</th>
@@ -267,7 +267,7 @@
                                         <td th:case="1">超级管理员</td>
                                         <td th:case="2">学校管理员</td>
                                     </div>
-                                    <td th:text="${user.countryId}"></td>
+                                    <td th:text="${user.country.name}"></td>
                                     <td th:text="${user.email}"></td>
                                     <td th:text="${user.mobile}"></td>
                                     <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>

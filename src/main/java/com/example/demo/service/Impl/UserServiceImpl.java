@@ -69,6 +69,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> getAllWithCountry() {
+        return userMapper.getAllWithCountry();
+    }
+
+    @Override
     public User getUser(Integer userId) {
         return userMapper.selectByPrimaryKey(userId);
     }
@@ -107,6 +112,11 @@ public class UserServiceImpl implements UserService {
         log.info(userId);
         //delete from user where userId in(     )
         userMapper.batchDelete(userId);
+    }
+
+    @Override
+    public void login() {
+
     }
 
     @Override

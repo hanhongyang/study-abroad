@@ -17,6 +17,8 @@ public interface UserService {
     void deleteByUserId(Integer userId);
     //查询所有users
     List<User> getAll();
+    //查询所有users携带国家信息
+    List<User> getAllWithCountry();
     //根据userId取User
     User getUser(Integer userId);
     //判断email是否可用
@@ -25,4 +27,6 @@ public interface UserService {
     void updateUser(User user);
     //批量删除user
     void batchDelete(List<Integer> userIdList);
+    //登录
+    void login();
 }

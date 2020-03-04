@@ -42,5 +42,8 @@ UserService userService;
         userIdList.add(200);
         userService.batchDelete(userIdList);
     }
-
+    @Test
+    void getAllWithCountry(){
+        System.out.println(userService.getAllWithCountry());
+    }
 }

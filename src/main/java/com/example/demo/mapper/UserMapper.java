@@ -24,6 +24,21 @@ public interface UserMapper {
     })
     public List<User> getAll();
 
+    //查询所有user携带国家信息
+    @Select("select * from user")
+    @Results(id="UserWithCountryMap",value={
+            @Result(property = "userId", column = "user_id", jdbcType= JdbcType.INTEGER),
+            @Result(property = "password", column = "password"),
+            @Result(property = "rule", column = "rule"),
+            @Result(property = "countryId", column = "country_id"),
+            @Result(property = "email", column = "email"),
+            @Result(property = "mobile", column = "mobile"),
+            @Result(property = "birthday", column = "birthday"),
+            @Result(property = "name", column = "name"),
+            @Result(property = "icon", column = "icon"),
+            @Result(property = "country", column = "country_id",one = @One(select = "com.example.demo.mapper.CountryMapper.getById"))
+    })
+    public List<User> getAllWithCountry();
     //插入一条user数据
     @Insert("insert into user(user_id,password,rule,country_id,email,mobile,birthday,name,icon) " +
             "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon},)")

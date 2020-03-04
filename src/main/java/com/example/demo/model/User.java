@@ -26,4 +26,18 @@ public class User {
     private String name;
 
     private String icon;
+
+    public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name, String icon) {
+        this.userId = userId;
+        this.password = password;
+        this.rule = rule;
+        this.countryId = countryId;
+        this.email = email;
+        this.mobile = mobile;
+        this.birthday = birthday;
+        this.name = name;
+        this.icon = icon;
+    }
+
+    private Country country;
 }
