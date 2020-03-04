@@ -253,7 +253,6 @@ $("#userUpdateBtn").click(function () {
     //获取当前页码
     var pageNum=parseInt($(this).attr("data-pageNum"));
     //formData封装提交的数据
-
     var formData = new FormData();
     formData.append('rule',$("#userUpdateModal input[name=rule]").val());
     formData.append('password',$("#passwordUpdate").val());
@@ -262,12 +261,7 @@ $("#userUpdateBtn").click(function () {
     formData.append('mobile',$("#mobileUpdate").val());
     formData.append('birthday',$("#birthdayUpdate").val());
     formData.append('name',$("#nameUpdate").val());
-    if(!judgeEmpty($("#iconImg").attr('src'))){
-        formData.append('icon',$("#iconImg").attr('src'));
-    }else {
-        formData.append('icon',null);
-    }
-
+    formData.append('icon',$("#iconImg").attr('src'));
     //发送ajax保存user更新的数据
     $.ajax({
         url:"/user/"+$(this).attr("userId"),
@@ -365,7 +359,7 @@ var iconNum = 1;
 // 上传数量控制，判断是否定义并赋值
 iconNum = typeof iconNum != "undefined" && iconNum ? iconNum : 1;
 // 上传大小控制，当前为1M
-var iconSize = 5*1024*1024;
+var iconSize = 1*1024*1024;
 /**
  * 判断文件是否为空
  */
@@ -388,10 +382,10 @@ $("#iconUpdate").change(function (){
     var reader = new FileReader();
     //读取文件过程方法
     reader.onerror = function (e) {
-        console.log("文件读取异常....");alert('文件上传异常请关闭重试....');
+        alert('文件上传异常请关闭重试....');
     }
     reader.onabort = function(e) {
-        console.log("文件读取异常....");alert('文件上传异常请关闭重试....');
+        alert('文件上传异常请关闭重试....');
     };
     reader.onload = function (e) {
         var url=e.target.result;

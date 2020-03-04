@@ -6,6 +6,7 @@ import com.example.demo.service.Impl.UserServiceImpl;
 import com.example.demo.util.PicUtil;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.BindResult;
@@ -20,7 +21,7 @@ import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
+@Slf4j
 @Controller
 public class UserController {
     @Autowired
@@ -99,17 +100,16 @@ public class UserController {
                           @RequestParam(value = "mobile")String mobile,
                           @RequestParam(value = "birthday",defaultValue = "")String birthday,
                           @RequestParam(value = "name")String name,
-                          @RequestParam(value = "icon")String icon,
-                          HttpServletRequest httpServletRequest){
+                          @RequestParam(value = "icon")String icon){
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        //如果上传头像为空则设为默认头像
-        if(icon==null){
-            icon=DefaultIcon;
-        }else {
+        //判断头像是否修改
+        if("data".equals(icon.substring(0,4))) {//本地上传的图片
             //截取icon路径
             String iconUrl = "";
-            iconUrl = PicUtil.pictureUtil(icon, httpServletRequest);
+            iconUrl = PicUtil.pictureUtil(icon);
             icon = iconUrl;
+        }else {
+            log.info("没有修改头像");
         }
         try{
             //判断生日是否为空

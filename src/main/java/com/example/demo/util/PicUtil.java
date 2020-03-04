@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.UUID;
 @Slf4j
 public class PicUtil {
-    public static String pictureUtil(String base64Data, HttpServletRequest httpServletRequest){
+    public static String pictureUtil(String base64Data){
         String dataPrix = "";
         String data = "";
 
@@ -35,8 +35,6 @@ public class PicUtil {
         String tempFileName = imgName + suffix;
         byte[] bs = Base64Utils.decodeFromString(data);
         String url = ClassUtils.getDefaultClassLoader().getResource("static/images/icons").getPath();
-        log.info(url);
-
         try {
             FileUtils.writeByteArrayToFile(new File(url + "/" + tempFileName), bs);
         } catch (IOException e) {
