@@ -115,10 +115,25 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void login() {
-
+    public User login(Integer userId,String password) {
+        return userMapper.login(userId,password);
     }
-
+    @Override
+    public User githubLogin(String uuid,String name,String icon) {
+        //查询是否存在
+        long count=userMapper.checkGithubUuid(uuid);
+        //如果存在则取出User
+        if(count!=0){
+            User user=userMapper.selectGithubUserByUuid(uuid);
+            return user;
+        }else {
+            //不存在则添加一个githubUser
+            userMapper.insertGithubUser(uuid,name,icon);
+            //再取出githubUser
+            User user=userMapper.selectGithubUserByUuid(uuid);
+            return user;
+        }
+    }
     @Override
     public void save(User user) {
         //用户Id是null，数据库自增Id，所以用insertSelective（）；

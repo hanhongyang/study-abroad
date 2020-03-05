@@ -27,6 +27,11 @@ public class User {
 
     private String icon;
 
+    private String uuid;
+
+    public User() {
+    }
+
     public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name, String icon) {
         this.userId = userId;
         this.password = password;
@@ -37,6 +42,20 @@ public class User {
         this.birthday = birthday;
         this.name = name;
         this.icon = icon;
+    }
+
+    public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name, String icon, String uuid) {
+        this.userId = userId;
+        this.password = password;
+        this.rule = rule;
+        this.countryId = countryId;
+        this.email = email;
+        this.mobile = mobile;
+        this.birthday = birthday;
+        this.name = name;
+        this.icon = icon;
+        this.uuid = uuid;
+
     }
 
     private Country country;

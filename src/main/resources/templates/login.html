@@ -9,6 +9,18 @@
 
     <title>Gentelella Alela! | </title>
 
+    <link rel="stylesheet" type="text/css" href="/login/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="/login/css/demo.css">
+
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/classlist/2014.01.31/classList.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/flexibility/2.0.1/flexibility.js">flexibility(document.documentElement);</script>
+    <![endif]-->
+
+    <link rel="stylesheet" href="/login/css/style.css">
+    <link rel="stylesheet" href="/login/dist/MODALit.min.css">
+
+
     <!-- Bootstrap -->
     <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -22,83 +34,53 @@
     <link href="/build/css/custom.min.css" rel="stylesheet">
 </head>
 
-<body class="login">
-<div>
-    <a class="hiddenanchor" id="signup"></a>
-    <a class="hiddenanchor" id="signin"></a>
+<body >
 
-    <div class="login_wrapper">
-        <div class="animate form login_form">
-            <section class="login_content">
-                <form>
-                    <h1>Login Form</h1>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Username" required="" />
-                    </div>
-                    <div>
-                        <input type="password" class="form-control" placeholder="Password" required="" />
-                    </div>
-                    <div>
-                        <a class="btn btn-default submit" href="index.html">Log in</a>
-                        <a class="reset_pass" href="#">Lost your password?</a>
-                        <a href="/oauth/login/GITHUB">使用git登录</a>
-                    </div>
+<button id="btnLogin" type="button" data-target="#login" class="btn">Login</button>
 
-                    <div class="clearfix"></div>
 
-                    <div class="separator">
-                        <p class="change_link">New to site?
-                            <a href="#signup" class="to_register"> Create Account </a>
-                        </p>
-
-                        <div class="clearfix"></div>
-                        <br />
-
-                        <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                        </div>
-                    </div>
-                </form>
-            </section>
-        </div>
-
-        <div id="register" class="animate form registration_form">
-            <section class="login_content">
-                <form>
-                    <h1>Create Account</h1>
-                    <div>
-                        <input type="text" class="form-control" placeholder="Username" required="" />
-                    </div>
-                    <div>
-                        <input type="email" class="form-control" placeholder="Email" required="" />
-                    </div>
-                    <div>
-                        <input type="password" class="form-control" placeholder="Password" required="" />
-                    </div>
-                    <div>
-                        <a class="btn btn-default submit" href="index.html">Submit</a>
-                    </div>
-
-                    <div class="clearfix"></div>
-
-                    <div class="separator">
-                        <p class="change_link">Already a member ?
-                            <a href="#signin" class="to_register"> Log in </a>
-                        </p>
-
-                        <div class="clearfix"></div>
-                        <br />
-
-                        <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
-                        </div>
-                    </div>
-                </form>
-            </section>
+    <div id="login" class="modalit" aria-hidden="true">
+        <div class="dialog">
+            <header>
+                <h3>Login</h3>
+            </header>
+            <form class="content" name="login">
+                <p>
+                    <label>
+                        <input type="text" name="id" class="validate" required>
+                        <span class="label">ID</span>
+                    </label>
+                    <label>
+                        <input type="password" name="pswd" class="validate" required>
+                        <span class="label">PASS</span>
+                    </label>
+                </p>
+            </form>
+            <footer>
+                <p>
+                    <button type="button" data-modal-btn="dismiss" class="btn light">Cancel</button>
+                    <button type="button" data-modal-btn="action" class="btn primary">Login</button>
+                </p>
+            </footer>
         </div>
     </div>
-</div>
+
+
+
+<script src="/login/dist/MODALit.min.js"></script>
+<script src="/login/js/script.js"></script>
+
+<!-- jQuery -->
+<script src="/vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- FastClick -->
+<script src="/vendors/fastclick/lib/fastclick.js"></script>
+<!-- NProgress -->
+<script src="/vendors/nprogress/nprogress.js"></script>
+<!-- iCheck -->
+
+<script src="/build/js/custom.min.js"></script>
+
 </body>
 </html>

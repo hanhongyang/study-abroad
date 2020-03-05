@@ -52,7 +52,6 @@ public class UserController {
     @GetMapping("/user/{userId}")
     @ResponseBody
     public Msg getUser(@PathVariable("userId")Integer userId){
-
         User user=userService.getUser(userId);
         return Msg.success().add("user",user);
     }
@@ -70,7 +69,6 @@ public class UserController {
                         @RequestParam(value = "birthday",defaultValue = "")String birthday,
                         @RequestParam(value = "name")String name
                         ){
-
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         try{
             //判断生日是否为空

@@ -183,8 +183,8 @@
         </div>
     </div>
 </div>
-
 <!--/user修改的模态框-->
+
 
 <div class="container body">
     <div class="main_container">
@@ -263,9 +263,10 @@
                                     </td>
                                     <td th:text="${user.password}"></td>
                                     <div th:switch="${user.rule}">
-                                        <td th:case="0">游客</td>
+                                        <td th:case="0">普通用户</td>
                                         <td th:case="1">超级管理员</td>
                                         <td th:case="2">学校管理员</td>
+                                        <td th:case="3">github用户</td>
                                     </div>
                                     <td th:text="${user.country.name}"></td>
                                     <td th:text="${user.email}"></td>

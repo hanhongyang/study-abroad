@@ -4,6 +4,7 @@ import com.example.demo.mapper.CountryMapper;
 import com.example.demo.mapper.SchoolMapper;
 import com.example.demo.model.Country;
 import com.example.demo.model.School;
+import com.example.demo.model.User;
 import com.example.demo.service.Impl.SchoolServiceImpl;
 import com.example.demo.service.SchoolService;
 import org.junit.Test;
@@ -19,10 +20,9 @@ public class IndexController {
 @Autowired
 SchoolServiceImpl schoolService;
     @GetMapping("/")
-    public String index( ){
-
+    public String index(User user,Model model){
+        model.addAttribute("user",user);
         return "index";
-
     }
 
 }

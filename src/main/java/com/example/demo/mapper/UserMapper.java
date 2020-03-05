@@ -20,7 +20,8 @@ public interface UserMapper {
             @Result(property = "mobile", column = "mobile"),
             @Result(property = "birthday", column = "birthday"),
             @Result(property = "name", column = "name"),
-            @Result(property = "icon", column = "icon")
+            @Result(property = "icon", column = "icon"),
+            @Result(property = "uuid", column = "uuid")
     })
     public List<User> getAll();
 
@@ -36,13 +37,14 @@ public interface UserMapper {
             @Result(property = "birthday", column = "birthday"),
             @Result(property = "name", column = "name"),
             @Result(property = "icon", column = "icon"),
+            @Result(property = "uuid", column = "uuid"),
             @Result(property = "country", column = "country_id",one = @One(select = "com.example.demo.mapper.CountryMapper.getById"))
     })
     public List<User> getAllWithCountry();
     //插入一条user数据
     @Insert("insert into user(user_id,password,rule,country_id,email,mobile,birthday,name,icon) " +
-            "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon},)")
-    public void insert(User user);
+            "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon})")
+    public void insert(@Param("user") User user);
 
     //批量插入用户数据
     public void batchSave(List<User> users);
@@ -55,15 +57,33 @@ public interface UserMapper {
     @Delete("delete from user where user_id=#{userId} ")
     public void deleteByPrimaryKey(Integer userId);
 
+    //登录
+    @Select("select * from user where user_id=#{userId} and password=#{password}")
+    @ResultMap("UserMap")
+    public User login(@Param("userId")Integer userId,@Param("password")String password);
 
     //根据userId取User
     @Select("select * from user where user_id=#{userId}")
     @ResultMap("UserMap")
-    User selectByPrimaryKey(Integer userId);
+    public User selectByPrimaryKey(Integer userId);
 
     //判断email是否已存在
     @Select("select count(*) from user where email=#{email}")
     public long checkEmail(String email);
+
+    //根据uuid判断githubUser是否已存在
+    @Select("select count(*) from user where uuid=#{uuid} and rule=3")
+    public long checkGithubUuid(@Param("uuid")String uuid);
+
+    //取出githubUser
+    @Select("select * from user where uuid=#{uuid} and rule=3")
+    @ResultMap("UserMap")
+    public User selectGithubUserByUuid(String uuid);
+
+    //插入一条githubUser数据
+    @Insert("insert into user(rule,name,icon,uuid) " +
+            "values(3,#{name},#{icon},#{uuid})")
+    public void insertGithubUser(@Param("uuid")String uuid,@Param("name")String name,@Param("icon")String icon);
 
     //更新user
     @Update("update user set password=#{user.password}," +
