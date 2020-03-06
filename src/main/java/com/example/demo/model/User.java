@@ -59,4 +59,21 @@ public class User {
     }
 
     private Country country;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", password='" + password + '\'' +
+                ", rule=" + rule +
+                ", countryId=" + countryId +
+                ", email='" + email + '\'' +
+                ", mobile='" + mobile + '\'' +
+                ", birthday=" + birthday +
+                ", name='" + name + '\'' +
+                ", icon='" + icon + '\'' +
+                ", uuid='" + uuid + '\'' +
+                ", country=" + country +
+                '}';
+    }
 }

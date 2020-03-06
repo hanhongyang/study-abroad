@@ -28,7 +28,7 @@ public interface UserService {
     //批量删除user
     void batchDelete(List<Integer> userIdList);
     //登录
-    public User login(Integer userId,String password);
+    public User login(String email,String password);
     //github登录
     User githubLogin(String uuid,String name,String icon);
 }

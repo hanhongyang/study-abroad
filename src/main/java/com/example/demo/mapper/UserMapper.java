@@ -58,9 +58,9 @@ public interface UserMapper {
     public void deleteByPrimaryKey(Integer userId);
 
     //登录
-    @Select("select * from user where user_id=#{userId} and password=#{password}")
+    @Select("select * from user where email=#{email} and password=#{password}")
     @ResultMap("UserMap")
-    public User login(@Param("userId")Integer userId,@Param("password")String password);
+    public User login(@Param("email")String email,@Param("password")String password);
 
     //根据userId取User
     @Select("select * from user where user_id=#{userId}")

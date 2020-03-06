@@ -21,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 @RequiredArgsConstructor(onConstructor_ = @Autowired)
@@ -36,16 +37,26 @@ public class LoginController {
     public String login(){
         return "login";
     }
+
     @PostMapping("/login")
-    public Msg login(@RequestParam("userId")Integer userId,
-                        @RequestParam("password")String password){
-        log.info(password+userId);
-    User user=userService.login(userId,password);
+    @ResponseBody
+    public Msg login(@RequestParam("email")String email,
+                     @RequestParam("password")String password, HttpSession session){
+        log.info(password+email);
+    User user=userService.login(email,password);
     if(user!=null){
-        return Msg.success();
+        session.setAttribute("userId",user.getUserId());
+        return Msg.success().add("user",user);
     }else {
         return Msg.fail();
     }
+    }
+    //未完成
+    @PostMapping("/register")
+    @ResponseBody
+    public Msg register(@RequestParam("email")String email,
+                     @RequestParam("password")String password, HttpSession session){
+      return null;
     }
 
     @GetMapping

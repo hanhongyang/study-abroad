@@ -115,8 +115,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User login(Integer userId,String password) {
-        return userMapper.login(userId,password);
+    public User login(String email,String password) {
+        return userMapper.login(email,password);
     }
     @Override
     public User githubLogin(String uuid,String name,String icon) {
