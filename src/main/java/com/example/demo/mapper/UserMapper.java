@@ -11,7 +11,7 @@ import org.apache.ibatis.type.JdbcType;
 public interface UserMapper {
     //查询所有user
     @Select("select * from user")
-    @Results(id="UserMap",value={
+    @Results(id="userMap",value={
             @Result(property = "userId", column = "user_id", jdbcType= JdbcType.INTEGER),
             @Result(property = "password", column = "password"),
             @Result(property = "rule", column = "rule"),
@@ -27,7 +27,7 @@ public interface UserMapper {
 
     //查询所有user携带国家信息
     @Select("select * from user")
-    @Results(id="UserWithCountryMap",value={
+    @Results(id="userWithCountryMap",value={
             @Result(property = "userId", column = "user_id", jdbcType= JdbcType.INTEGER),
             @Result(property = "password", column = "password"),
             @Result(property = "rule", column = "rule"),
@@ -55,21 +55,21 @@ public interface UserMapper {
     //删除生日不为空的users
     public void deleteByBirthDay();
     @Delete("delete from user where user_id=#{userId} ")
-    public void deleteByPrimaryKey(Integer userId);
+    public void deleteByPrimaryKey(@Param("userId")Integer userId);
 
     //登录
     @Select("select * from user where email=#{email} and password=#{password}")
-    @ResultMap("UserMap")
+    @ResultMap("userMap")
     public User login(@Param("email")String email,@Param("password")String password);
 
     //根据userId取User
     @Select("select * from user where user_id=#{userId}")
-    @ResultMap("UserMap")
-    public User selectByPrimaryKey(Integer userId);
+    @ResultMap("userMap")
+    public User selectByPrimaryKey(@Param("userId")Integer userId);
 
     //判断email是否已存在
     @Select("select count(*) from user where email=#{email}")
-    public long checkEmail(String email);
+    public long checkEmail(@Param("email")String email);
 
     //根据uuid判断githubUser是否已存在
     @Select("select count(*) from user where uuid=#{uuid} and rule=3")
@@ -77,8 +77,8 @@ public interface UserMapper {
 
     //取出githubUser
     @Select("select * from user where uuid=#{uuid} and rule=3")
-    @ResultMap("UserMap")
-    public User selectGithubUserByUuid(String uuid);
+    @ResultMap("userMap")
+    public User selectGithubUserByUuid(@Param("uuid")String uuid);
 
     //插入一条githubUser数据
     @Insert("insert into user(rule,name,icon,uuid) " +
@@ -98,5 +98,5 @@ public interface UserMapper {
 
     //批量删除user
     @Delete("delete from user where user_id in (#{userIds})")
-    public void batchDelete(String userIds);
+    public void batchDelete(@Param("userIds")String userIds);
 }

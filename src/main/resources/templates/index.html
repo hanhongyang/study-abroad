@@ -140,72 +140,8 @@
 <![endif]-->
 <!-- Body main wrapper start -->
 <div class="wrapper">
-	<!-- Start of header area -->
-	<header class="header-area">
-		<div class="header-bottom stick-h2">
-						<nav>
-						<div class="menu-container ">
-								<ul class="menu">
-									<li class="menu-mac">
-										<a href="#">
-											<span>Mac</span>
-										</a>
-									</li>
-									<li class="menu-iPad">
-										<a href="#">
-											<span>iPad</span>
-										</a>
-									</li>
-									<li class="menu-iPhone">
-										<a href="#">
-											<span>iPhone</span>
-										</a>
-									</li>
-									<li class="menu-watch">
-										<a href="#">
-											<span>Watch</span>
-										</a>
-									</li>
-									<li class="menu-tv">
-										<a href="#"id="login">
-											<span >login</span>
-										</a>
-									</li>
-									<li class="menu-search">
-										<a href="#">
-											<i class="fa fa-search" aria-hidden="true"></i>
-										</a>
-									</li>
-								</ul>
-								<!-- Search -->
-								<div class="menu-search-container">
-									<div class="menu-search-input">
-										<form action="">
-											<a href="#">
-												<i class="fa fa-search" aria-hidden="true"></i>
-											</a>
-											<input class="menu-search-input" type="text" aria-label="Search country or university" placeholder="Search " autocorrect="off" autocapitalize="off" autocomplete="off" spellcheck="false">
-										</form>
-									</div>
-									<a class="menu-search-close" href="#"style="color: red">
-										<i class="fa fa-close" aria-hidden="true"></i>
-									</a>
-									<div class="search-sub-menu">
-										<h3>Quick Links</h3>
-										<ul>
-											<li><a href="#">Find a store</a></li>
-											<li><a href="#">Accessories</a></li>
-											<li><a href="#">iPod</a></li>
-											<li><a href="#">iOS</a></li>
-											<li><a href="#">Gift Cards</a></li>
-										</ul>
-									</div>
-								</div>
-						</div>
-						</nav>
-
-		</div>
-	</header>
+	<div th:replace="~{fragment/topbar::topbar}">
+	</div>
 	<!-- map -->
 	<div id="vmap" style="width: 1200px; height: 850px;margin: 0 auto;display: block"></div>
 	<!-- map-->

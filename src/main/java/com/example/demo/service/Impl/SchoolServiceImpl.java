@@ -10,6 +10,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @Slf4j
 public class SchoolServiceImpl implements SchoolService {
@@ -24,5 +26,15 @@ public class SchoolServiceImpl implements SchoolService {
         // schoolMapper.insertSelective(new School(null,"test1",2,2));
         //2、批量插入学校。使用可以批量操作的sqlsession
 
+    }
+
+    @Override
+    public List<School> getAll() {
+        return schoolMapper.getAll();
+    }
+
+    @Override
+    public School getById( int schoolId) {
+        return schoolMapper.getById(schoolId);
     }
 }

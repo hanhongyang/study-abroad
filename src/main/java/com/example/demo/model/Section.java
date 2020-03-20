@@ -7,9 +7,15 @@ import lombok.Data;
 @Data
 public class Section {
     private Integer id;
-    private String name;
     private Integer clickCount;
     private Integer questionCount;
-    private Integer adminId;
+    private Integer schoolId;
+    private School school;
 
+    public Section(Integer id, Integer clickCount, Integer questionCount, Integer schoolId) {
+        this.id = id;
+        this.clickCount = clickCount;
+        this.questionCount = questionCount;
+        this.schoolId = schoolId;
+    }
 }

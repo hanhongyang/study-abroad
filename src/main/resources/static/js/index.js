@@ -25,10 +25,10 @@ $("#loginBtn").click(function () {
         data:$("#loginModal form").serialize(),
         success:function (result) {
             if(result.code==100){
-                var userData=result.extend.user;
-                $("#login").children("span").text(userData.userId)
                 //关闭模态框
                 $("#loginModal").modal("hide");
+                //重定向到首页
+                window.location.href="/"
             }else {
                 alert("登陆失败")
             }

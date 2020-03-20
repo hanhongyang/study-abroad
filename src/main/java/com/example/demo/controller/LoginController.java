@@ -42,11 +42,10 @@ public class LoginController {
     @ResponseBody
     public Msg login(@RequestParam("email")String email,
                      @RequestParam("password")String password, HttpSession session){
-        log.info(password+email);
     User user=userService.login(email,password);
     if(user!=null){
-        session.setAttribute("userId",user.getUserId());
-        return Msg.success().add("user",user);
+        session.setAttribute("user",user);
+        return Msg.success();
     }else {
         return Msg.fail();
     }
