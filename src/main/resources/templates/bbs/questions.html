@@ -22,23 +22,72 @@
 </head>
 
 <body class="nav-md">
-<div class="container body">
-    <div  style="background:#f1f1f1">
-        <!-- page content -->
-        <div  style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
 
-            <div class="">
+<!--发帖模态框-->
 
+<div class="modal fade" id="publishModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Publish</h4>
             </div>
-            <div class="clearfix"></div>
+            <div class="modal-body">
+                <form class="form-horizontal"th:action="@{/publish}" method="post">
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="x_panel">
-                        <div class="x_content">
-                            <button >发帖</button>
-
-                            <div class="" role="tabpanel" data-example-id="togglable-tabs">
+                    <input type="hidden" name="sectionId" th:value="${sectionId}">
+                    <div class="form-group">
+                        <label class="control-label"><h3>Title</h3></label>
+                        <div>
+                            <input type="text" name="title" class="form-control" id="title" placeholder="title">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class=" control-label"><h3>Description</h3></label>
+                        <div >
+                            <textarea  class="form-control"name="description"id="description"placeholder="description"></textarea>
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label"><h3>Tag</h3></label>
+                        <div >
+                            <input type="text" name="tag" class="form-control" id="tag" placeholder="tag">
+                            <span class="help-block"></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary"id="publishBtn"th:attr="data-sectionId=${sectionId}">发布</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container body"style="background:#f1f1f1">
+    <div class="container-fluid">
+        <div class="row">
+            <h1>topbar</h1>
+        </div>
+    </div>
+    <!-- page content -->
+    <div class="clearfix"></div>
+    <div class="container-fluid"style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_content">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <h1 style="margin-bottom: 40px">xx大学</h1>
+                            </div>
+                            <!-- 分隔符-->
+                            <hr style="margin-bottom: 40px">
+                            <!-- 分隔符-->
+                            <div class="row" role="tabpanel" data-example-id="togglable-tabs">
                                 <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
                                     <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Recent Activity</a>
                                     </li>
@@ -52,19 +101,19 @@
 
                                         <!-- start recent activity -->
                                         <ul class="messages">
-                                            <li th:each="question:${questionList}">
+                                            <li th:each="question:${pageInfo.getList()}">
                                                 <img src="images/img.jpg" class="avatar" alt="Avatar">
                                                 <div class="message_date">
                                                     <h3 class="date text-info">24</h3>
                                                     <p class="month">May</p>
                                                 </div>
                                                 <div class="message_wrapper">
-                                                    <h4 class="heading">Desmond Davison</h4>
-                                                    <blockquote class="message">Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua butcher retro keffiyeh dreamcatcher synth.</blockquote>
+                                                    <h4 class="heading"th:text="${question.title}"></h4>
+                                                    <blockquote class="message"th:text="${question.description}"></blockquote>
                                                     <br />
                                                     <p class="url">
                                                         <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                                        <a href="#"><i class="fa fa-paperclip"></i> User Acceptance Test.doc </a>
+                                                        <a href="#"><i class="fa fa-paperclip">[[${question.viewCount}]]</i></a>
                                                     </p>
                                                 </div>
                                             </li>
@@ -81,19 +130,71 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--显示分页信息-->
+                            <div class="row">
+                                <!--分页文字-->
+                                <div class="col-md-6" >
+                                    当前<span th:text="${pageInfo.pageNum}"></span>页,总共<span th:text="${pageInfo.pages}"></span>页,总共<span th:text="${pageInfo.total}"></span>条记录
+                                </div>
+                                <!--分页条信息-->
+                                <div class="col-md-6">
+                                    <nav  aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li th:if="${pageInfo.pageNum!=1}">
+                                                <a th:href="@{section/${sectionId}(pageNum=${1})}"
+                                                   aria-label="Previous">
+                                                    <span aria-hidden="true">&lt;&lt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:if="${pageInfo.hasPreviousPage}">
+                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pageNum - 1})}" aria-label="Previous">
+                                                    <span aria-hidden="true">&lt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:each="pageNum : ${pageInfo.navigatepageNums}" th:class="${pageInfo.pageNum == pageNum}? 'active' : ''">
+                                                <a th:href="@{section/${sectionId}(pageNum=${pageNum})}" th:text="${pageNum}"></a></li>
+                                            <li  th:if="${pageInfo.hasNextPage}">
+                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pageNum+1})}"
+                                                   aria-label="Previous">
+                                                    <span aria-hidden="true">&gt;</span>
+                                                </a>
+                                            </li>
+                                            <li th:if="${pageInfo.pageNum!=pageInfo.pages}">
+                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pages})}" aria-label="Previous">
+                                                    <span aria-hidden="true">&gt;&gt;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                <button class="btn btn-default" id="publish">
+                                    <h2>
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true">&nbsp;Publish
+                                    </span>
+                                    </h2>
+                                </button>
+                            </div>
+                            <h1>right</h1>
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
         </div>
+
     </div>
+    </div>
+    <div class="clearfix"></div>
     <!-- /page content -->
-
-
 </div>
-
 </div>
-
 <!-- jQuery -->
 <script src="/vendors/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap -->
@@ -108,6 +209,7 @@
 
 <!-- Custom Theme Scripts -->
 <script src="/build/js/custom.min.js"></script>
+<script th:src="@{/js/questions.js}"></script>
 </body>
 
 </html>

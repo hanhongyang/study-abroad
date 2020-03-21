@@ -33,11 +33,17 @@ public class LoginController {
     @Autowired
     UserServiceImpl userService;
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
+    //判断登录状态
+    @GetMapping("/loginStatus")
+    @ResponseBody
+    public Msg loginStatus( HttpSession session){
+        if(session.getAttribute("user")!=null){
+            return Msg.success();
+        }else {
+            return Msg.fail();
+        }
     }
-
+    //登录
     @PostMapping("/login")
     @ResponseBody
     public Msg login(@RequestParam("email")String email,
@@ -70,15 +76,22 @@ public class LoginController {
         response.sendRedirect(authRequest.authorize(AuthStateUtils.createState()));
     }
     @RequestMapping("/oauth/{type}/callback")
-    public String login(@PathVariable String type, AuthCallback callback, Model model) {
+    public String login(@PathVariable String type, AuthCallback callback, HttpSession session,Model model) {
         AuthRequest authRequest = factory.get(type);
         AuthResponse response = authRequest.login(callback);
         log.info("【response】= {}", JSONUtil.toJsonStr(response));
-        //取出response包含的AuthUser
-        AuthUser authUser=(AuthUser)response.getData();
-        User user=userService.githubLogin(authUser.getUuid(),authUser.getNickname(),authUser.getAvatar());
-        model.addAttribute("user",user);
-        return "forward:/";
+        if(response.getCode()==5000){
+            //登录状态失效,未完成
+            log.info("SocketException: Connection reset");
+            return "redirect:/";
+        }else {
+            //取出response包含的AuthUser
+            AuthUser authUser=(AuthUser)response.getData();
+            User user=userService.githubLogin(authUser.getUuid(),authUser.getNickname(),authUser.getAvatar());
+            session.setAttribute("user",user);
+            return "redirect:/";
+        }
+
     }
 
 

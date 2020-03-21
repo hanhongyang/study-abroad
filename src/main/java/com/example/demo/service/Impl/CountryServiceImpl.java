@@ -78,4 +78,9 @@ public class CountryServiceImpl implements CountryService {
         return countryMapper.getAll();
     }
 
+    @Override
+    public Country getById(Integer countryId) {
+        return countryMapper.getById(countryId);
+    }
+
 }

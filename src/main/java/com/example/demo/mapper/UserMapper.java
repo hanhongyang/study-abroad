@@ -43,7 +43,7 @@ public interface UserMapper {
     public List<User> getAllWithCountry();
     //插入一条user数据
     @Insert("insert into user(user_id,password,rule,country_id,email,mobile,birthday,name,icon) " +
-            "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon})")
+            "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.email},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon})")
     public void insert(@Param("user") User user);
 
     //批量插入用户数据

@@ -17,4 +17,9 @@ public class QuestionServiceImpl implements QuestionService {
     public List<Question> getAllBySectionId(Integer sectionId) {
         return questionMapper.getAllBySectionId(sectionId);
     }
+
+    @Override
+    public void publish(String title, String description, Long gmtCreate, Long gmtModify, Integer creator, String tag, Integer sectionId) {
+    questionMapper.addQuestion(title,description,gmtCreate,gmtModify,creator,tag,sectionId);
+    }
 }

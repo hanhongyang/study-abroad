@@ -2,12 +2,16 @@
 //防止csrf拦截post请求
 var header = $("meta[name='_csrf_header']").attr("content");
 var token =$("meta[name='_csrf']").attr("content");
+//注册事件
+$(document).ready(function(){
+    //将国家信息加载到模态框
+    getRegions("#userUpdateModal select");
+    getRegions("#userAddModal select");
+});
 //点击user添加按钮
 $("#userAddBtn").click(function () {
     //清楚表单数据（表单重置），防止重复提交
     resetFrom("#userAddModal form");
-    //发送ajax请求查询国家信息，显示在下拉列表
-    getRegions("#userAddModal select");
     //弹出模态框
     $("#userAddModal").modal({
         backdrop:"static"
@@ -21,7 +25,7 @@ function resetFrom(ele) {
 }
 //获取国家列表.param:国家列表select元素
 function getRegions(ele) {
-    //先情况之前下拉啊列表的值
+    //先清空之前下拉列表的值
     $(ele).empty();
     $.ajax({
         url:"/countries",
@@ -208,11 +212,8 @@ $(".edit_btn").click(function () {
     var userId=$(this).parent().parent().children("#userId").text();
     //查询user信息，显示在模态框中
     getUser(userId);
-    //发送ajax请求查询国家信息，显示在下拉列表
-    getRegions("#userUpdateModal select");
     //把userId传递到模态框的更新按钮
     $("#userUpdateBtn").attr("userId",userId);
-
     //弹出模态框
     $("#userUpdateModal").modal({
         backdrop:"static"
@@ -225,10 +226,13 @@ function getUser(userId) {
         type:"GET",
         success:function (result) {
             var userData=result.extend.user;
+            var countryId=userData.countryId;
+            console.log(countryId);
             $("#userUpdateModal input[name=userId]").val(userId);
             $("#userUpdateModal input[name=rule]").val([userData.rule]);
             $("#passwordUpdate").val(userData.password);
-            $("#userUpdateModal select").val([userData.countryId]);
+            $("#userUpdateModal select option[value="+countryId+"]").attr("selected",true);
+            console.log($("#userUpdateModal select").val());
             $("#emailUpdate").val(userData.email);
             $("#mobileUpdate").val(userData.mobile);
             if(userData.birthday!=null){
@@ -254,7 +258,7 @@ $("#userUpdateBtn").click(function () {
     var pageNum=parseInt($(this).attr("data-pageNum"));
     //formData封装提交的数据
     var formData = new FormData();
-    formData.append('rule',$("#userUpdateModal input[name=rule]").val());
+    formData.append('rule',$("#userUpdateModal input:radio:checked").val());
     formData.append('password',$("#passwordUpdate").val());
     formData.append('countryId',$("#userUpdateModal select").val());
     formData.append('email',$("#emailUpdate").val());

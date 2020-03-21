@@ -7,6 +7,7 @@ import com.example.demo.service.Impl.CountryServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -18,7 +19,7 @@ public class CountryController {
     CountryServiceImpl countryService;
 
     /**
-     * 查询国家数据。
+     * 查询所有国家数据。
      * @return 国家列表
      */
     @ResponseBody
@@ -28,5 +29,16 @@ public class CountryController {
         return Msg.success().add("countries",countries);
     }
 
+    /**
+     * 查询某个国家数据
+     * @param countryId
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/country/{countryId}")
+    public Msg getById(@PathVariable("countryId")Integer countryId){
+        Country country=countryService.getById(countryId);
+        return Msg.success().add("country",country);
+    }
 
 }

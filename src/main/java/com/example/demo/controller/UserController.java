@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Msg;
 import com.example.demo.model.User;
+import com.example.demo.service.Impl.CountryServiceImpl;
 import com.example.demo.service.Impl.UserServiceImpl;
 import com.example.demo.util.PicUtil;
 import com.github.pagehelper.PageHelper;
@@ -26,6 +27,8 @@ import java.util.*;
 public class UserController {
     @Autowired
     UserServiceImpl userService;
+    @Autowired
+    CountryServiceImpl countryService;
     @Value("${userIconDefaultUrl}")
     private String DefaultIcon;
     /**
@@ -99,6 +102,7 @@ public class UserController {
                           @RequestParam(value = "birthday",defaultValue = "")String birthday,
                           @RequestParam(value = "name")String name,
                           @RequestParam(value = "icon")String icon){
+
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         //判断头像是否修改
         if("data".equals(icon.substring(0,4))) {//本地上传的图片

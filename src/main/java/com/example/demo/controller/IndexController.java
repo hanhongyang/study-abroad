@@ -20,8 +20,7 @@ public class IndexController {
 @Autowired
 SchoolServiceImpl schoolService;
     @GetMapping("/")
-    public String index(User user,Model model){
-        model.addAttribute("user",user);
+    public String index(){
         return "index";
     }
 
