@@ -32,4 +32,9 @@ public class QuestionServiceImpl implements QuestionService {
     public void addViewCount(Integer id) {
         questionMapper.addViewCount(id);
     }
+
+    @Override
+    public Question getById(Integer id) {
+        return questionMapper.getById(id);
+    }
 }

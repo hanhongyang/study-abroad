@@ -19,4 +19,6 @@ public interface QuestionService {
     Question getByIdWithUser(Integer id);
     //累加阅读数
     void addViewCount(Integer id);
+    //查询某个问题
+    Question getById(Integer id);
 }

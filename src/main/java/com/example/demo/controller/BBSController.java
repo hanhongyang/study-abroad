@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.exception.QuestionNotExistException;
+import com.example.demo.exception.UserNotExistException;
 import com.example.demo.model.*;
 import com.example.demo.service.Impl.*;
 import com.github.pagehelper.PageHelper;
@@ -104,6 +106,10 @@ public class BBSController {
     public String Question(@PathVariable("id") Integer id,
                          @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                          Model model){
+        //如果问题不存在
+        if(questionService.getById(id)==null){
+            throw new QuestionNotExistException();
+        }
         //在查询之前只需要调用，传入页码，以及每页的大小
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询

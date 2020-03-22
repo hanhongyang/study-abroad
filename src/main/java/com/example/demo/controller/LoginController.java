@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import cn.hutool.json.JSONUtil;
+import com.example.demo.exception.UserNotExistException;
 import com.example.demo.model.Msg;
 import com.example.demo.model.User;
 import com.example.demo.service.Impl.UserServiceImpl;
@@ -93,6 +94,5 @@ public class LoginController {
         }
 
     }
-
 
 }
