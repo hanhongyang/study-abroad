@@ -1,11 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.model.Msg;
-import com.example.demo.model.Question;
-import com.example.demo.model.Section;
-import com.example.demo.model.User;
-import com.example.demo.service.Impl.QuestionServiceImpl;
-import com.example.demo.service.Impl.SectionServiceImpl;
+import com.example.demo.model.*;
+import com.example.demo.service.Impl.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -26,7 +22,12 @@ public class BBSController {
     SectionServiceImpl sectionService;
     @Autowired
     QuestionServiceImpl questionService;
-
+    @Autowired
+    SchoolServiceImpl schoolService;
+    @Autowired
+    UserServiceImpl userService;
+    @Autowired
+    CommentServiceImpl commentService;
     /**
      * 所有板块页面
      * @param pageNum
@@ -60,11 +61,11 @@ public class BBSController {
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询
         //获取某个板块内所有问题
-        List<Question> questionList=questionService.getAllBySectionId(sectionId);
+        List<Question> questionList=questionService.getAllBySectionIdWithUser(sectionId);
         //用pageinfo包装查询结果，只需要将pageinfo交给页面就行了
         PageInfo pageInfo=new PageInfo(questionList);
         model.addAttribute("pageInfo",pageInfo);
-        model.addAttribute("sectionId",sectionId);
+        model.addAttribute("section",sectionService.getByIdWithSchool(sectionId));
         return "bbs/questions";
     }
 
@@ -90,6 +91,42 @@ public class BBSController {
         }else {
             return Msg.fail();
         }
+    }
 
+    /**
+     * 问题页面
+     * @param id
+     * @param pageNum
+     * @param model
+     * @return
+     */
+    @GetMapping("/question/{id}")
+    public String Question(@PathVariable("id") Integer id,
+                         @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
+                         Model model){
+        //在查询之前只需要调用，传入页码，以及每页的大小
+        PageHelper.startPage(pageNum,10);
+        //startpage后紧跟的查询就是分页查询
+        //获取某个板块内所有问题
+        List<Comment> commentList=commentService.getAllByQuestionIdWithUser(id);
+        //用pageinfo包装查询结果，只需要将pageinfo交给页面就行了
+        PageInfo pageInfo=new PageInfo(commentList);
+        //累加阅读数
+        questionService.addViewCount(id);
+        model.addAttribute("pageInfo",pageInfo);
+        model.addAttribute("question",questionService.getByIdWithUser(id));
+        return "bbs/question";
+    }
+    @PostMapping("/comment")
+    @ResponseBody
+    public Msg reply(@RequestParam(value = "parentId")Integer parentId,
+                     @RequestParam(value = "content")String content,
+                     @RequestParam(value = "type")Integer type,
+                     @RequestParam(value = "commentator")Integer commentator,
+                     HttpSession httpSession){
+        Long gmtCreate=System.currentTimeMillis();
+        Long gmtModify=gmtCreate;
+        commentService.reply(parentId,type,commentator,gmtCreate,gmtModify,content);
+        return null;
     }
 }

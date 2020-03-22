@@ -9,7 +9,7 @@ import java.util.List;
 
 @Mapper
 public interface QuestionMapper {
-    //查询某个section里的所有question
+    //查询某个section里的所有question携带user
     @Select("select * from question where section_id=#{sectionId}")
     @Results(id="questionMap",value={
             @Result(property = "id", column = "id", jdbcType= JdbcType.INTEGER),
@@ -24,8 +24,9 @@ public interface QuestionMapper {
             @Result(property = "tag", column = "tag"),
             @Result(property = "sectionId", column = "section_id"),
             @Result(property = "bestAnswer", column = "best_answer"),
+            @Result(property = "user", column = "creator",one = @One(select = "com.example.demo.mapper.UserMapper.selectByPrimaryKey"))
     })
-    public List<Question> getAllBySectionId(@Param("sectionId")Integer sectionId);
+    public List<Question> getAllBySectionIdWithUser(@Param("sectionId")Integer sectionId);
 
     //添加新问题
     @Insert("insert into question(title,description,gmt_create,gmt_modify,creator,tag,section_id) value(#{title},#{description},#{gmt_create},#{gmt_modify},#{creator},#{tag},#{sectionId})")
@@ -36,5 +37,12 @@ public interface QuestionMapper {
                             @Param("creator")Integer creator,
                             @Param("tag")String tag,
                             @Param("sectionId")Integer sectionId);
+    //查询某个问题携带用户信息
+    @Select("select * from question where id=#{id}")
+    @ResultMap("questionMap")
+    public Question getByIdWithUser(@Param("id")Integer id);
 
+    //阅读数+1
+    @Update("update question set view_count=view_count+1 where id=#{id}")
+    void addViewCount(@Param("id")Integer id);
 }

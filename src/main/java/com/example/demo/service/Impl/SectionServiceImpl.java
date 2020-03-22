@@ -24,4 +24,9 @@ public class SectionServiceImpl implements SectionService {
     public List<Section> getAllWithSchool() {
         return sectionMapper.getAllWithSchool();
     }
+
+    @Override
+    public Section getByIdWithSchool(Integer sectionId) {
+        return sectionMapper.getByIdWithSchool(sectionId);
+    }
 }

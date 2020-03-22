@@ -14,12 +14,22 @@ public class QuestionServiceImpl implements QuestionService {
     QuestionMapper questionMapper;
     //查询某个section里的所有question
     @Override
-    public List<Question> getAllBySectionId(Integer sectionId) {
-        return questionMapper.getAllBySectionId(sectionId);
+    public List<Question> getAllBySectionIdWithUser(Integer sectionId) {
+        return questionMapper.getAllBySectionIdWithUser(sectionId);
     }
 
     @Override
     public void publish(String title, String description, Long gmtCreate, Long gmtModify, Integer creator, String tag, Integer sectionId) {
     questionMapper.addQuestion(title,description,gmtCreate,gmtModify,creator,tag,sectionId);
+    }
+
+    @Override
+    public Question getByIdWithUser(Integer id) {
+        return questionMapper.getByIdWithUser(id);
+    }
+
+    @Override
+    public void addViewCount(Integer id) {
+        questionMapper.addViewCount(id);
     }
 }

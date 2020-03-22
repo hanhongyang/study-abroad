@@ -8,4 +8,6 @@ public interface SectionService {
 
     List<Section> getAll();
     List<Section> getAllWithSchool();
+
+    Section getByIdWithSchool(Integer sectionId);
 }

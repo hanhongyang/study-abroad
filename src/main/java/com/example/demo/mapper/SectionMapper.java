@@ -29,4 +29,8 @@ public interface SectionMapper {
             @Result(property = "school", column = "school_id",one = @One(select = "com.example.demo.mapper.SchoolMapper.getById"))
     })
     public List<Section> getAllWithSchool();
+    //查询section携带school信息
+    @Select("select * from section where id=#{sectionId}")
+    @ResultMap("sectionWithSchoolMap")
+    public Section getByIdWithSchool(@Param("sectionId")Integer sectionId);
 }

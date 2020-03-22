@@ -15,10 +15,8 @@
     <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- iCheck -->
     <link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-
     <!-- Custom Theme Style -->
     <link href="/build/css/custom.min.css" rel="stylesheet">
-
 </head>
 
 <body class="nav-md">
@@ -33,19 +31,19 @@
                 <h4 class="modal-title" id="myModalLabel">Publish</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal"th:action="@{/publish}" method="post">
+                <form class="form-horizontal"th:action="@{/question}" method="post">
 
-                    <input type="hidden" name="sectionId" th:value="${sectionId}">
+                    <input type="hidden" name="sectionId" th:value="${section.getId()}">
                     <div class="form-group">
-                        <label class="control-label"><h3>Title</h3></label>
-                        <div>
+                        <label class=" control-label"><h3>Title</h3></label>
+                        <div class="">
                             <input type="text" name="title" class="form-control" id="title" placeholder="title">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class=" control-label"><h3>Description</h3></label>
-                        <div >
+                        <div class="">
                             <textarea  class="form-control"name="description"id="description"placeholder="description"></textarea>
                             <span class="help-block"></span>
                         </div>
@@ -61,7 +59,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary"id="publishBtn"th:attr="data-sectionId=${sectionId}">发布</button>
+                <button type="button" class="btn btn-primary"id="publishBtn"th:attr="data-sectionId=${section.getId()}">发布</button>
             </div>
         </div>
     </div>
@@ -82,7 +80,12 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="row">
-                                <h1 style="margin-bottom: 40px">xx大学</h1>
+                                <div class="col-md-3">
+                                    <img th:src="${section.school.getLogo()}" alt="" class="img-rounded"style="height: 140px;width: 140px;">
+                                </div>
+                                <div class="col-md-9">
+                                    <h1 style="margin-bottom: 40px;margin-top: 40px"th:text="${section.school.getName()}"></h1>
+                                </div>
                             </div>
                             <!-- 分隔符-->
                             <hr style="margin-bottom: 40px">
@@ -102,18 +105,25 @@
                                         <!-- start recent activity -->
                                         <ul class="messages">
                                             <li th:each="question:${pageInfo.getList()}">
-                                                <img src="images/img.jpg" class="avatar" alt="Avatar">
+
+                                                    <div class="clearfix"></div>
+                                                <img th:src="${question.user.icon}" class="avatar" alt="Avatar">
+                                                <div class="clearfix"></div>
+                                                <h4 th:text="${question.user.name}"style="float: left;width: 80px"></h4>
                                                 <div class="message_date">
-                                                    <h3 class="date text-info">24</h3>
-                                                    <p class="month">May</p>
+                                                    <h3 class="date text-info"th:text="${#dates.format(question.gmtModify,'dd')}"></h3>
+                                                    <p class="month"th:text="${#dates.format(question.gmtModify,'MMMM')}"></p>
                                                 </div>
-                                                <div class="message_wrapper">
-                                                    <h4 class="heading"th:text="${question.title}"></h4>
+                                                <div class="message_wrapper"style="position:relative;top: -40px; left: 40px;">
+                                                    <a th:href="@{'/question/'+${question.id}(pageNum=1)}"><h3 class="heading"th:text="${question.title}"></h3></a>
                                                     <blockquote class="message"th:text="${question.description}"></blockquote>
                                                     <br />
-                                                    <p class="url">
-                                                        <span class="fs1 text-info" aria-hidden="true" data-icon=""></span>
-                                                        <a href="#"><i class="fa fa-paperclip">[[${question.viewCount}]]</i></a>
+                                                    <p style="margin-top: 20px;margin-bottom: -20px">
+                                                        <span class=" text-desc" >&nbsp;
+                                                            <span th:text="${question.viewCount}"></span>次浏览·
+                                                            <span th:text="${question.commentCount}"></span>个回复·
+                                                            <span th:text="${question.likeCount}"></span>个收藏
+                                                        </span>
                                                     </p>
                                                 </div>
                                             </li>
@@ -141,26 +151,26 @@
                                     <nav  aria-label="Page navigation">
                                         <ul class="pagination">
                                             <li th:if="${pageInfo.pageNum!=1}">
-                                                <a th:href="@{section/${sectionId}(pageNum=${1})}"
+                                                <a th:href="@{'/section/'+${sectionId}(pageNum=${1})}"
                                                    aria-label="Previous">
                                                     <span aria-hidden="true">&lt;&lt;</span>
                                                 </a>
                                             </li>
                                             <li th:if="${pageInfo.hasPreviousPage}">
-                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pageNum - 1})}" aria-label="Previous">
+                                                <a th:href="@{'/section/'+${sectionId}(pageNum=${pageInfo.pageNum - 1})}" aria-label="Previous">
                                                     <span aria-hidden="true">&lt;</span>
                                                 </a>
                                             </li>
                                             <li th:each="pageNum : ${pageInfo.navigatepageNums}" th:class="${pageInfo.pageNum == pageNum}? 'active' : ''">
-                                                <a th:href="@{section/${sectionId}(pageNum=${pageNum})}" th:text="${pageNum}"></a></li>
+                                                <a th:href="@{'/section/'+${sectionId}(pageNum=${pageNum})}" th:text="${pageNum}"></a></li>
                                             <li  th:if="${pageInfo.hasNextPage}">
-                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pageNum+1})}"
+                                                <a th:href="@{'/section/'+${sectionId}(pageNum=${pageInfo.pageNum+1})}"
                                                    aria-label="Previous">
                                                     <span aria-hidden="true">&gt;</span>
                                                 </a>
                                             </li>
                                             <li th:if="${pageInfo.pageNum!=pageInfo.pages}">
-                                                <a th:href="@{section/${sectionId}(pageNum=${pageInfo.pages})}" aria-label="Previous">
+                                                <a th:href="@{'/section/'+${sectionId}(pageNum=${pageInfo.pages})}" aria-label="Previous">
                                                     <span aria-hidden="true">&gt;&gt;</span>
                                                 </a>
                                             </li>
@@ -203,9 +213,6 @@
 <script src="/vendors/fastclick/lib/fastclick.js"></script>
 <!-- NProgress -->
 <script src="/vendors/nprogress/nprogress.js"></script>
-
-<!-- bootstrap-progressbar -->
-<script src="/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
 
 <!-- Custom Theme Scripts -->
 <script src="/build/js/custom.min.js"></script>
