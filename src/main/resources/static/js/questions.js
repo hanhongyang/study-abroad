@@ -1,6 +1,3 @@
-//防止csrf拦截post请求
-var header = $("meta[name='_csrf_header']").attr("content");
-var token =$("meta[name='_csrf']").attr("content");
 
 //点击publish按钮
 $("#publish").click(function () {
@@ -16,7 +13,12 @@ $("#publish").click(function () {
                     backdrop: "static"
                 })
             } else {
-                alert('Please login first！');
+                new PNotify({
+                    title: 'Please login first！',
+                    text: 'Just to let you know.',
+                    type: 'info',
+                    styling: 'bootstrap3'
+                });
                 $("#publish").blur();
             }
         }
@@ -49,7 +51,12 @@ $("#publishBtn").click(function () {
                 window.location.href="/section/"+sectionId+"?pageNum=1"
             }else {
                 //提示发布失败，请重新登录
-                alert('Publish failed,Please login again！');
+                new PNotify({
+                    title: 'Publish failed,Please login again！',
+                    text: 'Something terrible happened.!',
+                    type: 'warn',
+                    styling: 'bootstrap3'
+                });
             }
         }
     })

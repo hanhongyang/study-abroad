@@ -1,32 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>BBS</title>
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.jpg">
-    <!-- Bootstrap -->
-    <link href="/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link href="/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <!-- NProgress -->
-    <link href="/vendors/nprogress/nprogress.css" rel="stylesheet">
-    <!-- iCheck -->
-    <link href="/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
-    <!-- Custom Theme Style -->
-    <link href="/build/css/custom.min.css" rel="stylesheet">
-
+    <title >BBS</title>
+    <head th:insert="~{fragment/import :: head}"></head>
 </head>
 
 <body class="nav-md">
 <div class="container body"style="background:#f1f1f1">
-    <div class="container-fluid">
-        <div class="row">
-            <h1>topbar</h1>
-        </div>
+    <div th:replace="~{fragment/nav::topbar}">
     </div>
+
     <!-- page content -->
     <div  class="container-fluid"style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
         <div class="clearfix"></div>
@@ -122,17 +105,8 @@
     </div>
     <!-- /page content -->
 </div>
-<!-- jQuery -->
-<script src="/vendors/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- FastClick -->
-<script src="/vendors/fastclick/lib/fastclick.js"></script>
-<!-- NProgress -->
-<script src="/vendors/nprogress/nprogress.js"></script>
-
-<!-- Custom Theme Scripts -->
-<script src="/build/js/custom.min.js"></script>
+<div th:insert="~{fragment/import :: foot}"></div>
+<script th:src="@{/js/topbar.js}"></script>
 </body>
 
 </html>

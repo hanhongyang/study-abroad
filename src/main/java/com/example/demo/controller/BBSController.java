@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import com.example.demo.enums.CustomizeErrorCode;
+import com.example.demo.exception.CustomizeException;
 import com.example.demo.exception.QuestionNotExistException;
 import com.example.demo.exception.UserNotExistException;
 import com.example.demo.model.*;
@@ -106,10 +108,7 @@ public class BBSController {
     public String Question(@PathVariable("id") Integer id,
                          @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                          Model model){
-        //如果问题不存在
-        if(questionService.getById(id)==null){
-            throw new QuestionNotExistException();
-        }
+
         //在查询之前只需要调用，传入页码，以及每页的大小
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询
@@ -123,16 +122,32 @@ public class BBSController {
         model.addAttribute("question",questionService.getByIdWithUser(id));
         return "bbs/question";
     }
+
+    /**
+     * 发布评论
+     * @param parentId
+     * @param content
+     * @param type
+     * @param commentator
+     * @param httpSession
+     * @return
+     */
     @PostMapping("/comment")
     @ResponseBody
-    public Msg reply(@RequestParam(value = "parentId")Integer parentId,
+    public Msg reply(@RequestParam(value = "parentId")String parentId,
                      @RequestParam(value = "content")String content,
-                     @RequestParam(value = "type")Integer type,
-                     @RequestParam(value = "commentator")Integer commentator,
+                     @RequestParam(value = "type")String type,
+                     @RequestParam(value = "commentator")String commentator,
                      HttpSession httpSession){
-        Long gmtCreate=System.currentTimeMillis();
-        Long gmtModify=gmtCreate;
-        commentService.reply(parentId,type,commentator,gmtCreate,gmtModify,content);
-        return null;
+        //判断是否登录
+        User user=(User)httpSession.getAttribute("user");
+        if(user!=null){
+            Long gmtCreate=System.currentTimeMillis();
+            Long gmtModify=gmtCreate;
+            commentService.reply(Integer.parseInt(parentId),Integer.parseInt(type),Integer.parseInt(commentator),gmtCreate,gmtModify,content);
+            return Msg.success();
+        }else {
+            return Msg.fail();
+        }
     }
 }

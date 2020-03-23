@@ -63,4 +63,7 @@ public interface QuestionMapper {
             @Result(property = "bestAnswer", column = "best_answer")
     })
     Question getById(Integer id);
+    //评论数+1
+    @Update("update question set comment_count=comment_count+1 where id=#{id}")
+    void addCommentCount(Integer id);
 }

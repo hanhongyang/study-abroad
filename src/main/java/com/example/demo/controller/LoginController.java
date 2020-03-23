@@ -64,7 +64,13 @@ public class LoginController {
                      @RequestParam("password")String password, HttpSession session){
       return null;
     }
-
+    //注销
+    @GetMapping("/logout")
+    @ResponseBody
+    public Msg logout(HttpServletRequest request) {
+        request.getSession().removeAttribute("user");
+        return Msg.success();
+    }
     @GetMapping
     public List<String> list() {
         return factory.oauthList();
