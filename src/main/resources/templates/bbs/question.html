@@ -3,6 +3,8 @@
 <head>
     <title th:text="${question.title}"></title>
     <head th:insert="~{fragment/import :: head}"></head>
+    <link href="/css/question.css" rel="stylesheet">
+
 </head>
 <body class="nav-md">
 <div class="container body"style="background:#f1f1f1">
@@ -25,7 +27,7 @@
                                                 <h1 style="margin-bottom: 40px;margin-top: 40px"th:text="${question.getTitle()}"></h1>
                                                 <span class=" text-desc" >
                                         作者：<span th:text="${question.user.getName()}"></span> |
-                                        发布时间：<span th:text="${#dates.format(question.gmtModify,'yyyy-mm-dd hh:mm')}"></span> |
+                                        发布时间：<span th:text="${#dates.format(question.gmtModify,'yyyy-MM-dd hh:mm')}"></span> |
                                         阅读数：<span th:text="${question.viewCount}"></span>
                                     </span>
 
@@ -34,7 +36,7 @@
                                             <hr style="margin-bottom: 40px">
                                             <!-- /分隔符-->
                                             <div class="row"style="margin-left: 25px">
-                                                <p th:text="${question.description}"></p>
+                                                <h3 th:text="${question.description}"></h3>
                                             </div>
                                             <!-- 分隔符-->
                                             <hr >
@@ -55,21 +57,71 @@
                                                         <!-- start recent activity -->
                                                         <ul class="messages">
                                                             <li th:each="comment:${pageInfo.getList()}">
-
+                                                                <h5 th:if="${comment.user.userId==question.getCreator()}" style="float: left;width: 80px;color: gold;">楼主</h5>
                                                                 <div class="clearfix"></div>
                                                                 <img th:src="${comment.user.icon}" class="avatar" alt="Avatar">
                                                                 <div class="clearfix"></div>
                                                                 <h4 th:text="${comment.user.name}"style="float: left;width: 80px"></h4>
                                                                 <div class="message_date">
-                                                                    <h3 class="date text-info"th:text="${#dates.format(question.gmtModify,'dd')}">24</h3>
-                                                                    <p class="month"th:text="${#dates.format(question.gmtModify,'MMMM')}">May</p>
+                                                                    <h3 class="date text-info"th:text="${#dates.format(comment.gmtModify,'dd')}"></h3>
+                                                                    <p class="month"th:text="${#dates.format(comment.gmtModify,'MMMM')}"></p>
                                                                 </div>
                                                                 <div class="message_wrapper"style="position:relative;top: -40px; left: 40px;">
                                                                     <h3 class="heading"th:text="${comment.content}"></h3>
                                                                     <br />
-                                                                    <p style="margin-top: 20px;margin-bottom: -20px">
-                                                                        <span class=" text-desc" ></span>&nbsp;<span th:text="${comment.commentCount}"></span>个回复·<span th:text="${comment.likeCount}"></span>个收藏
-                                                                    </p>
+                                                                    <div class="col-lg-12  panel comment-icon"style="box-shadow: none;background-color: initial;" >
+                                                                        <!--点赞-->
+                                                                        <span class="fa fa-thumbs-up icon"></span>
+                                                                        <!--评论-->
+                                                                        <a  class="panel-heading childComment" role="tab"  th:data-flag="false" th:data-id="${comment.id}" data-toggle="collapse" th:data-target="'#collapse'+${comment.id}" aria-expanded="true">
+                                                                            <span class="glyphicon glyphicon-comment icon"></span>
+                                                                        </a>
+                                                                    </div>
+                                                                    <!--二级评论-->
+                                                                            <div th:id="'collapse'+${comment.id}" class="panel-collapse collapse" role="tabpanel">
+                                                                                <div class="panel-body">
+                                                                                    <!--二级列表-->
+                                                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 child_comment">
+                                                                                        <ul class="messages">
+
+                                                                                        </ul>
+                                                                                        <!--如果已登录-->
+                                                                                        <div th:if="${session.user!=null}">
+                                                                                            <form th:id="${'form-'+comment.id}"th:action="@{/comment}" method="post">
+                                                                                                <div class="input-group" style="margin-top: 10px">
+                                                                                                    <span class="input-group-addon userName"th:text="${'@'+comment.user.name}"></span>
+                                                                                                    <input name="content" type="text" class="form-control"placeholder="Reply to comments……">
+                                                                                                </div>
+                                                                                                <span class="help-block valid_msg"style="font-size:18px;color: red" ></span>
+                                                                                                <input name="type"value="2"type="hidden">
+                                                                                                <input name="parentId"th:value="${comment.id}"type="hidden">
+                                                                                                <input name="commentator"th:value="${session.user.getUserId()}"type="hidden">
+                                                                                                <button  type="button" class="btn btn-success pull-right replyBtn"
+                                                                                                         th:data-parentId="${comment.id}">reply
+                                                                                                </button>
+                                                                                            </form>
+                                                                                        </div>
+                                                                                        <!--如果未登录-->
+                                                                                        <div th:if="${session.user==null}">
+                                                                                            <fieldset disabled>
+                                                                                                <form >
+                                                                                                    <div class="input-group" style="margin-top: 10px">
+                                                                                                        <span class="input-group-addon userName"th:text="${'@'+comment.user.name}"></span>
+                                                                                                        <input name="content" type="text" class="form-control"placeholder="Reply to comments……">
+                                                                                                    </div>
+                                                                                                    <span class="help-block "style="font-size:18px;color: red" >Please login first！</span>
+                                                                                                    <button  type="button" class="btn btn-success pull-right replyBtn"
+                                                                                                    >reply
+                                                                                                    </button>
+                                                                                                </form>
+                                                                                            </fieldset>
+
+                                                                                        </div>
+                                                                                    </div>
+
+                                                                                </div>
+                                                                            </div>
+
                                                                 </div>
                                                             </li>
                                                         </ul>
@@ -108,13 +160,13 @@
                                                     <input type="hidden" name="type" value="1">
                                                     <input type="hidden" name="commentator" th:value="${session.user.getUserId()}">
                                                     <textarea name="content"class="form-control" id="content"style="margin-top: 10px"rows="10"placeholder="Please input content"></textarea>
-                                                    <span class="help-block"style="font-size:18px;color: red" id="valid_msg"></span>
+                                                    <span class="help-block valid_msg"style="font-size:18px;color: red" ></span>
                                                 </form>
                                                 <!--/回复框-->
-                                                <button class="btn btn-success btn-sm" id="reply"style="float: right;margin-top: 10px;margin-bottom: 10px">
+                                                <button class="btn btn-success btn-sm" id="replyQuestion"style="float: right;margin-top: 10px;margin-bottom: 10px">
                                                     <h4>
-                                    <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;Reply
-                                    </span>
+                                                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;Reply
+                                                        </span>
                                                     </h4>
                                                 </button>
                                             </div>

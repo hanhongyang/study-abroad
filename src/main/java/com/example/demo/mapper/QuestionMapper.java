@@ -10,7 +10,7 @@ import java.util.List;
 @Mapper
 public interface QuestionMapper {
     //查询某个section里的所有question携带user
-    @Select("select * from question where section_id=#{sectionId}")
+    @Select("select * from question where section_id=#{sectionId} order by gmt_modify desc")
     @Results(id="questionWithUserMap",value={
             @Result(property = "id", column = "id", jdbcType= JdbcType.INTEGER),
             @Result(property = "title", column = "title"),
@@ -66,4 +66,8 @@ public interface QuestionMapper {
     //评论数+1
     @Update("update question set comment_count=comment_count+1 where id=#{id}")
     void addCommentCount(Integer id);
+
+    //修改问题更新时间
+    @Update("update question set gmt_modify=#{gmtModify} where id=#{id}")
+    void gmtModify(Long gmtModify,Integer id);
 }

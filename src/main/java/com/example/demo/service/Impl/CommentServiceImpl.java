@@ -7,6 +7,7 @@ import com.example.demo.mapper.CommentMapper;
 import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.model.Comment;
 import com.example.demo.service.CommentService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,12 +21,25 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     QuestionMapper questionMapper;
     @Override
-    public List<Comment> getAllByQuestionIdWithUser(Integer id) {
+    public List<Comment> getFirstCommentByQuestionIdWithUser(Integer id) {
         //如果问题不存在
         if(questionMapper.getById(id)==null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
         }
-        return commentMapper.getAllByQuestionIdWithUser(id);
+        return commentMapper.getFirstCommentByQuestionIdWithUser(id);
+    }
+
+    @Override
+    public List<Comment> getSecondCommentByCommentIdWithUser(Integer id) {
+        //如果问题不存在
+        if(questionMapper.getById(commentMapper.getParentIdById(id))==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
+        //如果回复的父评论未找到
+        if(commentMapper.getById(id)==null){
+            throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
+        }
+        return commentMapper.getSecondCommentByCommentIdWithUser(id);
     }
 
     @Override
@@ -39,33 +53,41 @@ public class CommentServiceImpl implements CommentService {
         if(type==null|| !CommentTypeEnum.isExist(type)){
             throw new CustomizeException(CustomizeErrorCode.TYPE_PARAM_WRONG);
         }
+        //如果content为空
+        if(StringUtils.isBlank(content)){
+            throw new CustomizeException(CustomizeErrorCode.CONTENT_IS_EMPTY);
+        }
         //如果回复的是评论
         if (type == CommentTypeEnum.COMMENT.getType()) {
             // 回复评论
             //如果回复的父评论未找到
-            if(commentMapper.getById(parentId)==null){
+            if(commentMapper.getParentByParentId(parentId)==null){
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
             // 回复问题
             //如果回复的父评论的问题未找到
-            if(questionMapper.getById(commentMapper.getById(parentId).getParentId())==null){
+            if(questionMapper.getById(commentMapper.getParentByParentId(parentId).getParentId())==null){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
-            //插入评论
-            commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
+            //插入评论并返回id
+            int id=commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
             // 增加评论数
-            questionMapper.addCommentCount(commentMapper.getById(parentId).getParentId());
-            commentMapper.addCommentCount(commentMapper.getById(parentId).getId());
+            questionMapper.addCommentCount(commentMapper.getParentByParentId(id).getParentId());
+            commentMapper.addCommentCount(commentMapper.getParentByParentId(id).getId());
+            //更新问题gmt_modify
+            questionMapper.gmtModify(gmtModify,questionMapper.getById(parentId).getId());
         }else {
             //如果回复的是问题
             //如果回复的问题未找到
             if(questionMapper.getById(parentId)==null){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
-            //插入评论
-            commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
+            //插入评论并返回id
+            int id=commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
             // 增加评论数
-            questionMapper.addCommentCount(commentMapper.getById(parentId).getParentId());
+            questionMapper.addCommentCount(questionMapper.getById(parentId).getId());
+            //更新问题gmt_modify
+            questionMapper.gmtModify(gmtModify,questionMapper.getById(parentId).getId());
         }
 
     }

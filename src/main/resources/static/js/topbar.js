@@ -24,7 +24,7 @@ $("#loginBtn").click(function () {
                 //关闭模态框
                 $("#loginModal").modal("hide");
                 //重定向到当前页面
-                window.location.href=window.location.pathname;
+                window.location.reload();
             }else {
                 new PNotify({
                     title: 'Log in failed',
@@ -55,7 +55,7 @@ $("#logout").click(function () {
         success:function (result) {
             if(result.code==100){
 
-                window.location.href=window.location.pathname;
+                window.location.reload();
             }else {
                 new PNotify({
                     title: 'Log out failed',

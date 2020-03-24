@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.websocket.server.PathParam;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Controller
@@ -113,7 +114,7 @@ public class BBSController {
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询
         //获取某个板块内所有问题
-        List<Comment> commentList=commentService.getAllByQuestionIdWithUser(id);
+        List<Comment> commentList=commentService.getFirstCommentByQuestionIdWithUser(id);
         //用pageinfo包装查询结果，只需要将pageinfo交给页面就行了
         PageInfo pageInfo=new PageInfo(commentList);
         //累加阅读数
@@ -149,5 +150,12 @@ public class BBSController {
         }else {
             return Msg.fail();
         }
+    }
+
+    @GetMapping("/childComments")
+    @ResponseBody
+    public Msg childReply(@RequestParam("id")Integer id){
+        List<Comment> commentList=commentService.getSecondCommentByCommentIdWithUser(id);
+        return Msg.success().add("commentList",commentList);
     }
 }

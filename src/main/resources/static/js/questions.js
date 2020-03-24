@@ -57,6 +57,7 @@ $("#publishBtn").click(function () {
                     type: 'warn',
                     styling: 'bootstrap3'
                 });
+
             }
         }
     })

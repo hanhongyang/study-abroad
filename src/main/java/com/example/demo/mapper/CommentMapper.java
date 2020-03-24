@@ -8,8 +8,8 @@ import java.util.List;
 
 @Mapper
 public interface CommentMapper {
-    //查询某个问题的所有评论携带user
-    @Select("select * from comment where parent_id=#{id}")
+    //查询某个问题的所有一级评论携带user
+    @Select("select * from comment where parent_id=#{id} and type=1 order by gmt_modify desc")
     @Results(id="commentWithUserMap",value={
             @Result(property = "id", column = "id", jdbcType= JdbcType.INTEGER),
             @Result(property = "content", column = "content"),
@@ -23,10 +23,11 @@ public interface CommentMapper {
             @Result(property = "parentId", column = "parent_id"),
             @Result(property = "user", column = "commentator",one = @One(select = "com.example.demo.mapper.UserMapper.selectByPrimaryKey"))
     })
-    List<Comment> getAllByQuestionIdWithUser(@Param("id") Integer id);
-    //插入评论
+    List<Comment> getFirstCommentByQuestionIdWithUser(@Param("id") Integer id);
+    //插入评论并返回id
     @Insert("insert into comment(parent_id,type,commentator,gmt_create,gmt_modify,content) values(#{parentId},#{type},#{commentator},#{gmtCreate},#{gmtModify},#{content})")
-    void addComment(Integer parentId,
+    @SelectKey(statement="select last_insert_id()", keyProperty="id", before=false, resultType=int.class)
+    int addComment(Integer parentId,
                     Integer type,
                     Integer commentator,
                     Long gmtCreate,
@@ -46,8 +47,22 @@ public interface CommentMapper {
             @Result(property = "likeCount", column = "like_count"),
             @Result(property = "parentId", column = "parent_id"),
     })
-    Comment getById(Integer parentId);
+    Comment getParentByParentId(Integer parentId);
     //评论数+1
     @Update("update comment set comment_count=comment_count+1 where id=#{id}")
     void addCommentCount(@Param("id")Integer id);
+
+    //查询此条评论的问题Id
+    @Select("select parent_id from comment where id=#{id}")
+    Integer getParentIdById(Integer id);
+
+    //查询某个评论的所有二级评论携带user
+    @Select("select * from comment where parent_id=#{id} and type=2 order by gmt_modify desc")
+    @ResultMap("commentWithUserMap")
+    List<Comment> getSecondCommentByCommentIdWithUser(Integer id);
+
+    //查询某个评论
+    @Select("select * from comment where id=#{id}")
+    @ResultMap("commentMap")
+    Comment getById(Integer id);
 }
