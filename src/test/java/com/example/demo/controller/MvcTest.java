@@ -71,7 +71,7 @@ public class MvcTest {
         List<User> usersList=pageInfo.getList();
         log.info("当前页查询记录");
         for(User user:usersList){
-            log.info("ID:"+user.getUserId()+"==>Name:"+user.getRule());
+            log.info("ID:"+user.getUserId()+"==>Name:"+user.getRole());
         }
 
     }

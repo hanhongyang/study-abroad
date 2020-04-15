@@ -59,7 +59,7 @@
                                                             <li th:each="comment:${pageInfo.getList()}">
                                                                 <h5 th:if="${comment.user.userId==question.getCreator()}" style="float: left;width: 80px;color: gold;">楼主</h5>
                                                                 <div class="clearfix"></div>
-                                                                <img th:src="${comment.user.icon}" class="avatar" alt="Avatar">
+                                                                <img th:src="${comment.user.getIcon().contains('http')?comment.user.getIcon().split(';')[1]:comment.user.getIcon()}" class="avatar" alt="Avatar">
                                                                 <div class="clearfix"></div>
                                                                 <h4 th:text="${comment.user.name}"style="float: left;width: 80px"></h4>
                                                                 <div class="message_date">
@@ -71,10 +71,12 @@
                                                                     <br />
                                                                     <div class="col-lg-12  panel comment-icon"style="box-shadow: none;background-color: initial;" >
                                                                         <!--点赞-->
-                                                                        <span class="fa fa-thumbs-up icon"></span>
+                                                                        <a  class="panel-heading childComment">
+                                                                        <span class="fa fa-thumbs-up thumbs-upIcon icon"th:data-flag="true" th:data-id="${comment.id}"th:text="${comment.likeCount}"></span>
+                                                                        </a>
                                                                         <!--评论-->
                                                                         <a  class="panel-heading childComment" role="tab"  th:data-flag="false" th:data-id="${comment.id}" data-toggle="collapse" th:data-target="'#collapse'+${comment.id}" aria-expanded="true">
-                                                                            <span class="glyphicon glyphicon-comment icon"></span>
+                                                                            <span class="glyphicon glyphicon-comment icon"th:text="${comment.commentCount}"></span>
                                                                         </a>
                                                                     </div>
                                                                     <!--二级评论-->
@@ -97,7 +99,7 @@
                                                                                                 <input name="parentId"th:value="${comment.id}"type="hidden">
                                                                                                 <input name="commentator"th:value="${session.user.getUserId()}"type="hidden">
                                                                                                 <button  type="button" class="btn btn-success pull-right replyBtn"
-                                                                                                         th:data-parentId="${comment.id}">reply
+                                                                                                         th:data-parentId="${comment.id}"th:data-questionId="${question.id}">reply
                                                                                                 </button>
                                                                                             </form>
                                                                                         </div>
@@ -147,7 +149,7 @@
                                                 <!--回复人-->
                                                 <div class="row">
                                                     <div class="col-md-1">
-                                                        <img th:src="${session.user.getIcon()}" alt="" class="img-rounded"style="height: 70px;width: 70px;">
+                                                        <img th:src="${session.user.getIcon().contains('http')?session.user.getIcon().split(';')[1]:session.user.getIcon()}" alt="" class="img-rounded"style="height: 70px;width: 70px;">
                                                     </div>
                                                     <div class="col-md-11">
                                                         <p th:text="${session.user.getName()}"style="padding-top: 20px;padding-left: 20px">
@@ -230,7 +232,7 @@
                                                 <h1>发起人</h1>
                                                 <div class="row">
                                                     <div class="col-md-3">
-                                                        <img th:src="${question.user.getIcon()}" alt="" class="img-rounded"style="height: 70px;width: 70px;">
+                                                        <img th:src="${question.user.getIcon().contains('http')?question.user.getIcon().split(';')[1]:question.user.getIcon()}" alt="" class="img-rounded"style="height: 70px;width: 70px;">
                                                     </div>
                                                     <div class="col-md-9">
                                                         <p th:text="${question.user.getName()}"style="padding-top: 20px">

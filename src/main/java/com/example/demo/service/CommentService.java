@@ -11,4 +11,7 @@ public interface CommentService {
     List<Comment> getSecondCommentByCommentIdWithUser(Integer id);
     //回复
     void reply(Integer parentId,Integer type,Integer commentator,Long gmtCreate,Long gmtModify,String content);
+    //点赞
+    void thumbsUp(Integer id,String like);
+
 }

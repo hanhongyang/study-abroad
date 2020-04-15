@@ -378,7 +378,7 @@ function SmartWizard(target, options) {
     }
 
     SmartWizard.prototype.fixHeight = function(){
-        var height = 0;
+        var height = 20;
 
         var selStep = this.steps.eq(this.curStepIdx);
         var stepContainer = _step(this, selStep);
@@ -387,8 +387,8 @@ function SmartWizard(target, options) {
         });
 
         // These values (5 and 20) are experimentally chosen.
-        stepContainer.height(height + 5);
-        this.elmStepContainer.height(height + 20);
+        stepContainer.height(height + 50);
+        this.elmStepContainer.height(height + 50);
     }
 
     _init(this);

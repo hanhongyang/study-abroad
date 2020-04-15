@@ -10,4 +10,6 @@ public interface CountryService {
     List<Country> getAll();
     //查询国家
     Country getById(Integer countryId);
+    //查询热门国家
+    List<Country> popCountries();
 }

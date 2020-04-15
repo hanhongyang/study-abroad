@@ -38,13 +38,13 @@
                         <label  class="col-sm-2 control-label">角色*</label>
 
                         <label class="radio-inline">
-                            <input type="radio" name="rule"  value="1"> 超级管理员
+                            <input type="radio" name="role"  value="1"> 超级管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule"  value="2"> 学校管理员
+                            <input type="radio" name="role"  value="2"> 学校管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule"  value="0"> 普通用户
+                            <input type="radio" name="role"  value="0"> 普通用户
                         </label>
 
                     </div>
@@ -115,13 +115,13 @@
                         <label  class="col-sm-2 control-label">角色</label>
 
                         <label class="radio-inline">
-                            <input type="radio" name="rule"  value="1"> 超级管理员
+                            <input type="radio" name="role"  value="1"> 超级管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule"  value="2"> 学校管理员
+                            <input type="radio" name="role"  value="2"> 学校管理员
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="rule" value="0"> 普通用户
+                            <input type="radio" name="role" value="0"> 普通用户
                         </label>
 
                     </div>
@@ -240,7 +240,7 @@
                                     <th>userId</th>
                                     <th>icon</th>
                                     <th>password</th>
-                                    <th>rule</th>
+                                    <th>role</th>
                                     <th>country</th>
                                     <th>email</th>
                                     <th>mobile</th>
@@ -257,21 +257,21 @@
                                     <td>
                                         <ul class="list-inline">
                                         <li>
-                                            <img th:src="${user.icon}" class="avatar" alt="Avatar">
+                                            <img th:src="${user.getIcon().contains('http')?user.getIcon().split(';')[1]:user.getIcon()}" class="avatar" alt="Avatar">
                                         </li>
                                         </ul>
                                     </td>
                                     <td th:text="${user.password}"></td>
-                                    <div th:switch="${user.rule}">
+                                    <div th:switch="${user.role}">
                                         <td th:case="0">普通用户</td>
                                         <td th:case="1">超级管理员</td>
                                         <td th:case="2">学校管理员</td>
                                         <td th:case="3">github用户</td>
                                     </div>
-                                    <td th:text="${user.country.name}"></td>
-                                    <td th:text="${user.email}"></td>
-                                    <td th:text="${user.mobile}"></td>
-                                    <td th:text="${#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>
+                                    <td th:text="${user.country==null?'未设置':user.country.name}"></td>
+                                    <td th:text="${user.email==null?'未设置':user.email}"></td>
+                                    <td th:text="${user.mobile==null?'未设置':user.mobile}"></td>
+                                    <td th:text="${user.birthday==null?'未设置':#dates.format(user.birthday, 'yyyy-MM-dd')}"></td>
                                     <td th:text="${user.name}"></td>
                                     <td width="5%">
                                         <button class="btn btn-info btn-sm edit_btn">

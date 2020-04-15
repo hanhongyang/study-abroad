@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title >School</title>
+    <head th:insert="~{fragment/import :: head}"></head>
+    <link href="/css/schools.css" rel="stylesheet">
+</head>
+
+<body class="nav-md">
+<div class="container body"style="background:#f1f1f1">
+    <div th:replace="~{fragment/nav::topbar}">
+    </div>
+
+    <!-- page content -->
+    <div  class="container-fluid"style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
+        <div class="clearfix"></div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <div class="row">
+                                <div class="countries">
+                                    <p>
+                                        选择国家（未完成异步刷新）
+                                    </p>
+                                    <ul class="col-md-2"th:each="country:${countryList}">
+                                        <li th:data-id="${country.countryId}"class="countryBtn">[[${country.name}]]</li></a>
+                                    </ul>
+                                </div>
+                                <div class="clearfix"></div>
+                                <div th:each="school : ${pageInfo.getList()}">
+                                    <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                                        <div class="well profile_view">
+                                            <a th:href="@{'/school/'+${school.schoolId}}">
+                                                <div class="col-sm-12">
+                                                    <div class="left col-xs-7">
+                                                        <h2 th:text="${school.name}"></h2>
+                                                        <ul class="list-unstyled">
+                                                            <li ><i class="fa fa-map-marker">&nbsp;&nbsp;&nbsp;</i>[[${school.country.getName()}]]  </li>
+                                                            <li ><i class="fa fa-pencil-square">&nbsp;&nbsp;&nbsp;</i>city：[[${school.city}]]</li>
+                                                        </ul>
+                                                    </div>
+                                                    <div class="right col-xs-5 text-center">
+                                                        <img th:src="${school.logo}" alt="" class="img-rounded"style="height: 140px;width: 140px">
+                                                    </div>
+                                                </div>
+                                            </a>
+                                            <div class="col-xs-12 bottom text-center">
+                                                <div class="col-xs-12 col-sm-6 emphasis">
+                                                    关注人数：12345
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 emphasis">
+                                                    <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-heart">
+                                                    </i>  </button>
+
+                                                    <a href="http://www.stanford.edu"target="_Blank">
+                                                        <button type="button" class="btn btn-primary btn-xs" >
+                                                            <i class="fa fa-mortar-board"> </i> 访问官网
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--显示分页信息-->
+                        <div class="row">
+                            <!--分页文字-->
+                            <div class="col-md-6" >
+                                当前<span th:text="${pageInfo.pageNum}"></span>页,总共<span th:text="${pageInfo.pages}"></span>页,总共<span th:text="${pageInfo.total}"></span>条记录
+                            </div>
+                            <!--分页条信息-->
+                            <div class="col-md-6">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li th:if="${pageInfo.pageNum!=1}">
+                                            <a th:href="@{schools(pageNum=${1})}"
+                                               aria-label="Previous">
+                                                <span aria-hidden="true">&lt;&lt;</span>
+                                            </a>
+                                        </li>
+                                        <li th:if="${pageInfo.hasPreviousPage}">
+                                            <a th:href="@{schools(pageNum=${pageInfo.pageNum - 1})}" aria-label="Previous">
+                                                <span aria-hidden="true">&lt;</span>
+                                            </a>
+                                        </li>
+                                        <li th:each="pageNum : ${pageInfo.navigatepageNums}" th:class="${pageInfo.pageNum == pageNum}? 'active' : ''">
+                                            <a th:href="@{schools(pageNum=${pageNum})}" th:text="${pageNum}"></a></li>
+                                        <li  th:if="${pageInfo.hasNextPage}">
+                                            <a th:href="@{schools(pageNum=${pageInfo.pageNum+1})}"
+                                               aria-label="Previous">
+                                                <span aria-hidden="true">&gt;</span>
+                                            </a>
+                                        </li>
+                                        <li th:if="${pageInfo.pageNum!=pageInfo.pages}">
+                                            <a th:href="@{schools(pageNum=${pageInfo.pages})}" aria-label="Previous">
+                                                <span aria-hidden="true">&gt;&gt;</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- /page content -->
+</div>
+<div th:insert="~{fragment/import :: foot}"></div>
+<script th:src="@{/js/topbar.js}"></script>
+<script th:src="@{/js/schools.js}"></script>
+</body>
+
+</html>

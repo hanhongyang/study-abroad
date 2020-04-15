@@ -94,6 +94,7 @@ public class LoginController {
         }else {
             //取出response包含的AuthUser
             AuthUser authUser=(AuthUser)response.getData();
+            //GitHub用户登录
             User user=userService.githubLogin(authUser.getUuid(),authUser.getNickname(),authUser.getAvatar());
             session.setAttribute("user",user);
             return "redirect:/";

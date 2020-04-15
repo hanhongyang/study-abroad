@@ -13,7 +13,7 @@ public class User {
 
     private String password;
 
-    private Integer rule;
+    private Integer role;
 
     private Integer countryId;
 
@@ -32,10 +32,10 @@ public class User {
     public User() {
     }
 
-    public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name, String icon) {
+    public User(Integer userId, String password, Integer role, Integer countryId, String email, String mobile, Date birthday, String name, String icon) {
         this.userId = userId;
         this.password = password;
-        this.rule = rule;
+        this.role = role;
         this.countryId = countryId;
         this.email = email;
         this.mobile = mobile;
@@ -44,10 +44,10 @@ public class User {
         this.icon = icon;
     }
 
-    public User(Integer userId, String password, Integer rule, Integer countryId, String email, String mobile, Date birthday, String name, String icon, String uuid) {
+    public User(Integer userId, String password, Integer role, Integer countryId, String email, String mobile, Date birthday, String name, String icon, String uuid) {
         this.userId = userId;
         this.password = password;
-        this.rule = rule;
+        this.role = role;
         this.countryId = countryId;
         this.email = email;
         this.mobile = mobile;
@@ -65,7 +65,7 @@ public class User {
         return "User{" +
                 "userId=" + userId +
                 ", password='" + password + '\'' +
-                ", rule=" + rule +
+                ", role=" + role +
                 ", countryId=" + countryId +
                 ", email='" + email + '\'' +
                 ", mobile='" + mobile + '\'' +

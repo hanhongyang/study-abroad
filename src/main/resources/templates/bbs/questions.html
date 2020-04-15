@@ -87,7 +87,7 @@
                                             <li th:each="question:${pageInfo.getList()}">
 
                                                     <div class="clearfix"></div>
-                                                <img th:src="${question.user.icon}" class="avatar" alt="Avatar">
+                                                <img th:src="${question.user.getIcon().contains('http')?question.user.getIcon().split(';')[1]:question.user.getIcon()}" class="avatar" alt="Avatar">
                                                 <div class="clearfix"></div>
                                                 <h4 th:text="${question.user.name}"style="float: left;width: 80px"></h4>
                                                 <div class="message_date">

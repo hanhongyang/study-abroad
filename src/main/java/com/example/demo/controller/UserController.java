@@ -64,7 +64,7 @@ public class UserController {
      */
     @PostMapping("/user")
     @ResponseBody
-    public Msg saveUser(@RequestParam(value = "rule",defaultValue = "0")String rule,
+    public Msg saveUser(@RequestParam(value = "role",defaultValue = "0")String role,
                          @RequestParam(value = "password")String password,
                         @RequestParam(value = "countryId")String countryId,
                          @RequestParam(value = "email")String email,
@@ -76,12 +76,12 @@ public class UserController {
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,DefaultIcon);
+                User user=new User(null,password,Integer.parseInt(role),Integer.parseInt(countryId),email,mobile,null,name,DefaultIcon);
                 userService.save(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(null,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,DefaultIcon);
+                User user=new User(null,password,Integer.parseInt(role),Integer.parseInt(countryId),email,mobile,birthday2,name,DefaultIcon);
                 userService.save(user);
                 return Msg.success();
             }
@@ -91,10 +91,23 @@ public class UserController {
         return Msg.fail();
     }
 
+    /**
+     * 修改用户
+     * @param userId
+     * @param role
+     * @param password
+     * @param countryId
+     * @param email
+     * @param mobile
+     * @param birthday
+     * @param name
+     * @param icon
+     * @return
+     */
     @ResponseBody
     @PutMapping("/user/{userId}")
     public Msg updateUser(@PathVariable(value = "userId")Integer userId,
-                          @RequestParam(value = "rule",defaultValue = "0")String rule,
+                          @RequestParam(value = "role",defaultValue = "0")String role,
                           @RequestParam(value = "password")String password,
                           @RequestParam(value = "countryId")String countryId,
                           @RequestParam(value = "email")String email,
@@ -116,12 +129,12 @@ public class UserController {
         try{
             //判断生日是否为空
             if("".equals(birthday)){
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,null,name,icon);
+                User user=new User(userId,password,Integer.parseInt(role),Integer.parseInt(countryId),email,mobile,null,name,icon);
                 userService.updateUser(user);
                 return Msg.success();
             }else {
                 Date birthday2=format.parse(birthday);
-                User user=new User(userId,password,Integer.parseInt(rule),Integer.parseInt(countryId),email,mobile,birthday2,name,icon);
+                User user=new User(userId,password,Integer.parseInt(role),Integer.parseInt(countryId),email,mobile,birthday2,name,icon);
                 userService.updateUser(user);
                 return Msg.success();
             }

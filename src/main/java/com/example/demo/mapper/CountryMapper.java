@@ -30,6 +30,8 @@ public interface CountryMapper {
     @Insert("Insert into country (country_id,name,code,flag) values(#{country.countryId},#{country.name},#{country.code},#{country.flag}")
     public void insert2(@Param("country")Country country) ;
 
-
-
+    //按学校数量查询国家；倒序；
+    @Select("select country.country_id,country.name,country.code,country.flag from country  right join (select country_id,count(*) as count from school group by country_id order by count desc) as b  on country.country_id=b.country_id")
+    @ResultMap("countryMap")
+    public List<Country> popCountries();
 }

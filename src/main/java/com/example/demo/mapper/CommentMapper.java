@@ -26,13 +26,12 @@ public interface CommentMapper {
     List<Comment> getFirstCommentByQuestionIdWithUser(@Param("id") Integer id);
     //插入评论并返回id
     @Insert("insert into comment(parent_id,type,commentator,gmt_create,gmt_modify,content) values(#{parentId},#{type},#{commentator},#{gmtCreate},#{gmtModify},#{content})")
-    @SelectKey(statement="select last_insert_id()", keyProperty="id", before=false, resultType=int.class)
-    int addComment(Integer parentId,
+    void addComment(Integer parentId,
                     Integer type,
                     Integer commentator,
                     Long gmtCreate,
                     Long gmtModify,
-                    String content);
+                    String content );
     //查询某个评论的父评论
     @Select("select * from comment where id=#{parentId}")
     @Results(id="commentMap",value={
@@ -48,6 +47,7 @@ public interface CommentMapper {
             @Result(property = "parentId", column = "parent_id"),
     })
     Comment getParentByParentId(Integer parentId);
+
     //评论数+1
     @Update("update comment set comment_count=comment_count+1 where id=#{id}")
     void addCommentCount(@Param("id")Integer id);
@@ -65,4 +65,8 @@ public interface CommentMapper {
     @Select("select * from comment where id=#{id}")
     @ResultMap("commentMap")
     Comment getById(Integer id);
+
+    //点赞
+    @Update("update comment set like_count=like_count+#{one} where id=#{id}")
+    void thumbsUp(Integer id, int one);
 }

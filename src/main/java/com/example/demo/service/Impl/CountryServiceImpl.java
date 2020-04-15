@@ -83,4 +83,10 @@ public class CountryServiceImpl implements CountryService {
         return countryMapper.getById(countryId);
     }
 
+    @Override
+    public List<Country> popCountries() {
+        return countryMapper.popCountries();
+    }
+
+
 }

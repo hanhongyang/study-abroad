@@ -9,6 +9,7 @@ import com.example.demo.service.Impl.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -152,10 +153,34 @@ public class BBSController {
         }
     }
 
+    /**
+     * 获取某个评论的子评论
+     * @param id
+     * @return
+     */
     @GetMapping("/childComments")
     @ResponseBody
     public Msg childReply(@RequestParam("id")Integer id){
         List<Comment> commentList=commentService.getSecondCommentByCommentIdWithUser(id);
         return Msg.success().add("commentList",commentList);
+    }
+
+    /**
+     *
+     * @param id commentId
+     * @param like 标记点赞
+     * @return
+     */
+    @GetMapping("/thumbsUp/{id}")
+    @ResponseBody
+    public Msg thumbsUp(@PathVariable("id")Integer id,@RequestParam(value = "like") String like){
+        //点赞+1
+        if(StringUtils.equals("true",like)) {
+            log.info("t");
+        }else if(StringUtils.equals("false",like)){
+            log.info("f");
+        }
+        commentService.thumbsUp(id,like);
+        return Msg.success();
     }
 }

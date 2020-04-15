@@ -48,7 +48,7 @@
                     </li>
                     <li class=""th:if="${session.user != null}">
                         <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                            <img th:src="${session.user.getIcon()}" alt="">[[${session.user.getName()}]]
+                            <img th:src="${session.user.getIcon().contains('http')?session.user.getIcon().split(';')[1]:session.user.getIcon()}" alt="">[[${session.user.getName()}]]
                             <span class=" fa fa-angle-down"></span>
                         </a>
                         <ul class="dropdown-menu dropdown-usermenu pull-right">

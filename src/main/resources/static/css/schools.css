@@ -1,0 +1,18 @@
+.countryBtn{
+
+}
+.countries ul{
+    float: left;
+
+}
+.countries ul li{
+    list-style-type: none;
+    display: inline-block;;
+    text-align: -webkit-match-parent;
+    cursor: pointer;
+    color: #333;
+}
+.countries ul li:active{
+
+    background-color: blue;
+}

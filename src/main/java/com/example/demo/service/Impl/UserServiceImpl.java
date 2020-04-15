@@ -3,6 +3,7 @@ package com.example.demo.service.Impl;
 import com.example.demo.mapper.UserMapper;
 import com.example.demo.model.User;
 import com.example.demo.service.UserService;
+import com.example.demo.util.PicUtil;
 import com.example.demo.util.RandomBirthday;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.session.ExecutorType;
@@ -114,16 +115,34 @@ public class UserServiceImpl implements UserService {
         userMapper.batchDelete(userId);
     }
 
+    //本地用户登录
     @Override
     public User login(String email,String password) {
         return userMapper.login(email,password);
     }
+    //GitHub用户登录
     @Override
-    public User githubLogin(String uuid,String name,String icon) {
+    public User githubLogin(String uuid,String name,String icon)  {
         //查询是否存在
         long count=userMapper.checkGithubUuid(uuid);
         //如果存在则取出User
         if(count!=0){
+            //判断name、icon是否变化
+            //将数据库icon按照；分割。icon变为头像网络地址和本地地址
+            String[] d = userMapper.selectGithubUserByUuid(uuid).getIcon().split(";");
+            //如果头像网络地址发生变化
+            if(icon!=d[0]){
+                //重新上传头像
+                //将新头像保存到本地
+                try {
+                    icon=icon+";"+PicUtil.saveIcon(icon);
+                    userMapper.updateGithubUser(name,icon,uuid);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }else if(userMapper.selectGithubUserByUuid(uuid).getName()!=name){
+                userMapper.updateGithubUser(name,icon,uuid);
+            }
             User user=userMapper.selectGithubUserByUuid(uuid);
             return user;
         }else {

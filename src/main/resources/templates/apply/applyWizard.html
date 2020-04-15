@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"style="height: 100%">
+<head>
+    <title >Apply</title>
+    <head th:insert="~{fragment/import :: head}"></head>
+</head>
+
+<body class="nav-md"style="height: 100%">
+<div class="container body"style="background:#f1f1f1;min-height: 100%">
+    <div th:replace="~{fragment/nav::topbar}">
+    </div>
+
+    <!-- page content -->
+    <div  class="container-fluid"style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
+        <div class="clearfix"></div>
+        <div class="container-fluid"style="height: 100%">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="x_panel">
+                        <div class="x_content">
+                            <div class="row">
+
+                                <div class="col-md-12 col-sm-12 col-xs-12">
+                                    <div class="x_panel">
+                                        <div class="x_title">
+                                            <h2>申请学校</h2>
+
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="x_content">
+
+
+                                            <!-- Smart Wizard -->
+                                            <p>请用英文填写信息</p>
+                                            <div id="wizard" class="form_wizard wizard_horizontal">
+                                                <ul class="wizard_steps">
+                                                    <li>
+                                                        <a href="#step-1">
+                                                            <span class="step_no">1</span>
+                                                            <span class="step_descr">
+                                             选择学校<br />
+                                              </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#step-2">
+                                                                <span class="step_no">2</span>
+                                                                <span class="step_descr">
+                                                  上传资料<br />
+                                              </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#step-3">
+                                                                <span class="step_no">3</span>
+                                                                <span class="step_descr">
+                                                  题目作答<br />
+                                              </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#step-4">
+                                                                <span class="step_no">4</span>
+                                                                <span class="step_descr">
+                                                  确认提交<br />
+                                              </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+
+                                                <div id="step-1">
+                                                    <form class="form-horizontal form-label-left"style="height: 300px">
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">申报类型 <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <select  class="form-control" name="applyType">
+                                                                    <option value="1">
+                                                                        <span>本科</span>
+                                                                    </option>
+                                                                    <option value="2">
+                                                                        <span>硕士</span>
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12"id="schoolList" style="margin:auto;">
+                                                            <div class="row"style="margin-top: 5px;margin-bottom: 5px">
+                                                                <div class="bs-glyphicons-list col-md-1">
+                                                                    <a href="#" id="addSchool">
+                                                                        <li>
+                                                                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                                        </li>
+                                                                    </a>
+                                                                </div>
+                                                                <div class="col-md-3">院校名称</div>
+                                                                <div class="col-md-3">专业名称名称</div>
+                                                                <div class="col-md-2">专业官网</div>
+                                                                <div class="col-md-3">申请批次</div>
+                                                            </div>
+                                                            <div class="row" style="margin-top: 5px;margin-bottom: 5px">
+                                                                <div class="bs-glyphicons-list col-md-1">
+
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <select  class="form-control" name="applyType">
+                                                                        <option value="1">
+                                                                            <span>哈佛</span>
+                                                                        </option>
+                                                                        <option value="2">
+                                                                            <span>牛津</span>
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                    <select  class="form-control" name="applyType">
+                                                                        <option value="1">
+                                                                            <span>生物学工程</span>
+                                                                        </option>
+                                                                        <option value="2">
+                                                                            <span>软件工程</span>
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2"style="padding-top: 6px"><a href="#">点击前往</a></div>
+                                                                <div class="col-md-3">
+                                                                    <select  class="form-control" name="applyType">
+                                                                        <option value="1">
+                                                                            <span>秋季11月01日</span>
+                                                                        </option>
+                                                                        <option value="2">
+                                                                            <span>春季3月01日</span>
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </form>
+
+                                                </div>
+                                                <div id="step-2">
+                                                    <h2 class="StepTitle">Step 2 Content</h2>
+                                                    <p>
+                                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                    <form class="form-horizontal form-label-left">
+
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <div id="gender" class="btn-group" data-toggle="buttons">
+                                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                        <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                                                                    </label>
+                                                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                        <input type="radio" name="gender" value="female"> Female
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
+                                                            </label>
+                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                                <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                            </div>
+                                                        </div>
+
+                                                    </form>
+
+                                                </div>
+                                                <div id="step-3">
+                                                    <h2 class="StepTitle">Step 3 Content</h2>
+                                                    <p>
+                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
+                                                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+                                                <div id="step-4">
+                                                    <h2 class="StepTitle">Step 4 Content</h2>
+                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                    </p>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+    </div>
+    <!-- /page content -->
+</div>
+<div th:insert="~{fragment/import :: foot}"></div>
+<script th:src="@{/js/topbar.js}"></script>
+<script th:src="@{/js/applyWizard.js}"></script>
+</body>
+
+</html>

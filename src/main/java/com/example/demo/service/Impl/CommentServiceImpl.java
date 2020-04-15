@@ -7,6 +7,7 @@ import com.example.demo.mapper.CommentMapper;
 import com.example.demo.mapper.QuestionMapper;
 import com.example.demo.model.Comment;
 import com.example.demo.service.CommentService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Slf4j
 public class CommentServiceImpl implements CommentService {
     @Autowired
     CommentMapper commentMapper;
@@ -69,26 +71,48 @@ public class CommentServiceImpl implements CommentService {
             if(questionMapper.getById(commentMapper.getParentByParentId(parentId).getParentId())==null){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
-            //插入评论并返回id
-            int id=commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
+            //插入评论
+            commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
             // 增加评论数
-            questionMapper.addCommentCount(commentMapper.getParentByParentId(id).getParentId());
-            commentMapper.addCommentCount(commentMapper.getParentByParentId(id).getId());
+            questionMapper.addCommentCount(commentMapper.getParentIdById(parentId));
+            commentMapper.addCommentCount(parentId);
             //更新问题gmt_modify
-            questionMapper.gmtModify(gmtModify,questionMapper.getById(parentId).getId());
+            questionMapper.gmtModify(gmtModify,questionMapper.getById(commentMapper.getParentIdById(parentId)).getId());
         }else {
             //如果回复的是问题
             //如果回复的问题未找到
             if(questionMapper.getById(parentId)==null){
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
-            //插入评论并返回id
-            int id=commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
+            //插入评论
+            commentMapper.addComment(parentId,type,commentator,gmtCreate,gmtModify,content);
             // 增加评论数
-            questionMapper.addCommentCount(questionMapper.getById(parentId).getId());
+            questionMapper.addCommentCount(parentId);
             //更新问题gmt_modify
             questionMapper.gmtModify(gmtModify,questionMapper.getById(parentId).getId());
         }
 
     }
+
+    @Override
+    public void thumbsUp(Integer id,String like) {
+        //如果评论未找到
+        if(commentMapper.getById(id)==null){
+            throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
+        }//如果问题未找到
+        if(questionMapper.getById(commentMapper.getParentIdById(id))==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
+        int one=0;
+        if(StringUtils.equals("true",like)){
+            //点赞+1
+            one=1;
+            commentMapper.thumbsUp(id,one);
+        }else {
+            //点赞-1
+            one=-1;
+            commentMapper.thumbsUp(id,one);
+        }
+    }
+
 }

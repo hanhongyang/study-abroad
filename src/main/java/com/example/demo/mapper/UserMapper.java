@@ -14,7 +14,7 @@ public interface UserMapper {
     @Results(id="userMap",value={
             @Result(property = "userId", column = "user_id", jdbcType= JdbcType.INTEGER),
             @Result(property = "password", column = "password"),
-            @Result(property = "rule", column = "rule"),
+            @Result(property = "role", column = "role"),
             @Result(property = "countryId", column = "country_id"),
             @Result(property = "email", column = "email"),
             @Result(property = "mobile", column = "mobile"),
@@ -30,7 +30,7 @@ public interface UserMapper {
     @Results(id="userWithCountryMap",value={
             @Result(property = "userId", column = "user_id", jdbcType= JdbcType.INTEGER),
             @Result(property = "password", column = "password"),
-            @Result(property = "rule", column = "rule"),
+            @Result(property = "role", column = "role"),
             @Result(property = "countryId", column = "country_id"),
             @Result(property = "email", column = "email"),
             @Result(property = "mobile", column = "mobile"),
@@ -42,8 +42,8 @@ public interface UserMapper {
     })
     public List<User> getAllWithCountry();
     //插入一条user数据
-    @Insert("insert into user(user_id,password,rule,country_id,email,mobile,birthday,name,icon) " +
-            "values(#{user.userId},#{user.password}, #{user.rule},#{user.countryId},#{user.email},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon})")
+    @Insert("insert into user(user_id,password,role,country_id,email,mobile,birthday,name,icon) " +
+            "values(#{user.userId},#{user.password}, #{user.role},#{user.countryId},#{user.email},#{user.mobile},#{user.birthday}, #{user.name},#{user.icon})")
     public void insert(@Param("user") User user);
 
     //批量插入用户数据
@@ -72,22 +72,22 @@ public interface UserMapper {
     public long checkEmail(@Param("email")String email);
 
     //根据uuid判断githubUser是否已存在
-    @Select("select count(*) from user where uuid=#{uuid} and rule=3")
+    @Select("select count(*) from user where uuid=#{uuid} and role=3")
     public long checkGithubUuid(@Param("uuid")String uuid);
 
     //取出githubUser
-    @Select("select * from user where uuid=#{uuid} and rule=3")
+    @Select("select * from user where uuid=#{uuid} and role=3")
     @ResultMap("userMap")
     public User selectGithubUserByUuid(@Param("uuid")String uuid);
 
     //插入一条githubUser数据
-    @Insert("insert into user(rule,name,icon,uuid) " +
+    @Insert("insert into user(role,name,icon,uuid) " +
             "values(3,#{name},#{icon},#{uuid})")
     public void insertGithubUser(@Param("uuid")String uuid,@Param("name")String name,@Param("icon")String icon);
 
     //更新user
     @Update("update user set password=#{user.password}," +
-            "rule=#{user.rule}," +
+            "role=#{user.role}," +
             "country_id=#{user.countryId}," +
             "email=#{user.email}," +
             "mobile=#{user.mobile}," +
@@ -99,4 +99,7 @@ public interface UserMapper {
     //批量删除user
     @Delete("delete from user where user_id in (#{userIds})")
     public void batchDelete(@Param("userIds")String userIds);
+    //更新GitHub用户数据
+    @Update("update user set name=#{name},icon=#{icon} where uuid=#{uuid} and role=3")
+    public void updateGithubUser(String name,String icon,String uuid);
 }

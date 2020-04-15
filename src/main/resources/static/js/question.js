@@ -39,8 +39,11 @@ $("#replyQuestion").click(function () {
 
 //点击reply按钮(评论）
 $(".replyBtn").click(function () {
+    var questionId=$(this).attr("data-questionId");
     var id=$(this).attr("data-parentId");
     var content=$("#form-"+id+' input[name=content]').val();
+    console.log('parentId='+id+'+content='+content)
+    console.log($("#form-"+id).serialize())
     //校验输入
     if(!content){
         $(".valid_msg").text("请输入内容！");
@@ -54,7 +57,7 @@ $(".replyBtn").click(function () {
         data:$("#form-"+id).serialize(),
         success:function (result) {
             if(result.code==100){
-                window.location.href="/question/"+id+"?pageNum=1";
+                window.location.href="/question/"+questionId+"?pageNum=1";
             }else {
                 new PNotify({
                     title: 'Reply failed,Please login first！',
@@ -79,13 +82,20 @@ $(".childComment").click(function () {
             success: function (result) {
                 if (result.code == 100) {
                     $.each(result.extend.commentList,function () {
-
+                        //将头像取出
+                        var icon=this.user.icon;
+                        //判断头像是否为网络地址
+                        if(icon.indexOf('http')!=-1){
+                            icon=this.user.icon.split(';')[1];
+                        }else {
+                            icon=this.user.icon;
+                        }
                         //创建二级评论左边栏
                         var mediaLeftElement = $("<div/>", {
                             "class": "col-md-2"
                         }).append($("<img/>", {
                             "class": "avatar",
-                            "src": this.user.icon,
+                            "src": icon,
                             "alt":"Avatar"
                         })).append($("<h4/>",{
                             "text":this.user.name,
@@ -105,7 +115,7 @@ $(".childComment").click(function () {
                             "class": "row"
                         }));
                         mediaElement.append(mediaLeftElement).append(mediaBodyElement)
-                        $(".child_comment").children("ul").prepend(mediaElement);
+                        $("#collapse"+id).children(".panel-body").children(".child_comment").children("ul").prepend(mediaElement);
                     })
                 } else {
                     new PNotify({
@@ -117,6 +127,33 @@ $(".childComment").click(function () {
                 }
             }
         })
+    }
+
+})
+//点赞
+$(".thumbs-upIcon").click(function () {
+    var id=$(this).attr("data-id");
+    var like=$(this).attr("data-flag");
+    var likeCount=parseInt($(this).text());
+    if(like=="true"){
+        $(this).attr("data-flag","false");
+        likeCount=likeCount+1;
+        $.ajax({
+            url:"/thumbsUp/"+id+"?like="+like,
+            type:"GET",
+
+        })
+        $(this).text(likeCount);
+        $(this).css({"color":"red","border-color": "#ccc"});
+    }else {
+        $(this).attr("data-flag","true");
+        likeCount=likeCount-1;
+        $.ajax({
+            url:"/thumbsUp/"+id+"?like="+like,
+            type:"GET",
+        })
+        $(this).text(likeCount)
+        $(this).css({"color":"#999"});
     }
 
 })

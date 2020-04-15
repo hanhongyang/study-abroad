@@ -229,7 +229,7 @@ function getUser(userId) {
             var countryId=userData.countryId;
             console.log(countryId);
             $("#userUpdateModal input[name=userId]").val(userId);
-            $("#userUpdateModal input[name=rule]").val([userData.rule]);
+            $("#userUpdateModal input[name=role]").val([userData.role]);
             $("#passwordUpdate").val(userData.password);
             $("#userUpdateModal select option[value="+countryId+"]").attr("selected",true);
             console.log($("#userUpdateModal select").val());
@@ -258,7 +258,7 @@ $("#userUpdateBtn").click(function () {
     var pageNum=parseInt($(this).attr("data-pageNum"));
     //formData封装提交的数据
     var formData = new FormData();
-    formData.append('rule',$("#userUpdateModal input:radio:checked").val());
+    formData.append('role',$("#userUpdateModal input:radio:checked").val());
     formData.append('password',$("#passwordUpdate").val());
     formData.append('countryId',$("#userUpdateModal select").val());
     formData.append('email',$("#emailUpdate").val());
