@@ -69,4 +69,34 @@ $(function(){
         $(this).parent("div").parent("div").slideToggle();
     })
 })
+//显示推荐人
+$(function(){
+    $.ajax({
+        url:"/Recommenders",
+        type:"GET",
+        success:function (result) {
+            if(result.code==100){
+                if(result.extend.recommenders!==null){
+                    $.each(result.extend.recommenders,function () {
+                        $(".checkbox").append($("<label/>", {
+                            "class":"checkbox-inline"
+                        }).append("<input  type='checkbox'value='"+this.userId+"'>").append(this.name))
+                    })
+                }else{
+                    $(".checkbox").append($("<label/>", {
 
+                    }).append("<span>"+你还没有添加推荐人+"</sapn>"))
+                }
+
+            }else {
+                new PNotify({
+                    title: 'Reply failed,Please login first！',
+                    text: 'Just to let you know.',
+                    type: 'warn',
+                    styling: 'bootstrap3'
+                });
+            }
+        }
+    })
+
+})

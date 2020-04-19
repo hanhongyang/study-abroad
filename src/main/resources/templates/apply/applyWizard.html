@@ -3,6 +3,7 @@
 <head>
     <title >Apply</title>
     <head th:insert="~{fragment/import :: head}"></head>
+
 </head>
 
 <body class="nav-md"style="height: 100%">
@@ -24,7 +25,6 @@
                                     <div class="x_panel">
                                         <div class="x_title">
                                             <h2>申请学校</h2>
-
                                             <div class="clearfix"></div>
                                         </div>
                                         <div class="x_content">
@@ -46,21 +46,37 @@
                                                             <a href="#step-2">
                                                                 <span class="step_no">2</span>
                                                                 <span class="step_descr">
-                                                  上传资料<br />
+                                                  个人资料<br />
                                               </span>
                                                             </a>
                                                         </li>
+                                                    <li>
+                                                        <a href="#step-3">
+                                                            <span class="step_no">3</span>
+                                                            <span class="step_descr">
+                                                  教育背景<br />
+                                              </span>
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="#step-4">
+                                                            <span class="step_no">4</span>
+                                                            <span class="step_descr">
+                                                  上传资料<br />
+                                              </span>
+                                                        </a>
+                                                    </li>
                                                         <li>
-                                                            <a href="#step-3">
-                                                                <span class="step_no">3</span>
+                                                            <a href="#step-5">
+                                                                <span class="step_no">5</span>
                                                                 <span class="step_descr">
                                                   题目作答<br />
                                               </span>
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#step-4">
-                                                                <span class="step_no">4</span>
+                                                            <a href="#step-6">
+                                                                <span class="step_no">6</span>
                                                                 <span class="step_descr">
                                                   确认提交<br />
                                               </span>
@@ -141,87 +157,304 @@
 
                                                 </div>
                                                 <div id="step-2">
-                                                    <h2 class="StepTitle">Step 2 Content</h2>
-                                                    <p>
-                                                        do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                                                        fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
                                                     <form class="form-horizontal form-label-left">
-
+                                                        <h2 class="StepTitle">个人资料</h2>
+                                                        <HR>
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">First Name <span class="required">*</span>
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12" >姓（拼音） *</span>
                                                             </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="first-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="text" id="first-name" class="form-control col-md-7 col-xs-12">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12" for="last-name">Last Name <span class="required">*</span>
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12" >名（拼音） *</span>
                                                             </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input type="text" id="last-name" name="last-name" required="required" class="form-control col-md-7 col-xs-12">
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="text"  name="last-name" class="form-control col-md-7 col-xs-12">
                                                             </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="middle-name" class="control-label col-md-3 col-sm-3 col-xs-12">Middle Name / Initial</label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input id="middle-name" class="form-control col-md-7 col-xs-12" type="text" name="middle-name">
-                                                            </div>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12">Gender</label>
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
                                                                 <div id="gender" class="btn-group" data-toggle="buttons">
                                                                     <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                        <input type="radio" name="gender" value="male"> &nbsp; Male &nbsp;
+                                                                        <input type="radio" name="gender" value="1"> &nbsp; 男 &nbsp;
                                                                     </label>
-                                                                    <label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                        <input type="radio" name="gender" value="female"> Female
+                                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                        <input type="radio" name="gender" value="2"> 女
                                                                     </label>
                                                                 </div>
                                                             </div>
                                                         </div>
+
                                                         <div class="form-group">
-                                                            <label class="control-label col-md-3 col-sm-3 col-xs-12">Date Of Birth <span class="required">*</span>
-                                                            </label>
-                                                            <div class="col-md-6 col-sm-6 col-xs-12">
-                                                                <input id="birthday" class="date-picker form-control col-md-7 col-xs-12" required="required" type="text">
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12">婚姻状态</label>
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <div  class="btn-group" data-toggle="buttons">
+                                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                        <input type="radio" name="" value="1"> &nbsp; 已婚 &nbsp;
+                                                                    </label>
+                                                                    <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                                                        <input type="radio" name="" value="2"> 未婚
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">生日</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="date" name="birthday" class="form-control" placeholder="birthday"  >
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">护照号</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="text" class="form-control"  placeholder="">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-1 control-label">email*</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="email" name="email" class="form-control" placeholder="email">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">国家*</label>
+                                                            <div class="col-sm-3">
+                                                                <select  class="form-control" name="countryId">
+
+                                                                </select>
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">手机号码</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="text"name="mobile" class="form-control" id="mobileAdd" placeholder="mobile">
+                                                                <span class="help-block"></span>
                                                             </div>
                                                         </div>
 
+                                                        <h2 class="StepTitle">家庭信息</h2>
+                                                        <HR>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">父母婚姻状态</label>
+                                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="" checked>
+                                                                        已婚
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" value="">
+                                                                        未婚
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="">
+                                                                        离婚
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="">
+                                                                        丧偶
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="">
+                                                                        分居
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <label class="control-label col-md-2 col-sm-2 col-xs-12">您的法定监护人</label>
+                                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                <div class="radio">
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="" checked>
+                                                                        父亲
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios" value="">
+                                                                        母亲
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="">
+                                                                        父母双方
+                                                                    </label>
+                                                                    <label>
+                                                                        <input type="radio" name="optionsRadios"  value="">
+                                                                        其他
+                                                                    </label>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <h2 class="StepTitle">监护人</h2>
+                                                        <div class="form-group">
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12">与您的关系</label>
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="text"  class="form-control col-md-7 col-xs-12">
+                                                            </div>
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12" >姓（拼音） *</span>
+                                                            </label>
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="text"  class="form-control col-md-7 col-xs-12">
+                                                            </div>
+                                                            <label class="control-label col-md-1 col-sm-1 col-xs-12" >名（拼音） *</span>
+                                                            </label>
+                                                            <div class="col-md-3 col-sm-3 col-xs-12">
+                                                                <input type="text"  name="last-name" class="form-control col-md-7 col-xs-12">
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="col-sm-1 control-label">email*</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="email" name="email" class="form-control" placeholder="email">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">国家*</label>
+                                                            <div class="col-sm-3">
+                                                                <select  class="form-control" name="countryId">
+
+                                                                </select>
+                                                            </div>
+                                                            <label class="col-sm-1 control-label">手机号码</label>
+                                                            <div class="col-sm-3">
+                                                                <input type="text"name="mobile" class="form-control"  placeholder="mobile">
+                                                                <span class="help-block"></span>
+                                                            </div>
+                                                        </div>
                                                     </form>
 
                                                 </div>
                                                 <div id="step-3">
-                                                    <h2 class="StepTitle">Step 3 Content</h2>
-                                                    <p>
-                                                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                                                        eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                </div>
-                                                <div id="step-4">
-                                                    <h2 class="StepTitle">Step 4 Content</h2>
-                                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                                                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
-                                                    <p>
-                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                                                        in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                                    </p>
+                                                    <form class="form-horizontal form-label-left">
+                                                    <h2 class="StepTitle">教育背景</h2>
+                                                    <HR>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-2 col-sm-2 col-xs-12">选择推荐人</label>
+                                                        <div class="col-md-5 col-sm-5 col-xs-12">
+                                                            <div class="checkbox">
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-5 col-sm-5 col-xs-12">
+                                                            <a href="#"><button class="btn btn-default">添加</button></a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" >高中名称 *</span>
+                                                        </label>
+                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                            <input type="text"  class="form-control col-md-7 col-xs-12">
+                                                        </div>
+                                                        <label class="control-label col-md-1 col-sm-1 col-xs-12" >年级人数 *</span>
+                                                        </label>
+                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                            <input type="number"  name="" class="form-control col-md-7 col-xs-12">
+                                                        </div>
+                                                        <label class="control-label col-md-1 col-sm-1 col-xs-12">年级排名</label>
+                                                        <div class="col-md-3 col-sm-3 col-xs-12">
+                                                            <input type="number"  name="" class="form-control col-md-7 col-xs-12">
+                                                        </div>
+                                                    </div>
+                                                    <h2 class="StepTitle">考试成绩</h2>
+                                                    <HR>
+                                                    <div class="form-group">
+                                                        <label class="control-label col-md-1 col-sm-1 col-xs-12">考试类别</label>
+                                                        <div class="col-md-3">
+                                                            <select  class="form-control" >
+                                                                <option value="1">
+                                                                    <span>托福</span>
+                                                                </option>
+                                                                <option value="2">
+                                                                    <span>雅思</span>
+                                                                </option>
+                                                            </select>
+                                                        </div>
+                                                        <label class="col-sm-1 control-label">考试时间</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="date"  class="form-control" placeholder="birthday"  >
+                                                        </div>
+                                                        <label class="col-sm-1 control-label">总分</label>
+                                                        <div class="col-sm-3">
+                                                            <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-1 control-label">听</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                        <label class="col-sm-1 control-label">说</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                        <label class="col-sm-1 control-label">读</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                        <label class="col-sm-1 control-label">写</label>
+                                                        <div class="col-sm-2">
+                                                            <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                            <span class="help-block"></span>
+                                                        </div>
+                                                    </div>
+                                                    </form>
                                                 </div>
 
+                                                <div id="step-4">
+
+                                                上传文件未完成
+                                                </div>
+                                                <div id="step-5">
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <table class="table table-striped">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">申报类型</th>
+                                                                    <td>本科</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">申请学校</th>
+                                                                    <td>哈佛</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">申请专业</th>
+                                                                    <td>软件工程</td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <form class="form-horizontal form-label-left"style="height: 600px">
+                                                    <h2 class="StepTitle">题目作答</h2>
+                                                    <HR>
+                                                    <div class="form-group">
+                                                        <h4>个人陈述</h4>
+                                                        <label>七选一：</label>
+                                                        <label >（1）Your intellectual life may extend beyond the academic requirements of your particular school. Please use the space below to list additional intellectual activities that you have not mentioned or detailed elsewhere in your application. These could include, but are not limited to, supervised or self-directed projects not done as school work, training experiences, online courses not run by your school, or summer academic or research programs not described elsewhere. (150 words)</label>
+                                                        <label>(2)Please briefly elaborate on one of your extracurricular activities or work experiences. (150 words)</label>
+                                                        <textarea class="form-control" rows="3"></textarea>
+                                                    </div>
+                                                    </form>
+                                                </div>
+                                                <div id="step-6">
+                                                    <h2 class="StepTitle">确认提交</h2>
+                                                    <HR>
+                                                    <div class="row">
+                                                        <div class="col-md-4">
+                                                            <table class="table table-striped">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <th scope="row">申报类型</th>
+                                                                    <td>本科</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">申请学校</th>
+                                                                    <td>哈佛</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <th scope="row">申请专业</th>
+                                                                    <td>软件工程</td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -242,6 +475,7 @@
 <div th:insert="~{fragment/import :: foot}"></div>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/applyWizard.js}"></script>
+
 </body>
 
 </html>
