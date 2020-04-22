@@ -22,7 +22,7 @@ public class CustomServiceTest {
          * chatbotUrl 云小蜜接口地址，传入如： https://chatbot.cn-shanghai.aliyuncs.com/   如果不懂，固定传入这个url即可
          * chatbotInstanceId 云小蜜的机器人ID，如： chatbot-cn-1234567890 。机器人实例ID。登录云小蜜控制台，左侧面板选择开发者->基本配置，查看机器人示例信息，可获得该实例ID。
          */
-        chat = new ChatbotUtil("LTAI4G3wc7YKtEH645x1Y4BM", "V2nHKLpGyRNfU4tU1nBhKYkLaOO1jt", "https://chatbot.cn-shanghai.aliyuncs.com/", "chatbot-cn-eMmVv6Yfyb");
+        chat = new ChatbotUtil("LTAI4G6kUHckSEWzyVT8nZTs", "d2epDtzHkTrcHjH7m9lCieM4DdQQzF", "https://chatbot.cn-shanghai.aliyuncs.com/", "chatbot-cn-eMmVv6Yfyb");
     }
 
     /**

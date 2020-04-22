@@ -1,11 +1,9 @@
 package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.model.Country;
-import com.example.demo.model.Msg;
-import com.example.demo.model.School;
-import com.example.demo.model.Section;
+import com.example.demo.model.*;
 import com.example.demo.service.Impl.CountryServiceImpl;
+import com.example.demo.service.Impl.QuestionServiceImpl;
 import com.example.demo.service.Impl.SchoolServiceImpl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -30,6 +28,8 @@ public class SchoolController {
     SchoolServiceImpl schoolService;
     @Autowired
     CountryServiceImpl countryService;
+    @Autowired
+    QuestionServiceImpl questionService;
     @GetMapping("/schools")
     public String schools(HttpServletRequest request,
                           HttpServletResponse response,
@@ -82,6 +82,9 @@ public class SchoolController {
     public String school(@PathVariable("schoolId")Integer schoolId,Model model){
 
         School school=schoolService.getById(schoolId);
+        //相关问答
+        Question question=questionService.getByIdWithUser(1);
+        model.addAttribute("question",question);
         model.addAttribute("school",school);
         return "school/school";
     }

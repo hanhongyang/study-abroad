@@ -1,10 +1,180 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${school.name}"></title>
+    <head th:insert="~{fragment/import :: head}"></head>
 </head>
-<body>
+<body class="nav-md">
+
+<div class="container body"style="background:#f1f1f1">
+    <div th:replace="~{fragment/nav::topbar}"></div>
+
+    <!-- page content -->
+    <div class="clearfix"></div>
+    <div class="container-fluid"style="padding-right: 15px;padding-left: 15px;margin-right: 300px;margin-left: 300px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="x_panel">
+                    <div class="x_content">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <img th:src="${school.logo}" alt="" class="img-rounded"style="height: 140px;width: 140px;">
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h1 style="margin-bottom: 40px;margin-top: 40px"th:text="${school.name}"></h1>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <h3 style="margin-bottom: 40px;margin-top: 40px">USNews排名</h3>
+                                        <h3 style="margin-bottom: 40px;margin-top: 40px">QS排名</h3>
+                                    </div>
+                                </div>
+                                <!-- 分隔符-->
+                                <hr style="margin-bottom: 40px">
+                                <!-- 分隔符-->
+                                <div class="row" role="tabpanel" data-example-id="togglable-tabs">
+                                    <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
+                                        <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">学校简介</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content2" role="tab" id="profile-tab" data-toggle="tab" aria-expanded="false">专业</a>
+                                        </li>
+                                        <li role="presentation" class=""><a href="#tab_content3" role="tab" id="profile-tab2" data-toggle="tab" aria-expanded="false">Profile</a>
+                                        </li>
+                                    </ul>
+                                    <div id="myTabContent" class="tab-content">
+                                        <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h2>基本信息</h2>
+                                                    <hr style="margin-bottom: 40px">
+                                                </div>
+                                                <div class="col-md-12"style="margin-bottom: 30px">
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h2>城市信息</h2>
+                                                    <hr style="margin-bottom: 40px">
+                                                </div>
+                                                <div class="col-md-12"style="margin-bottom: 30px">
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        信息1：
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h2>学校概述</h2>
+                                                    <hr style="margin-bottom: 40px">
+                                                </div>
+                                                <div class="col-md-12"style="margin-bottom: 30px">
+                                                    <span>哈佛大学(剑桥)创办于1636年，坐落于马萨诸塞州,Cambridge,Boston，地理位置优越，环境优美。该校开设本科层次的学位教育，录取率达到0.058。在校学生人数21000人,师生比为0.068。作为被中国教育部认可的大学...
+
+哈佛大学（Harvard University）是一所以培养研究生和从事科学研究为主的综合性大学，建立于1636年，是美国最著名且最古老的高等学府之一，同时是常春藤联盟成员之一。哈佛大学是一所在世界上享有一流大学的声誉、财富和影响力的学校，被誉为美国政府的思想库，其商学院案例教学也盛名远播。在世界各报刊以及研究机构的排行榜中，哈佛大学经常排世界第一。</span>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <h2>相关问答</h2>
+                                                    <hr style="margin-bottom: 40px">
+                                                    <ul class="messages">
+                                                        <li>
+                                                            <div class="clearfix"></div>
+                                                            <img th:src="${question.user.getIcon().contains('http')?question.user.getIcon().split(';')[1]:question.user.getIcon()}" class="avatar" alt="Avatar">
+                                                            <div class="clearfix"></div>
+                                                            <h4 th:text="${question.user.name}"style="float: left;width: 80px"></h4>
+                                                            <div class="message_date">
+                                                                <h3 class="date text-info"th:text="${#dates.format(question.gmtModify,'dd')}"></h3>
+                                                                <p class="month"th:text="${#dates.format(question.gmtModify,'MMMM')}"></p>
+                                                            </div>
+                                                            <div class="message_wrapper"style="position:relative;top: -40px; left: 40px;">
+                                                                <a th:href="@{'/question/'+${question.id}(pageNum=1)}"><h3 class="heading"th:text="${question.title}"></h3></a>
+                                                                <blockquote class="message"th:text="${question.description}"></blockquote>
+                                                                <br />
+                                                                <p style="margin-top: 20px;margin-bottom: -20px">
+                                                        <span class=" text-desc" >&nbsp;
+                                                            <span th:text="${question.viewCount}"></span>次浏览·
+                                                            <span th:text="${question.commentCount}"></span>个回复·
+                                                            <span th:text="${question.likeCount}"></span>个收藏
+                                                        </span>
+                                                                </p>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content2" aria-labelledby="profile-tab">
+
+
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane fade" id="tab_content3" aria-labelledby="profile-tab">
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <!-- /page content -->
+</div>
+</div>
+<div th:insert="~{fragment/import :: foot}"></div>
+<script th:src="@{/js/questions.js}"></script>
 
 </body>
+
 </html>
