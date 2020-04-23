@@ -29,4 +29,10 @@ public class SectionServiceImpl implements SectionService {
     public Section getByIdWithSchool(Integer sectionId) {
         return sectionMapper.getByIdWithSchool(sectionId);
     }
+
+    //板块问题数+1
+    @Override
+    public void addQuestionCount(Integer sectionId) {
+         sectionMapper.addQuestionCount(sectionId);
+    }
 }

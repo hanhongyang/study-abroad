@@ -2,9 +2,7 @@ package com.example.demo.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.example.demo.model.*;
-import com.example.demo.service.Impl.CountryServiceImpl;
-import com.example.demo.service.Impl.QuestionServiceImpl;
-import com.example.demo.service.Impl.SchoolServiceImpl;
+import com.example.demo.service.Impl.*;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import lombok.extern.slf4j.Slf4j;
@@ -30,6 +28,10 @@ public class SchoolController {
     CountryServiceImpl countryService;
     @Autowired
     QuestionServiceImpl questionService;
+    @Autowired
+    CommentServiceImpl commentService;
+    @Autowired
+    MajorServiceImpl majorService;
     @GetMapping("/schools")
     public String schools(HttpServletRequest request,
                           HttpServletResponse response,
@@ -81,11 +83,22 @@ public class SchoolController {
     @GetMapping("/school/{schoolId}")
     public String school(@PathVariable("schoolId")Integer schoolId,Model model){
 
-        School school=schoolService.getById(schoolId);
+        School school=schoolService.getByIdWithSchoolInfo(schoolId);
         //相关问答
         Question question=questionService.getByIdWithUser(1);
+        Comment comment=commentService.getBestAnswerByIdWithUser(question.getBestAnswer());
+        //专业列表
+        List<Major> majorList=majorService.getAllBySchoolId(schoolId);
+        model.addAttribute("majorList",majorList);
+        model.addAttribute("comment",comment);
         model.addAttribute("question",question);
         model.addAttribute("school",school);
         return "school/school";
+    }
+    @GetMapping("/major/{majorId}")
+    public String major(@PathVariable("majorId")Integer majorId,Model model){
+        Major major=majorService.getById(majorId);
+        model.addAttribute("major",major);
+        return "school/major";
     }
 }

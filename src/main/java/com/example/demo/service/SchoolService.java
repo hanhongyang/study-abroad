@@ -17,4 +17,6 @@ public interface SchoolService {
  List<School> getAllWithCountry();
  //查询某个国家的所有学校携带国家
  List<School> getAllWithCountryByCountryId(Integer countryId);
+ //查询school携带schoolInfo
+ School getByIdWithSchoolInfo(int schoolId);
 }

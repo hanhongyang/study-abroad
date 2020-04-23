@@ -115,4 +115,9 @@ public class CommentServiceImpl implements CommentService {
         }
     }
 
+    @Override
+    public Comment getBestAnswerByIdWithUser(Integer id) {
+        return commentMapper.getBestAnswerByIdWithUser(id);
+    }
+
 }

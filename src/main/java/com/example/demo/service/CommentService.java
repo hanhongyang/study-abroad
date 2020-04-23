@@ -13,5 +13,6 @@ public interface CommentService {
     void reply(Integer parentId,Integer type,Integer commentator,Long gmtCreate,Long gmtModify,String content);
     //点赞
     void thumbsUp(Integer id,String like);
-
+    //查询某个问题的最佳评论
+    Comment getBestAnswerByIdWithUser(Integer id);
 }

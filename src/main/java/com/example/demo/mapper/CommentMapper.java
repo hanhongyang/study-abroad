@@ -69,4 +69,9 @@ public interface CommentMapper {
     //点赞
     @Update("update comment set like_count=like_count+#{one} where id=#{id}")
     void thumbsUp(Integer id, int one);
+
+    ////查询某个问题的最佳评论
+    @Select("select * from comment where id=#{id}")
+    @ResultMap("commentWithUserMap")
+    Comment getBestAnswerByIdWithUser(Integer id);
 }

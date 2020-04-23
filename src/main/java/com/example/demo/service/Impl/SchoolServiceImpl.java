@@ -47,4 +47,9 @@ public class SchoolServiceImpl implements SchoolService {
     public List<School> getAllWithCountryByCountryId(Integer countryId) {
         return schoolMapper.getAllWithCountryByCountryId(countryId);
     }
+
+    @Override
+    public School getByIdWithSchoolInfo(int schoolId) {
+        return schoolMapper.getByIdWithSchoolInfo(schoolId);
+    }
 }

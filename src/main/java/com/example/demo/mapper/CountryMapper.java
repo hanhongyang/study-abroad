@@ -17,21 +17,21 @@ public interface CountryMapper {
             @Result(property = "code", column = "code"),
             @Result(property = "flag", column = "flag")
     })
-    public List<Country> getAll();
+    List<Country> getAll();
 
     //查询一个国家
     @Select("select * from country where country_id=#{countryId}")
     @ResultMap("countryMap")
-    public Country getById(@Param("countryId")int countryId);
+     Country getById(@Param("countryId")int countryId);
     //插入一条国家信息
     @Insert("Insert into country (country_id,name,code,flag) values(#{countryId},#{name},#{code},#{flag}")
-    public void insert(@Param("countryId")int countryId,@Param("name")String name,@Param("code")String code,@Param("flag")String flag) ;
+     void insert(@Param("countryId")int countryId,@Param("name")String name,@Param("code")String code,@Param("flag")String flag) ;
     //插入一条国家信息
     @Insert("Insert into country (country_id,name,code,flag) values(#{country.countryId},#{country.name},#{country.code},#{country.flag}")
-    public void insert2(@Param("country")Country country) ;
+     void insert2(@Param("country")Country country) ;
 
     //按学校数量查询国家；倒序；
     @Select("select country.country_id,country.name,country.code,country.flag from country  right join (select country_id,count(*) as count from school group by country_id order by count desc) as b  on country.country_id=b.country_id")
     @ResultMap("countryMap")
-    public List<Country> popCountries();
+     List<Country> popCountries();
 }

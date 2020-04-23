@@ -12,15 +12,20 @@ import java.util.List;
 public class QuestionServiceImpl implements QuestionService {
     @Autowired
     QuestionMapper questionMapper;
+    @Autowired
+    SectionServiceImpl sectionService;
     //查询某个section里的所有question
     @Override
     public List<Question> getAllBySectionIdWithUser(Integer sectionId) {
+
         return questionMapper.getAllBySectionIdWithUser(sectionId);
     }
 
     @Override
     public void publish(String title, String description, Long gmtCreate, Long gmtModify, Integer creator, String tag, Integer sectionId) {
     questionMapper.addQuestion(title,description,gmtCreate,gmtModify,creator,tag,sectionId);
+    //板块问题数+1
+    sectionService.addQuestionCount(sectionId);
     }
 
     @Override

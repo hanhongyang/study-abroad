@@ -10,4 +10,6 @@ public interface SectionService {
     List<Section> getAllWithSchool();
 
     Section getByIdWithSchool(Integer sectionId);
+
+    void addQuestionCount(Integer sectionId);
 }
