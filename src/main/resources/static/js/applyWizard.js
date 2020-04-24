@@ -90,7 +90,7 @@ $(function(){
 
             }else {
                 new PNotify({
-                    title: 'Reply failed,Please login first！',
+                    title: 'Please login first！',
                     text: 'Just to let you know.',
                     type: 'warn',
                     styling: 'bootstrap3'
