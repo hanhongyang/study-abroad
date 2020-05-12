@@ -21,7 +21,7 @@ function SmartWizard(target, options) {
     this.elmStepContainer = $('<div></div>').addClass("stepContainer");
     this.loader = $('<div>Loading</div>').addClass("loader");
     this.buttons = {
-        next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
+        next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext").attr("id",this.curStepIdx),
         previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
         finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
     };
@@ -87,6 +87,7 @@ function SmartWizard(target, options) {
             if($this.steps.index(this) == $this.curStepIdx){
                 return false;
             }
+            console.log($this.curStepIdx);
             var nextStepIdx = $this.steps.index(this);
             var isDone = $this.steps.eq(nextStepIdx).attr("isDone") - 0;
             if(isDone == 1){
@@ -309,6 +310,7 @@ function SmartWizard(target, options) {
             }
             nextStepIdx = 0;
         }
+        $(".buttonNext").attr("id",this.curStepIdx + 1);
         _loadContent(this, nextStepIdx);
     };
 

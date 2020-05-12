@@ -68,3 +68,24 @@ $("#logout").click(function () {
         }
     })
 })
+//点击apply按钮
+$("#apply").click(function () {
+    //判断用户是否登录
+    $.ajax({
+        url: "/loginStatus",
+        type: "GET",
+        success: function (result) {
+            if (result.code == 100) {
+               //进入apply页面
+                window.location.href='/applyWizard';
+            } else {
+                new PNotify({
+                    title: 'Please login first！',
+                    text: 'Just to let you know.',
+                    type: 'info',
+                    styling: 'bootstrap3'
+                });
+            }
+        }
+    })
+})

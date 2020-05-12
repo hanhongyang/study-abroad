@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
@@ -17,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserServiceImplTest {
 @Autowired
 UserService userService;
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Test
     void batchSaveRandom() {
         userService.batchSaveRandom();
@@ -33,7 +36,13 @@ UserService userService;
     }
     @Test
     void getAll(){
-        System.out.println(userService.getAll());
+        //清空
+        while (redisTemplate.opsForList().size("user") > 0){
+         redisTemplate.opsForList().leftPop("user");
+        }
+        //向redis的某个key下面的list列表里面插入一个list列表，不会去重。
+        redisTemplate.opsForList().rightPushAll("user", userService.getAll());
+
     }
     @Test
     void batchDelete(){

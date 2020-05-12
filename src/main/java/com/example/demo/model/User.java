@@ -5,6 +5,7 @@ import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 
 import javax.validation.constraints.Pattern;
+import java.io.Serializable;
 import java.util.Date;
 @AllArgsConstructor
 @Data

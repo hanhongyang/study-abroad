@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:fragment="head">
+    <meta name="_csrf" th:content="${_csrf.token}"/>
+    <meta name="_csrf_header"  th:content="${_csrf.headerName}"/>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -16,7 +18,8 @@
     <link href="/vendors/pnotify/dist/pnotify.css" rel="stylesheet">
     <link href="/vendors/pnotify/dist/pnotify.buttons.css" rel="stylesheet">
     <link href="/vendors/pnotify/dist/pnotify.nonblock.css" rel="stylesheet">
-
+    <!--chatbot-->
+    <link rel="stylesheet" href="/test/chatbot.css">
     <!-- Custom Theme Style -->
     <link href="/build/css/custom.min.css" rel="stylesheet">
 </head>
@@ -34,9 +37,40 @@
     <!-- PNotify -->
     <script src="/vendors/pnotify/dist/pnotify.js"></script>
     <script src="/vendors/pnotify/dist/pnotify.buttons.js"></script>
-
+    <script th:src="@{/js/chatbot.js}"></script>
     <script th:src="@{/js/topbar.js}"></script>
 
 </div>
-
+<div th:fragment="chatbot">
+<div class="dialogue-wrapper">
+    <div id="btn_open" class="dialogue-support-btn">
+        <i class="dialogue-support-icon"></i>
+        <i class="dialogue-support-line"></i>
+        <span class="dialogue-support-text">智能客服</span>
+    </div>
+    <div class="dialogue-main">
+        <div class="dialogue-header">
+            <i id="btn_close" class="dialogue-close">></i>
+            <div class="dialogue-service-info">
+                <i class="dialogue-service-img">头像</i>
+                <div class="dialogue-service-title">
+                    <p class="dialogue-service-name">XX客服</p>
+                    <p class="dialogue-service-detail">XX客服支持平台</p>
+                </div>
+            </div>
+        </div>
+        <div id="dialogue_contain" class="dialogue-contain">
+            <p class="dialogue-service-contain"><span class="dialogue-text dialogue-service-text">您好，请提问</span></p>
+            <!-- <p class="dialogue-customer-contain"><span class="dialogue-text dialogue-customer-text">我有个问题</span></p> -->
+        </div>
+        <div class="dialogue-submit">
+            <p id="dialogue_hint" class="dialogue-hint"><span class="dialogue-hint-icon">!</span><span class="dialogue-hint-text">发送内容不能为空</span></p>
+            <textarea id="dialogue_input" class="dialogue-input-text" placeholder="请输入您的问题，按Enter键提交（shift+Enter换行）"></textarea>
+            <div class="dialogue-input-tools">
+                小工具预留位置
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 </html>

@@ -3,6 +3,7 @@
 <head>
     <title >Apply</title>
     <head th:insert="~{fragment/import :: head}"></head>
+    <link href="/css/bootstrap-fileinput/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -77,7 +78,7 @@
                                                 </ul>
 
                                                 <div id="step-1">
-                                                    <form class="form-horizontal form-label-left"style="height: 300px">
+                                                    <form id="form1" th:action="@{/ApplyStep1}" method="post"class="form-horizontal form-label-left"style="height: 300px">
 
                                                         <div class="form-group">
                                                             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">申报类型 <span class="required">*</span>
@@ -112,7 +113,7 @@
 
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <select  class="form-control" name="applyType">
+                                                                    <select  class="form-control" name="schoolId">
                                                                         <option value="1">
                                                                             <span>哈佛</span>
                                                                         </option>
@@ -122,7 +123,7 @@
                                                                     </select>
                                                                 </div>
                                                                 <div class="col-md-3">
-                                                                    <select  class="form-control" name="applyType">
+                                                                    <select  class="form-control" name="majorId">
                                                                         <option value="1">
                                                                             <span>生物学工程</span>
                                                                         </option>
@@ -133,7 +134,7 @@
                                                                 </div>
                                                                 <div class="col-md-2"style="padding-top: 6px"><a href="#">点击前往</a></div>
                                                                 <div class="col-md-3">
-                                                                    <select  class="form-control" name="applyType">
+                                                                    <select  class="form-control" name="batch">
                                                                         <option value="1">
                                                                             <span>秋季11月01日</span>
                                                                         </option>
@@ -149,7 +150,7 @@
 
                                                 </div>
                                                 <div id="step-2">
-                                                    <form class="form-horizontal form-label-left">
+                                                    <form id="form2"class="form-horizontal form-label-left">
                                                         <h2 class="StepTitle">个人资料</h2>
                                                         <HR>
                                                         <div class="form-group">
@@ -272,31 +273,14 @@
                                                 </div>
 
                                                 <div id="step-3">
+                                                    <form id="form" th:action="@{/upload}" method="post" enctype="multipart/form-data"class="form-horizontal form-label-left"style="height: 400px">
+                                                        <input id="input-id" type="file" class="file" data-preview-file-type="text"multiple >
 
-                                                上传文件未完成
+                                                    </form>
+
                                                 </div>
                                                 <div id="step-4">
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <table class="table table-striped">
-                                                                <tbody>
-                                                                <tr>
-                                                                    <th scope="row">申报类型</th>
-                                                                    <td>本科</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">申请学校</th>
-                                                                    <td>哈佛</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <th scope="row">申请专业</th>
-                                                                    <td>软件工程</td>
-                                                                </tr>
-                                                                </tbody>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <form class="form-horizontal form-label-left"style="height: 600px">
+                                                    <form id="form3"class="form-horizontal form-label-left"style="height: 600px">
                                                     <h2 class="StepTitle">题目作答</h2>
                                                     <HR>
                                                     <div class="form-group">
@@ -309,6 +293,7 @@
                                                     </form>
                                                 </div>
                                                 <div id="step-5">
+                                                    <form id="form4"class="form-horizontal form-label-left"style="height: 600px">
                                                     <h2 class="StepTitle">确认提交</h2>
                                                     <HR>
                                                     <div class="row">
@@ -331,6 +316,7 @@
                                                             </table>
                                                         </div>
                                                     </div>
+                                                    </form>
                                                 </div>
                                             </div>
 
@@ -348,11 +334,25 @@
 
     </div>
     <!-- /page content -->
+    <!-- Start chabot area -->
+    <div th:insert="~{fragment/import :: chatbot}"></div>
+    <!-- End chabot area -->
 </div>
 <div th:insert="~{fragment/import :: foot}"></div>
 <script th:src="@{/js/topbar.js}"></script>
 <script th:src="@{/js/applyWizard.js}"></script>
+<script src="/js/bootstrap-fileinput/js/plugins/piexif.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap-fileinput/js/plugins/sortable.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap-fileinput/js/plugins/purify.min.js" type="text/javascript"></script>
+<script src="/js/bootstrap-fileinput/js/fileinput.min.js"></script>
+<script src="/js/bootstrap-fileinput/themes/fa/theme.js"></script>
+<script>
+    // initialize with defaults
+    $("#input-id").fileinput();
 
+    // with plugin options
+    $("#input-id").fileinput({'showUpload':false, 'previewFileType':'any'});
+</script>
 </body>
 
 </html>

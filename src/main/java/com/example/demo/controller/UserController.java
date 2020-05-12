@@ -11,6 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.bind.BindResult;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +19,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.text.SimpleDateFormat;
@@ -29,6 +31,8 @@ public class UserController {
     UserServiceImpl userService;
     @Autowired
     CountryServiceImpl countryService;
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Value("${userIconDefaultUrl}")
     private String DefaultIcon;
     /**
@@ -37,6 +41,7 @@ public class UserController {
      */
     @GetMapping("/users")
     public String getAllUsers(@RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum, Model model){
+
         //在查询之前只需要调用，传入页码，以及每页的大小
         PageHelper.startPage(pageNum,10);
         //startpage后紧跟的查询就是分页查询
@@ -188,5 +193,18 @@ public class UserController {
         }else {
             return Msg.fail().add("va_msg","email不可用");
         }
+    }
+
+    /**
+     * 个人中心
+     * @param httpSession
+     * @param model
+     * @return
+     */
+    @GetMapping("/profile")
+    public String profile(HttpSession httpSession,Model model){
+        User user=(User)httpSession.getAttribute("user");
+        model.addAttribute("user",user);
+        return "user/profile";
     }
 }

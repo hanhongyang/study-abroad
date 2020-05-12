@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+
     <title >School</title>
     <head th:insert="~{fragment/import :: head}"></head>
+
     <link href="/css/schools.css" rel="stylesheet">
+
 </head>
 
 <body class="nav-md">
@@ -112,10 +115,14 @@
 
     </div>
     <!-- /page content -->
+    <!-- Start chabot area -->
+    <div th:insert="~{fragment/import :: chatbot}"></div>
+    <!-- End chabot area -->
 </div>
 <div th:insert="~{fragment/import :: foot}"></div>
 <script th:src="@{/js/topbar.js}"></script>
-<script th:src="@{/js/schools.js}"></script>
+
+
 </body>
 
 </html>

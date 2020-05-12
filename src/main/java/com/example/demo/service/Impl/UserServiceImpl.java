@@ -10,6 +10,7 @@ import org.apache.ibatis.session.ExecutorType;
 import org.apache.ibatis.session.SqlSession;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -24,6 +25,8 @@ public class UserServiceImpl implements UserService {
     private SqlSessionTemplate sqlSessionTemplate;//引入bean
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    private RedisTemplate redisTemplate;
     @Override
     public void batchSaveRandom( ){
         SqlSession session = sqlSessionTemplate.getSqlSessionFactory().openSession(ExecutorType.BATCH, false);//关闭session的自动提交
@@ -66,11 +69,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAll() {
+
+
         return userMapper.getAll();
     }
 
     @Override
     public List<User> getAllWithCountry() {
+
         return userMapper.getAllWithCountry();
     }
 

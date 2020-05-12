@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- jQuery -->
+    <script src="/vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link href="/test/SmartWizard-master/dist/css/smart_wizard.css" rel="stylesheet" type="text/css" />
+    <script src="/test/SmartWizard-master/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+    <link href="/test/SmartWizard-master/dist/css/smart_wizard_theme_arrows.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<script>
+
+    $(document).ready(function(){
+        $('#smartwizard').smartWizard();
+    });
+    // Smart Wizard
+    $('#smartwizard').smartWizard({
+        selected: 0,  // Initial selected step, 0 = first step
+        keyNavigation:true, // Enable/Disable keyboard navigation(left and right keys are used if enabled)
+        autoAdjustHeight:true, // Automatically adjust content height
+        cycleSteps: false, // Allows to cycle the navigation of steps
+        backButtonSupport: true, // Enable the back button support
+        useURLhash: true, // Enable selection of the step based on url hash
+        lang: {  // Language variables
+            next: 'Next',
+            previous: 'Previous'
+        },
+        toolbarSettings: {
+            toolbarPosition: 'bottom', // none, top, bottom, both
+            toolbarButtonPosition: 'right', // left, right
+            showNextButton: true, // show/hide a Next button
+            showPreviousButton: true, // show/hide a Previous button
+            toolbarExtraButtons: [
+                $('<button></button>').text('Finish')
+                    .addClass('btn btn-info')
+                    .on('click', function(){
+                        alert('Finsih button click');
+                    }),
+                $('<button></button>').text('Cancel')
+                    .addClass('btn btn-danger')
+                    .on('click', function(){
+                        alert('Cancel button click');
+                    })
+            ]
+        },
+        anchorSettings: {
+            anchorClickable: true, // Enable/Disable anchor navigation
+            enableAllAnchors: false, // Activates all anchors clickable all times
+            markDoneStep: true, // add done css
+            enableAnchorOnDoneStep: true // Enable/Disable the done steps navigation
+        },
+        contentURL: null, // content url, Enables Ajax content loading. can set as data data-content-url on anchor
+        disabledSteps: [],    // Array Steps disabled
+        errorSteps: [],    // Highlight step with errors
+        theme: 'dots',
+        transitionEffect: 'fade', // Effect on navigation, none/slide/fade
+        transitionSpeed: '400'
+    });
+
+
+    // Initialize Smart Wizard
+    $('#smartwizard').smartWizard();
+
+    // Initialize the leaveStep event
+    $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+        return confirm("Do you want to leave the step "+stepNumber+"?");
+    });
+
+    // Initialize the showStep event
+    $("#smartwizard").on("showStep", function(e, anchorObject, stepNumber, stepDirection) {
+        alert("You are on step "+stepNumber+" now");
+    });
+
+    // Initialize the beginReset event
+    $("#smartwizard").on("beginReset", function(e) {
+        return confirm("Do you want to reset the wizard?");
+    });
+
+    // Initialize the endReset event
+    $("#smartwizard").on("endReset", function(e) {
+        alert("endReset called");
+    });
+
+    // Initialize the themeChanged event
+    $("#smartwizard").on("themeChanged", function(e, theme) {
+        alert("Theme changed. New theme name: " + theme);
+    });
+</script>
+<div id="smartwizard">
+    <ul>
+        <li><a href="#step-1">Step Title<br /><small>Step description</small></a></li>
+        <li><a href="#step-2">Step Title<br /><small>Step description</small></a></li>
+        <li><a href="#step-3">Step Title<br /><small>Step description</small></a></li>
+        <li><a href="#step-4">Step Title<br /><small>Step description</small></a></li>
+    </ul>
+
+    <div>
+        <div id="step-1" class="">
+            Step Content
+        </div>
+        <div id="step-2" class="">
+            Step Content
+        </div>
+        <div id="step-3" class="">
+            Step Content
+        </div>
+        <div id="step-4" class="">
+            Step Content
+        </div>
+    </div>
+    <button>Finish</button>
+</div>
+</body>
+</html>
