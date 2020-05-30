@@ -1,5 +1,6 @@
 package com.example.demo.util;
 
+import com.example.demo.model.Application;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;

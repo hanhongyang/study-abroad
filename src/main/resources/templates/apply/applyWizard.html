@@ -149,15 +149,16 @@
                                                     </form>
 
                                                 </div>
-                                                <div id="step-2">
-                                                    <form id="form2"class="form-horizontal form-label-left">
+                                                <div id="step-2" th:attr="data-applicationId=0">
+                                                    <form id="form2"th:action="@{/ApplyStep2}" method="post"class="form-horizontal form-label-left">
+                                                        <input type="hidden"name="id" id="id" >
                                                         <h2 class="StepTitle">个人资料</h2>
                                                         <HR>
                                                         <div class="form-group">
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12" >姓名（拼音） *</span>
                                                             </label>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                                                <input type="text" id="name" class="form-control col-md-7 col-xs-12">
+                                                                <input type="text" id="name"name="name" class="form-control col-md-7 col-xs-12">
                                                             </div>
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12">性别</label>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
@@ -172,7 +173,7 @@
                                                             </div>
                                                             <label class="col-sm-1 control-label">手机号码</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text"name="mobile" class="form-control" id="mobileAdd" placeholder="mobile">
+                                                                <input type="text"name="phone" class="form-control"  placeholder="mobile">
                                                                 <span class="help-block"></span>
                                                             </div>
                                                         </div>
@@ -182,10 +183,10 @@
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
                                                                 <div  class="btn-group" data-toggle="buttons">
                                                                     <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                        <input type="radio" name="" value="1"> &nbsp; 已婚 &nbsp;
+                                                                        <input type="radio" name="maritalStatus" value="1"> &nbsp; 已婚 &nbsp;
                                                                     </label>
                                                                     <label class="btn btn-default" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-                                                                        <input type="radio" name="" value="2"> 未婚
+                                                                        <input type="radio" name="maritalStatus" value="2"> 未婚
                                                                     </label>
                                                                 </div>
                                                             </div>
@@ -195,7 +196,7 @@
                                                             </div>
                                                             <label class="col-sm-1 control-label">护照号</label>
                                                             <div class="col-sm-3">
-                                                                <input type="text" class="form-control"  placeholder="">
+                                                                <input type="text" name="passport" class="form-control"  placeholder="">
                                                                 <span class="help-block"></span>
                                                             </div>
                                                         </div>
@@ -207,7 +208,7 @@
                                                             </div>
                                                             <label class="col-sm-1 control-label">国家*</label>
                                                             <div class="col-sm-3">
-                                                                <select  class="form-control" name="countryId">
+                                                                <select  id="country" class="form-control" name="countryId">
 
                                                                 </select>
                                                             </div>
@@ -231,16 +232,16 @@
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12" >高中名称 *</span>
                                                             </label>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                                                <input type="text"  class="form-control col-md-7 col-xs-12">
+                                                                <input type="text" name="highSchool" class="form-control col-md-7 col-xs-12">
                                                             </div>
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12" >年级人数 *</span>
                                                             </label>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                                                <input type="number"  name="" class="form-control col-md-7 col-xs-12">
+                                                                <input type="number"  name="gradeNumber" class="form-control col-md-7 col-xs-12">
                                                             </div>
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12">年级排名</label>
                                                             <div class="col-md-3 col-sm-3 col-xs-12">
-                                                                <input type="number"  name="" class="form-control col-md-7 col-xs-12">
+                                                                <input type="number"  name="gradeRanking" class="form-control col-md-7 col-xs-12">
                                                             </div>
                                                         </div>
 
@@ -249,7 +250,7 @@
                                                         <div class="form-group">
                                                             <label class="control-label col-md-1 col-sm-1 col-xs-12">考试类别</label>
                                                             <div class="col-md-3">
-                                                                <select  class="form-control" >
+                                                                <select  name="examType"class="form-control" >
                                                                     <option value="1">
                                                                         <span>托福</span>
                                                                     </option>
@@ -260,11 +261,11 @@
                                                             </div>
                                                             <label class="col-sm-1 control-label">考试时间</label>
                                                             <div class="col-sm-3">
-                                                                <input type="date"  class="form-control" placeholder="birthday"  >
+                                                                <input type="date" name="examTime" class="form-control" placeholder="birthday"  >
                                                             </div>
                                                             <label class="col-sm-1 control-label">总分</label>
                                                             <div class="col-sm-3">
-                                                                <input type="number" class="form-control"  placeholder="请输入成绩">
+                                                                <input type="number" name="totalScore" class="form-control"  placeholder="请输入成绩">
                                                                 <span class="help-block"></span>
                                                             </div>
                                                         </div>
@@ -274,7 +275,7 @@
 
                                                 <div id="step-3">
                                                     <form id="form" th:action="@{/upload}" method="post" enctype="multipart/form-data"class="form-horizontal form-label-left"style="height: 400px">
-                                                        <input id="input-id" type="file" class="file" data-preview-file-type="text"multiple >
+                                                        <input id="input-id" type="file" name="file" class="file" data-preview-file-type="text"multiple >
 
                                                     </form>
 
@@ -288,7 +289,7 @@
                                                         <label>七选一：</label>
                                                         <label >（1）Your intellectual life may extend beyond the academic requirements of your particular school. Please use the space below to list additional intellectual activities that you have not mentioned or detailed elsewhere in your application. These could include, but are not limited to, supervised or self-directed projects not done as school work, training experiences, online courses not run by your school, or summer academic or research programs not described elsewhere. (150 words)</label>
                                                         <label>(2)Please briefly elaborate on one of your extracurricular activities or work experiences. (150 words)</label>
-                                                        <textarea class="form-control" rows="3"></textarea>
+                                                        <textarea name="personalStatement" class="form-control" rows="3"></textarea>
                                                     </div>
                                                     </form>
                                                 </div>

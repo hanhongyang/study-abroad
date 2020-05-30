@@ -141,7 +141,6 @@ $(".thumbs-upIcon").click(function () {
         $.ajax({
             url:"/thumbsUp/"+id+"?like="+like,
             type:"GET",
-
         })
         $(this).text(likeCount);
         $(this).css({"color":"red","border-color": "#ccc"});

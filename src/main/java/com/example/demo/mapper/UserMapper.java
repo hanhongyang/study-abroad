@@ -102,4 +102,7 @@ public interface UserMapper {
     //更新GitHub用户数据
     @Update("update user set name=#{name},icon=#{icon} where uuid=#{uuid} and role=3")
      void updateGithubUser(String name,String icon,String uuid);
+    //查询所以userId
+    @Select("select user_id from user")
+    List<String> userIdList();
 }
