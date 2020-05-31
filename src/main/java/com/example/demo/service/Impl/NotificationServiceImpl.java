@@ -13,30 +13,27 @@ import java.util.List;
 public class NotificationServiceImpl implements NotificationService {
     @Autowired
     private NotificationMapper notificationMapper;
+
     public List<Notification> getUserNotifications(Integer userId){
         //获取消费者的消息列表按照创建时间倒序排列
-        List<Notification> notifications=notificationMapper.getAllByConsumerOrderByGmtCreateDesc(userId);
-        return notifications;
+        List<Notification> recommendNotifications=notificationMapper.getAllRecommendNotificationByConsumerOrderByGmtCreateDesc(userId);
+        return recommendNotifications;
     }
+    @Override
     public int unreadCount(Integer userId) {
         //获取消费者的未读消息数
-        return notificationMapper.getCountByConsumerAndStatusIsUnread(NotificationStatusEnum.UNREAD.getStatus());
+        return notificationMapper.getCountByConsumerAndStatusIsUnread(NotificationStatusEnum.UNREAD.getStatus(),userId);
     }
-//    public NotificationDTO read(Long id, User user) {
-//        Notification notification = notificationMapper.selectByPrimaryKey(id);
-//        if (notification == null) {
-//            throw new CustomizeException(CustomizeErrorCode.NOTIFICATION_NOT_FOUND);
-//        }
-//        if (!Objects.equals(notification.getReceiver(), user.getId())) {
-//            throw new CustomizeException(CustomizeErrorCode.READ_NOTIFICATION_FAIL);
-//        }
-//
-//        notification.setStatus(NotificationStatusEnum.READ.getStatus());
-//        notificationMapper.updateByPrimaryKey(notification);
-//
-//        NotificationDTO notificationDTO = new NotificationDTO();
-//        BeanUtils.copyProperties(notification, notificationDTO);
-//        notificationDTO.setTypeName(NotificationTypeEnum.nameOfType(notification.getType()));
-//        return notificationDTO;
-//    }
+    public void createNotify(Notification recommendNotification){
+        notificationMapper.insertRecommendNotification(recommendNotification);
+    }
+
+    public List<Notification> getMessageBox(Integer userId) {
+        //获取消费者的消息列表按照创建时间倒序排列的前四条信息
+        List<Notification> recommendNotifications=notificationMapper.getAllRecommendNotificationByConsumerOrderByGmtCreateDescLimit4(NotificationStatusEnum.UNREAD.getStatus(),userId);
+        return recommendNotifications;
+    }
+    public void read(int userId) {
+       notificationMapper.updateNotificationStatusByConsumer(userId);
+    }
 }

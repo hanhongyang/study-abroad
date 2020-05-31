@@ -1,3 +1,4 @@
+
 //点击login按钮
 $("#login").click(function () {
     //清楚表单数据（表单重置），防止重复提交
@@ -5,6 +6,7 @@ $("#login").click(function () {
     $("#loginModal").modal({
         backdrop:"static"
     })
+
 })
 //清空表单样式，表单数据，提示信息.param:表单元素
 function resetFrom(ele) {

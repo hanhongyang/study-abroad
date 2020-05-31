@@ -1,4 +1,6 @@
-
+//防止csrf拦截post请求
+var header = $("meta[name='_csrf_header']").attr("content");
+var token =$("meta[name='_csrf']").attr("content");
 //记录申请学校数量
 var schoolNum=1;
 //注册事件
@@ -125,10 +127,11 @@ $(function () {
 })
 
 function initFileInput(ctrlName) {
+    var id=parseInt($("#step-2").attr("data-id"));
     var control = $('#' + ctrlName);
     control.fileinput({
         language: 'zh', //设置语言
-        uploadUrl: "/upload", //上传的地址
+        uploadUrl: "/upload?id="+this.id, //上传的地址
         //allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
         uploadExtraData:{"id": 1, "fileName":'123.mp3'},
         uploadAsync: true, //默认异步上传
@@ -190,6 +193,7 @@ $(function(){
                     if(result.code==100){
                         var id=result.extend.id;
                         $("#step-2").attr("data-id",id);
+                        $("#form input[name=id]").val(id);
                         new PNotify({
                             title: 'Saved successfully！',
                             text: 'Just to let you know.',
@@ -213,10 +217,13 @@ $(function(){
                 url:"/ApplyStep"+step,
                 type:"POST",
                 data:$("#form2").serialize(),
+                beforeSend : function(xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
                 success:function (result) {
                     if(result.code==100){
-
-
+                        var id=parseInt($("#step-2").attr("data-id"));
+                        $("#form input[name=id]").val(id);
                     }else {
                         new PNotify({
                             title: 'Please login first！',
@@ -228,13 +235,27 @@ $(function(){
                 }
             })
         }else if(step=='3'){
+            var id=parseInt($("#step-2").attr("data-id"));
+            $("#form input[name=id]").val(id);
+            // Create an FormData object
+            var data = new FormData();
+            var files=Array.from($("#input-id")[0].files);
+            for (var i = 0 ; i < files.length ; i++) {
+                data.append("temp" + i, files[i]);
+            }
+            data.append("id",$("#form input[name=id]").val());
             $.ajax({
                 url:"/ApplyStep"+step,
-                type:"POST",
-                data:$("#form").serialize(),
+                type:"PUT",
+                data:data,
+                beforeSend : function(xhr) {
+                    xhr.setRequestHeader(header, token);
+                },
+                cache: false,
+                processData: false,
+                contentType: false,
                 success:function (result) {
                     if(result.code==100){
-
 
                     }else {
                         new PNotify({

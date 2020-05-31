@@ -1,3 +1,33 @@
+
+//注册事件
+//发送ajax请求查询未读消息数量
+window.onload=function(){
+    //判断用户是否登录
+    $.ajax({
+        url: "/loginStatus",
+        type: "GET",
+        success: function (result) {
+            if (result.code == 100) {
+                //如果已登录则查询未读消息数量
+                $.ajax({
+                    url:"/NotificationCount",
+                    type:"GET",
+                    success:function (result) {
+                        if(result.code==100){
+                            if(result.extend.unreadCount!=0){
+                                $(".badge").text(result.extend.unreadCount)
+                                console.log(result.extend.unreadCount)
+                            }
+                        }else {
+                            console.log("查询消息数量失败")
+                        }
+                    }
+                })
+            }
+        }
+    })
+
+};
 //点击login按钮
 $("#login").click(function () {
     //清楚表单数据（表单重置），防止重复提交

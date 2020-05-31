@@ -1,19 +1,30 @@
 package com.example.demo.controller;
 
+import com.example.demo.enums.NotificationStatusEnum;
+import com.example.demo.enums.NotificationTypeEnum;
 import com.example.demo.model.*;
 import com.example.demo.service.Impl.ApplicationServiceImpl;
+import com.example.demo.service.Impl.NotificationServiceImpl;
+import com.example.demo.service.Impl.SchoolServiceImpl;
 import com.example.demo.util.FPTree;
+import com.example.demo.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.websocket.server.PathParam;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -23,7 +34,10 @@ import java.util.*;
 public class ApplyController {
     @Autowired
     ApplicationServiceImpl applicationService;
-
+    @Autowired
+    NotificationServiceImpl NotificationService;
+    @Autowired
+    SchoolServiceImpl schoolService;
     @GetMapping("/applyWizard")
     public String applyWizard(HttpSession httpSession, Model model) {
         User user = (User) httpSession.getAttribute("user");
@@ -80,22 +94,23 @@ public class ApplyController {
     @ResponseBody
     public Msg saveApply2(HttpSession httpSession,
                           @RequestParam(value = "id") String id,
-                          @RequestParam(value = "name") String name,
-                          @RequestParam(value = "gender") String gender,
-                          @RequestParam(value = "maritalStatus") String maritalStatus,
-                          @RequestParam(value = "birthday") String birthday,
-                          @RequestParam(value = "passport") String passport,
-                          @RequestParam(value = "email") String email,
-                          @RequestParam(value = "countryId") String countryId,
-                          @RequestParam(value = "phone") String phone,
-                          @RequestParam(value = "recommender") String recommender,
-                          @RequestParam(value = "highSchool") String highSchool,
-                          @RequestParam(value = "gradeNumber") String gradeNumber,
-                          @RequestParam(value = "gradeRanking") String gradeRanking,
-                          @RequestParam(value = "examType") String examType,
-                          @RequestParam(value = "examTime") String examTime,
-                          @RequestParam(value = "totalScore") String totalScore
+                          @RequestParam(value = "name",required = false) String name,
+                          @RequestParam(value = "gender",required = false) String gender,
+                          @RequestParam(value = "maritalStatus",required = false) String maritalStatus,
+                          @RequestParam(value = "birthday",required = false) String birthday,
+                          @RequestParam(value = "passport",required = false) String passport,
+                          @RequestParam(value = "email",required = false) String email,
+                          @RequestParam(value = "countryId",required = false) String countryId,
+                          @RequestParam(value = "phone",required = false) String phone,
+                          @RequestParam(value = "recommender",required = false) String recommender,
+                          @RequestParam(value = "highSchool",required = false) String highSchool,
+                          @RequestParam(value = "gradeNumber",required = false) String gradeNumber,
+                          @RequestParam(value = "gradeRanking",required = false) String gradeRanking,
+                          @RequestParam(value = "examType",required = false) String examType,
+                          @RequestParam(value = "examTime",required = false) String examTime,
+                          @RequestParam(value = "totalScore",required = false) String totalScore
                           ) {
+        System.out.println(id);
         //转换日期
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         User user = (User) httpSession.getAttribute("user");
@@ -138,15 +153,33 @@ public class ApplyController {
     //申请留学-第三步
     @PutMapping("/ApplyStep3")
     @ResponseBody
-    public Msg saveApply3() {
-
-        return Msg.success();
+    public Msg saveApply3(@RequestParam("id")String id, HttpServletRequest request, HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("user");
+        if(user!=null) {
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+            List<MultipartFile> multipartFiles = new ArrayList<>();
+            for (int i = 0 ; i < 2 ; i++) {
+                multipartFiles.addAll(multipartRequest.getFiles("temp" + i));
+            }
+            for(MultipartFile file:multipartFiles)
+                try {
+                    String filePath = FileUtil.fileUtil(file);
+                    applicationService.saveApplyStep3(Integer.parseInt(id),filePath);
+                    System.out.println(filePath);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return Msg.fail();
+                }
+            return Msg.success();
+        }else {
+            return Msg.fail();
+        }
     }
 
     //推荐引擎
     @GetMapping("/RecommendedSchools")
     @ResponseBody
-    public Msg t(@RequestParam(value = "schoolId")String schoolId){
+    public Msg t(@RequestParam(value = "schoolId")String schoolId,HttpSession httpSession){
         FPTree fptree = new FPTree();
         //设置最小支持度
         fptree.setMinSup(2);
@@ -194,23 +227,49 @@ public class ApplyController {
                 }
             }
         }
-        RecommendNotification recommendNotification=new RecommendNotification();
         //打印set
         Iterator<String> it = recommendSchoolSet.iterator();
+        //记录通知内容
+        StringBuffer content=new StringBuffer();
         while (it.hasNext()) {
             String str = it.next();
+            content.append(schoolService.getById(Integer.parseInt(str)).getName()+'。');
             System.out.println(str+"为可推荐学校---------------------------------------------！");
         }
-        return Msg.success();
+
+        //判断是否登录
+        User user=(User)httpSession.getAttribute("user");
+        if(user!=null) {
+            Long gmtCreate = System.currentTimeMillis();
+            //生成推荐通知
+            Notification recommendNotification = new Notification(
+                    NotificationTypeEnum.RECOMMEND_SCHOOLS.getType(),
+                    user.getUserId(),
+                    gmtCreate,
+                    NotificationStatusEnum.UNREAD.getStatus(),
+                    NotificationTypeEnum.nameOfType(NotificationTypeEnum.RECOMMEND_SCHOOLS.getType()),
+                    content.toString());
+            NotificationService.createNotify(recommendNotification);
+            return Msg.success();
+        }else {
+            return Msg.fail();
+        }
     }
     //测试上传
     @PostMapping("/upload")
     @ResponseBody
-    public Msg upload(HttpServletRequest request, HttpServletResponse response
-            , @RequestParam("file") MultipartFile[] file) throws Exception {
-
-
-        return null;
+    public Msg upload(@RequestParam("id")int id,@RequestParam("file") MultipartFile[] files)  {
+        for(MultipartFile file:files){
+            try {
+                String filePath=FileUtil.fileUtil(file);
+                applicationService.saveApplyStep3(id,filePath);
+                System.out.println(filePath);
+                return Msg.success();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return Msg.success();
     }
 }
 

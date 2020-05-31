@@ -28,8 +28,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void saveApplyStep3(Application application) {
-        applicationMapper.updateApply3(application);
+    public void saveApplyStep3(int id,String filePath) {
+        applicationMapper.updateApply3(id,filePath);
     }
 
     @Override

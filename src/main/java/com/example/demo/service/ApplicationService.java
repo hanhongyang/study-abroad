@@ -11,7 +11,7 @@ public interface ApplicationService {
     //保存申请第二步
     void saveApplyStep2(Application application);
     //保存申请第三步
-    void saveApplyStep3(Application application);
+    void saveApplyStep3(int id,String filePath);
     //保存申请第四步
     void saveApplyStep4(Application application);
     //保存申请第五步

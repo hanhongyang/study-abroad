@@ -34,8 +34,8 @@ public interface ApplicationMapper {
                                     "total_score=#{totalScore} where id=#{id}")
     void updateApply2(Application application);
     //保存申请第3步
-    @Update("")
-    void updateApply3(Application application);
+    @Update("update application set file=#{filePath} where id=#{id}")
+    void updateApply3(int id, String filePath);
     //保存申请第4步
     @Update("")
     void updateApply4(Application application);

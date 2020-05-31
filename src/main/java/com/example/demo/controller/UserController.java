@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.model.Msg;
+import com.example.demo.model.Notification;
 import com.example.demo.model.User;
 import com.example.demo.service.Impl.CountryServiceImpl;
+import com.example.demo.service.Impl.NotificationServiceImpl;
 import com.example.demo.service.Impl.UserServiceImpl;
 import com.example.demo.util.PicUtil;
 import com.github.pagehelper.PageHelper;
@@ -33,6 +35,8 @@ public class UserController {
     CountryServiceImpl countryService;
     @Autowired
     private RedisTemplate redisTemplate;
+    @Autowired
+    NotificationServiceImpl NotificationService;
     @Value("${userIconDefaultUrl}")
     private String DefaultIcon;
     /**
@@ -204,7 +208,10 @@ public class UserController {
     @GetMapping("/profile")
     public String profile(HttpSession httpSession,Model model){
         User user=(User)httpSession.getAttribute("user");
+        //获取系统推荐信息
+        List<Notification> recommendNotifications= NotificationService.getUserNotifications(user.getUserId());
         model.addAttribute("user",user);
+        model.addAttribute("recommendNotifications",recommendNotifications);
         return "user/profile";
     }
 }
