@@ -13,7 +13,7 @@ public interface ApplicationService {
     //保存申请第三步
     void saveApplyStep3(int id,String filePath);
     //保存申请第四步
-    void saveApplyStep4(Application application);
+    void saveApplyStep4(int id,String personalStatement);
     //保存申请第五步
     void saveApplyStep5(Application application);
     //留学推荐数据

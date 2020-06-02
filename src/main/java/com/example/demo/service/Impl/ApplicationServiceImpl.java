@@ -33,8 +33,8 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void saveApplyStep4(Application application) {
-        applicationMapper.updateApply4(application);
+    public void saveApplyStep4(int id,String personalStatement) {
+        applicationMapper.updateApply4(id,personalStatement);
     }
 
     @Override
@@ -47,7 +47,6 @@ public class ApplicationServiceImpl implements ApplicationService {
         List<String> userIdList=userMapper.userIdList();
         System.out.println(userIdList.size());
         List<List<String>> transRecords=new ArrayList<>();
-        List<String> schoolIdList=new ArrayList<>();
         for (int i = 0; i < userIdList.size(); i++) {
             if(!applicationMapper.schoolListByUserId(Integer.parseInt(userIdList.get(i))).isEmpty()){
                 transRecords.add(applicationMapper.schoolListByUserId(Integer.parseInt(userIdList.get(i))));

@@ -151,7 +151,7 @@
                                                 </div>
                                                 <div id="step-2" th:attr="data-applicationId=0">
                                                     <form id="form2"th:action="@{/ApplyStep2}" method="post"class="form-horizontal form-label-left">
-                                                        <input type="hidden"name="id" id="id" >
+                                                        <input type="hidden"name="id"  >
                                                         <h2 class="StepTitle">个人资料</h2>
                                                         <HR>
                                                         <div class="form-group">
@@ -281,7 +281,8 @@
 
                                                 </div>
                                                 <div id="step-4">
-                                                    <form id="form3"class="form-horizontal form-label-left"style="height: 600px">
+                                                    <form id="form3"th:action="@{/ApplyStep4}" method="post" class="form-horizontal form-label-left"style="height: 600px">
+                                                    <input type="hidden"name="id" >
                                                     <h2 class="StepTitle">题目作答</h2>
                                                     <HR>
                                                     <div class="form-group">
@@ -295,6 +296,7 @@
                                                 </div>
                                                 <div id="step-5">
                                                     <form id="form4"class="form-horizontal form-label-left"style="height: 600px">
+                                                    <input type="hidden"name="id" >
                                                     <h2 class="StepTitle">确认提交</h2>
                                                     <HR>
                                                     <div class="row">

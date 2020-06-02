@@ -193,7 +193,11 @@ $(function(){
                     if(result.code==100){
                         var id=result.extend.id;
                         $("#step-2").attr("data-id",id);
+                        //把申请表id返回给每个步骤的form
                         $("#form input[name=id]").val(id);
+                        $("#form2 input[name=id]").val(id);
+                        $("#form3 input[name=id]").val(id);
+                        $("#form4 input[name=id]").val(id);
                         new PNotify({
                             title: 'Saved successfully！',
                             text: 'Just to let you know.',
@@ -211,19 +215,21 @@ $(function(){
                 }
             })
         }else if(step=='2'){
-            var id=parseInt($("#step-2").attr("data-id"));
-            $("#form2 input[name=id]").val(id);
             $.ajax({
                 url:"/ApplyStep"+step,
-                type:"POST",
+                type:"PUT",
                 data:$("#form2").serialize(),
                 beforeSend : function(xhr) {
                     xhr.setRequestHeader(header, token);
                 },
                 success:function (result) {
                     if(result.code==100){
-                        var id=parseInt($("#step-2").attr("data-id"));
-                        $("#form input[name=id]").val(id);
+                        new PNotify({
+                            title: 'Saved successfully！',
+                            text: 'Just to let you know.',
+                            type:'info',
+                            styling: 'bootstrap3'
+                        });
                     }else {
                         new PNotify({
                             title: 'Please login first！',
@@ -235,8 +241,6 @@ $(function(){
                 }
             })
         }else if(step=='3'){
-            var id=parseInt($("#step-2").attr("data-id"));
-            $("#form input[name=id]").val(id);
             // Create an FormData object
             var data = new FormData();
             var files=Array.from($("#input-id")[0].files);
@@ -256,7 +260,12 @@ $(function(){
                 contentType: false,
                 success:function (result) {
                     if(result.code==100){
-
+                        new PNotify({
+                            title: 'Saved successfully！',
+                            text: 'Just to let you know.',
+                            type:'info',
+                            styling: 'bootstrap3'
+                        });
                     }else {
                         new PNotify({
                             title: 'Please login first！',
@@ -268,14 +277,19 @@ $(function(){
                 }
             })
         }else if(step=='4'){
+            console.log($("#form3").serialize())
             $.ajax({
                 url:"/ApplyStep"+step,
-                type:"POST",
+                type:"PUT",
                 data:$("#form3").serialize(),
                 success:function (result) {
                     if(result.code==100){
-
-
+                        new PNotify({
+                            title: 'Saved successfully！',
+                            text: 'Just to let you know.',
+                            type:'info',
+                            styling: 'bootstrap3'
+                        });
                     }else {
                         new PNotify({
                             title: 'Please login first！',

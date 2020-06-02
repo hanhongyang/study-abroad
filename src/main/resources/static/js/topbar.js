@@ -119,3 +119,35 @@ $("#apply").click(function () {
         }
     })
 })
+window.onload=function() {
+    $.ajax({
+        type: "GET",
+        url: "/news",
+        success: function (result) {
+            if(result.code==100){
+                //获取div
+                var div = document.getElementById("div2");
+                for(var i=0;i<result.extend.lastNews.length;i++){
+                    //h
+                    var h=document.createElement("h4");
+                    var title=result.extend.lastNews[i].title
+                    h.innerHTML=title;
+                    //a
+                    var a = document.createElement("a");
+                    a.appendChild(h)
+                    var href='/newsDetail?id='
+                    href=href+result.extend.lastNews[i].id
+                    a.href = href;
+                    div.appendChild(a)
+                }
+            }else {
+                new PNotify({
+                    title: 'Reply failed,Please login first！',
+                    text: 'Just to let you know.',
+                    type: 'warn',
+                    styling: 'bootstrap3'
+                });
+            }
+        }
+    })
+}

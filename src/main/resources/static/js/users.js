@@ -54,7 +54,7 @@ $("#userSavaBtn").click(function () {
         type:"POST",
         data:$("#userAddModal form").serialize(),
         success:function (result) {
-            //员工保存成功
+            //用户保存成功
             //1、关闭模态框
             $("#userAddModal").hide();
             //2、重定向到最后一页

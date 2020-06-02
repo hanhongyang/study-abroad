@@ -107,7 +107,7 @@ public class BBSController {
      * @return
      */
     @GetMapping("/question/{id}")
-    public String Question(@PathVariable("id") Integer id,
+    public String Question(@PathVariable(value = "id") Integer id,
                          @RequestParam(value = "pageNum",defaultValue = "1")Integer pageNum,
                          Model model){
         //在查询之前只需要调用，传入页码，以及每页的大小

@@ -1,0 +1,21 @@
+.div1 {
+    width:500px;
+    height:60px;
+    overflow:hidden;
+
+    position:absolute;
+    left: 220px;
+    top: 0px;
+
+}
+@keyframes anis {
+    100% {
+        transform:translateY(-200px)
+    }
+}
+.div2 {
+    animation:anis 15s linear infinite;
+}
+.div2:hover {
+    animation-play-state:paused;
+}

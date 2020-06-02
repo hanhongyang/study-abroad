@@ -37,8 +37,8 @@ public interface ApplicationMapper {
     @Update("update application set file=#{filePath} where id=#{id}")
     void updateApply3(int id, String filePath);
     //保存申请第4步
-    @Update("")
-    void updateApply4(Application application);
+    @Update("update application set personalStatement=#{personal_statement} where id=#{id}")
+    void updateApply4(int id,String personalStatement);
     //保存申请第5步
     @Update("")
     void updateApply5(Application application);

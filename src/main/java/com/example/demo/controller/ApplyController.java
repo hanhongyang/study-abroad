@@ -90,7 +90,7 @@ public class ApplyController {
         }
     }
     //申请留学-第二步
-    @PostMapping("/ApplyStep2")
+    @PutMapping("/ApplyStep2")
     @ResponseBody
     public Msg saveApply2(HttpSession httpSession,
                           @RequestParam(value = "id") String id,
@@ -165,11 +165,22 @@ public class ApplyController {
                 try {
                     String filePath = FileUtil.fileUtil(file);
                     applicationService.saveApplyStep3(Integer.parseInt(id),filePath);
-                    System.out.println(filePath);
                 } catch (Exception e) {
                     e.printStackTrace();
                     return Msg.fail();
                 }
+            return Msg.success();
+        }else {
+            return Msg.fail();
+        }
+    }
+    //申请留学-第四步
+    @PutMapping("/ApplyStep4")
+    @ResponseBody
+    public Msg saveApply4(@RequestParam("id")String id,@RequestParam("personalStatement") String personalStatement,HttpSession httpSession) {
+        User user = (User) httpSession.getAttribute("user");
+        if(user!=null) {
+            applicationService.saveApplyStep4(Integer.parseInt(id),personalStatement);
             return Msg.success();
         }else {
             return Msg.fail();
@@ -204,8 +215,7 @@ public class ApplyController {
         System.out.println("找出频繁项完毕---------------------------------------------！");
         //设置置信度
         int confidence=2;
-        //推荐的学校
-        String recommendSchool;
+
         //找出包含申请学校的频繁项集
         Set<Map.Entry<List<String>, Integer>> ss = patterns.entrySet();
         Set<String> recommendSchoolSet=new HashSet<>();
@@ -263,7 +273,6 @@ public class ApplyController {
             try {
                 String filePath=FileUtil.fileUtil(file);
                 applicationService.saveApplyStep3(id,filePath);
-                System.out.println(filePath);
                 return Msg.success();
             } catch (Exception e) {
                 e.printStackTrace();
